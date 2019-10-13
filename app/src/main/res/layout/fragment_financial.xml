@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/_15sdp">
+
+            <LinearLayout
+                android:id="@+id/myCardsLL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <com.coachmovecustomer.customviews.RegularTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/myCard"
+                    android:textColor="@color/Black"
+                    android:textSize="@dimen/_16sp" />
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_140sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <com.coachmovecustomer.customviews.RegularTextView
+                        android:id="@+id/noDataTV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:gravity="center"
+                        android:text="@string/noCardAdded" />
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/slider_RV"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:visibility="gone" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <com.coachmovecustomer.customviews.RegularTextView
+                android:id="@+id/newCard_txt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="@string/addNewCard"
+                android:textColor="@color/Black"
+                android:textSize="@dimen/_14sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/newCard_txt"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:orientation="vertical"
+                android:padding="@dimen/_10sdp">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.coachmovecustomer.customviews.RegularTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/credit_card"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:gravity="left|center"
+                        android:text="@string/cardHolder"
+                        android:textColor="@color/Black"
+                        android:textSize="@dimen/_14sp" />
+
+
+                    <com.coachmovecustomer.customviews.RegularEditText
+                        android:id="@+id/cardHolderET"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/_15sdp"
+                        android:layout_marginRight="@dimen/_15sdp"
+                        android:gravity="left"
+                        android:hint="@string/enterCardHolderName"
+                        android:imeOptions="actionNext"
+                        android:inputType="text"
+                        android:maxLength="19"
+                        android:nextFocusForward="@+id/cardNoET"
+                        android:paddingBottom="@dimen/_15sdp"
+                        android:singleLine="true"
+                        android:textColor="@color/colorPrimary"
+                        android:textColorHint="@color/colorPrimary"
+                        android:textSize="@dimen/_14sp"
+                        android:theme="@style/editTextStyle" />
+
+
+                </LinearLayout>
+
+                <com.coachmovecustomer.customviews.RegularTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:drawableLeft="@drawable/credit_card"
+                    android:drawablePadding="@dimen/_5sdp"
+                    android:gravity="left|center"
+                    android:text="@string/cardNumber"
+                    android:textColor="@color/Black"
+                    android:textSize="@dimen/_14sp" />
+
+
+                <com.coachmovecustomer.customviews.RegularEditText
+                    android:id="@+id/cardNoET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_15sdp"
+                    android:layout_marginRight="@dimen/_15sdp"
+                    android:gravity="left"
+                    android:hint="@string/enterCardNumber"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:maxLength="19"
+                    android:paddingBottom="@dimen/_15sdp"
+                    android:singleLine="true"
+                    android:textColor="@color/colorPrimary"
+                    android:textColorHint="@color/colorPrimary"
+                    android:textSize="@dimen/_14sp"
+                    android:theme="@style/editTextStyle" />
+
+
+                <com.coachmovecustomer.customviews.RegularTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:drawableLeft="@drawable/calendar"
+                    android:drawablePadding="@dimen/_5sdp"
+                    android:gravity="left|center"
+                    android:text="@string/expiry_date"
+                    android:textColor="@color/Black"
+                    android:textSize="@dimen/_14sp" />
+
+
+                <com.coachmovecustomer.customviews.RegularEditText
+                    android:id="@+id/expiryET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_15sdp"
+                    android:layout_marginRight="@dimen/_15sdp"
+                    android:clickable="true"
+                    android:drawableRight="@drawable/calendar"
+                    android:gravity="left"
+                    android:hint="@string/enterExpiryDate"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:maxLength="5"
+                    android:paddingBottom="@dimen/_15sdp"
+                    android:singleLine="true"
+                    android:textColor="@color/colorPrimary"
+                    android:textColorHint="@color/colorPrimary"
+                    android:textSize="@dimen/_14sp"
+                    android:theme="@style/editTextStyle" />
+
+
+                <com.coachmovecustomer.customviews.RegularTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:drawableLeft="@drawable/cvv"
+                    android:drawablePadding="@dimen/_5sdp"
+                    android:gravity="left|center"
+                    android:text="@string/cvv_no"
+                    android:textColor="@color/Black"
+                    android:textSize="@dimen/_14sp" />
+
+
+
+                <com.coachmovecustomer.customviews.RegularEditText
+                    android:id="@+id/cvvNoET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_15sdp"
+                    android:layout_marginRight="@dimen/_15sdp"
+                    android:gravity="left"
+                    android:hint="@string/enterCvvNumber"
+                    android:imeOptions="actionDone"
+                    android:inputType="numberPassword"
+                    android:maxLength="3"
+                    android:paddingBottom="@dimen/_15sdp"
+                    android:singleLine="true"
+                    android:textColor="@color/colorPrimary"
+                    android:textColorHint="@color/colorPrimary"
+                    android:textSize="@dimen/_14sp"
+                    android:theme="@style/editTextStyle" />
+
+
+                <com.coachmovecustomer.customviews.ButtonView
+                    android:id="@+id/addCardBTN"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_50sdp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginTop="@dimen/_25sdp"
+                    android:background="@drawable/round_button"
+                    android:text="@string/addCard"
+                    android:textColor="@color/White"
+                    android:textSize="@dimen/_16sp" />
+
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

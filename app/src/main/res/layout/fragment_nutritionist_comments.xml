@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/top_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_Img"
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="@dimen/_60sdp"
+            android:layout_centerVertical="true"
+            android:paddingLeft="@dimen/_10sdp"
+            android:src="@drawable/placeholder"
+            app:civ_border_color="@color/colorPrimary"
+            app:civ_border_width="@dimen/_1sdp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/profile_Img"
+            android:orientation="vertical"
+            android:padding="@dimen/_15sdp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+
+                <com.coachmovecustomer.customviews.RegularTextView
+                    android:id="@+id/userNameTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Amanda "
+                    android:textColor="@color/Black"
+                    android:textSize="@dimen/_16sp" />
+
+
+                <com.coachmovecustomer.customviews.RegularTextView
+                    android:id="@+id/userIDTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="(MA123567)"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/_12sp" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <RatingBar
+                    android:id="@+id/ratingBar"
+                    style="?android:attr/ratingBarStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:numStars="5"
+                    android:progressBackgroundTint="@color/textGray"
+                    android:progressTint="@color/ratingColor"
+                    android:rating="4.5"
+                    android:theme="@style/RatingBar" />
+
+
+                <com.coachmovecustomer.customviews.RegularTextView
+                    android:id="@+id/ratingTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_3sdp"
+                    android:layout_toRightOf="@+id/ratingBar"
+                    android:layout_weight="0.1"
+                    android:gravity="center"
+                    android:text="(4.5)"
+                    android:textColor="@color/Black"
+                    android:textSize="@dimen/_12sp" />
+
+
+                <com.coachmovecustomer.customviews.RegularTextView
+                    android:id="@+id/commentsTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:layout_toRightOf="@+id/ratingBar"
+                    android:layout_weight="0.1"
+                    android:drawableLeft="@drawable/comment"
+                    android:drawablePadding="@dimen/_5sdp"
+                    android:gravity="center"
+                    android:text="@string/comments"
+                    android:textColor="@color/Gray"
+                    android:textSize="@dimen/_12sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_weight="0.1"
+                android:background="@drawable/boundry_text_view">
+
+                <com.coachmovecustomer.customviews.RegularTextView
+                    android:id="@+id/experienceTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/ratingBar"
+                    android:gravity="left|center"
+                    android:padding="@dimen/_5sdp"
+                    android:text="I m doing yoga from last 1 year"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/_12sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/top_layout"
+        android:background="@drawable/grey_curve_background"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/coachCommentsRV"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+        </android.support.v7.widget.RecyclerView>
+
+
+        <com.coachmovecustomer.customviews.RegularTextView
+            android:id="@+id/noDataTV"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="@string/noComment" />
+
+    </LinearLayout>
+</RelativeLayout>

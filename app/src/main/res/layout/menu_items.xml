@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginRight="@dimen/_10sdp">
+
+    <ImageView
+        android:id="@+id/cartOptionIV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="@dimen/_5sdp"
+        android:padding="@dimen/_4sdp"
+        android:src="@drawable/edit_profile"
+        android:layout_marginRight="@dimen/_5sdp" />
+
+    <TextView
+        android:id="@+id/notif_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:singleLine="true"
+        android:text="@string/editProfile"
+        android:textColor="@android:color/white"
+        android:textSize="12sp"
+        android:layout_alignRight="@+id/cartOptionIV" />
+
+</RelativeLayout>

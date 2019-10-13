@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/_30sdp"
+            android:paddingRight="@dimen/_30sdp">
+
+
+            <com.coachmovecustomer.customviews.RegularTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:drawableLeft="@drawable/calendar"
+                android:drawablePadding="@dimen/_5sdp"
+                android:gravity="left|center"
+                android:text="@string/date"
+                android:textColor="@color/Black"
+                android:textSize="@dimen/_14sp" />
+
+            <com.coachmovecustomer.customviews.RegularEditText
+                android:id="@+id/dateEDT"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_marginRight="@dimen/_15sdp"
+                android:drawableRight="@drawable/calendar"
+                android:editable="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:gravity="left|center"
+                android:hint="@string/selectDate"
+                android:inputType="textEmailAddress"
+                android:paddingBottom="@dimen/_15sdp"
+                android:textColor="@color/colorPrimary"
+                android:textColorHint="@color/colorPrimary"
+                android:textSize="@dimen/_14sp"
+                android:theme="@style/editTextStyle" />
+
+
+            <com.coachmovecustomer.customviews.RegularTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:drawableLeft="@drawable/clock"
+                android:drawablePadding="@dimen/_5sdp"
+                android:gravity="left|center"
+                android:text="@string/time"
+                android:textColor="@color/Black"
+                android:textSize="@dimen/_14sp" />
+
+            <com.coachmovecustomer.customviews.RegularEditText
+                android:id="@+id/timeEDT"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_marginRight="@dimen/_15sdp"
+                android:editable="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:gravity="left"
+                android:hint="@string/selectTime"
+                android:imeOptions="actionDone"
+                android:inputType="text"
+                android:paddingBottom="@dimen/_15sdp"
+                android:singleLine="true"
+                android:textColor="@color/colorPrimary"
+                android:textColorHint="@color/colorPrimary"
+                android:textSize="@dimen/_14sp"
+                android:theme="@style/editTextStyle" />
+
+            <!--  <com.coachmovecustomer.customviews.RegularTextView
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_marginTop="@dimen/_10sdp"
+                  android:drawableLeft="@drawable/neighborhood"
+                  android:drawablePadding="@dimen/_5sdp"
+                  android:gravity="left|center"
+                  android:text="@string/neighbourhood"
+                  android:textColor="@color/Black"
+                  android:textSize="@dimen/_14sp" />-->
+
+            <com.coachmovecustomer.customviews.RegularTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:drawableLeft="@drawable/neighborhood"
+                android:drawablePadding="@dimen/_5sdp"
+                android:gravity="left|center"
+                android:paddingLeft="-3dp"
+                android:text="@string/neighbourhood"
+                android:textColor="@color/Black"
+                android:textSize="@dimen/_14sp" />
+
+
+            <Spinner
+                android:id="@+id/neighbourhoodSP"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_35dp"
+                android:layout_marginLeft="@dimen/_17sdp"
+                android:layout_marginRight="@dimen/_17sdp"
+                android:background="@drawable/spinner_background"
+                android:gravity="left"
+                android:textColor="@color/colorPrimary"
+                android:textColorHint="@color/colorPrimary"
+                android:textSize="@dimen/_14sp"
+                android:visibility="gone" />
+
+            <com.coachmovecustomer.customviews.RegularEditText
+                android:id="@+id/neighbourhoodEDT"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_15sdp"
+                android:layout_marginRight="@dimen/_15sdp"
+                android:drawableRight="@drawable/down"
+                android:editable="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:gravity="left|center"
+                android:hint="@string/selectNeighbourhood"
+                android:inputType="text"
+                android:paddingBottom="@dimen/_15sdp"
+                android:textColor="@color/colorPrimary"
+                android:textColorHint="@color/colorPrimary"
+                android:textSize="@dimen/_14sp"
+                android:theme="@style/editTextStyle" />
+
+            <View
+                android:id="@+id/view_neigh"
+                android:layout_width="match_parent"
+                android:layout_height="0.5sp"
+                android:layout_marginLeft="@dimen/_17sdp"
+                android:layout_marginRight="@dimen/_17sdp"
+                android:background="@color/view_bac"
+                android:visibility="gone" />
+
+
+            <com.coachmovecustomer.customviews.RegularTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:drawableLeft="@drawable/location"
+                android:drawablePadding="@dimen/_5sdp"
+                android:gravity="left|center"
+                android:text="@string/address"
+                android:textColor="@color/Black"
+                android:textSize="@dimen/_14sp" />
+
+            <com.coachmovecustomer.customviews.RegularEditText
+                android:id="@+id/addressEDT"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_17sdp"
+                android:layout_marginRight="@dimen/_17sdp"
+                android:gravity="left"
+                android:hint="@string/addAddress"
+                android:imeOptions="actionDone"
+                android:inputType="textPostalAddress"
+                android:paddingBottom="@dimen/_15sdp"
+                android:singleLine="true"
+                android:textColor="@color/colorPrimary"
+                android:textColorHint="@color/colorPrimary"
+                android:textSize="@dimen/_14sp"
+                android:theme="@style/editTextStyle" />
+
+            <com.coachmovecustomer.customviews.RegularTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:drawableLeft="@drawable/ic_workout"
+                android:drawablePadding="@dimen/_5sdp"
+                android:gravity="left|center"
+                android:text="@string/selectModality"
+                android:textColor="@color/Black"
+                android:textSize="@dimen/_14sp" />
+
+            <Spinner
+                android:id="@+id/modalitySP"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_35dp"
+                android:layout_marginLeft="@dimen/_17sdp"
+                android:layout_marginRight="@dimen/_17sdp"
+                android:background="@drawable/spinner_background"
+                android:gravity="left"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/_14sdp" />
+
+            <View
+                android:id="@+id/view_mod"
+                android:layout_width="match_parent"
+                android:layout_height="0.5sp"
+                android:layout_marginLeft="@dimen/_17sdp"
+                android:layout_marginRight="@dimen/_17sdp"
+                android:background="@color/view_bac" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:orientation="horizontal">
+
+                <com.coachmovecustomer.customviews.RegularTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableLeft="@drawable/people"
+                    android:drawablePadding="@dimen/_5sdp"
+                    android:gravity="left|center"
+                    android:text="@string/noPeople"
+                    android:textColor="@color/Black"
+                    android:textSize="@dimen/_14sp" />
+
+                <com.coachmovecustomer.customviews.MediumTextView
+                    android:id="@+id/addPeopleTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/add_people"
+                    android:drawablePadding="@dimen/_5sdp"
+                    android:gravity="center_vertical"
+                    android:text="@string/addPeople"
+                    android:textColor="@color/Black"
+                    android:textSize="@dimen/_12sp" />
+
+                <!--android:layout_marginLeft="@dimen/_8sdp"-->
+
+            </LinearLayout>
+            <!-- android:layout_marginTop="@dimen/_12sdp"-->
+            <!--
+
+                        <Spinner
+                            android:id="@+id/peopleSP"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_35dp"
+                            android:layout_marginLeft="@dimen/_17sdp"
+                            android:layout_marginRight="@dimen/_17sdp"
+                            android:background="@drawable/spinner_background"
+                            android:gravity="left"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="@dimen/_14sdp" />
+            -->
+
+            <com.coachmovecustomer.customviews.RegularEditText
+                android:id="@+id/peopleSP"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_17sdp"
+                android:layout_marginRight="@dimen/_17sdp"
+                android:editable="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:gravity="left"
+                android:hint="@string/noPeople"
+                android:imeOptions="actionDone"
+                android:inputType="text"
+                android:paddingBottom="@dimen/_15sdp"
+                android:singleLine="true"
+                android:textColor="@color/colorPrimary"
+                android:textColorHint="@color/colorPrimary"
+                android:textSize="@dimen/_14sp"
+                android:theme="@style/editTextStyle" />
+
+            <!--   <View
+                   android:id="@+id/view_ppl"
+                   android:layout_width="match_parent"
+                   android:layout_height="0.5sp"
+                   android:layout_marginLeft="@dimen/_17sdp"
+                   android:layout_marginRight="@dimen/_17sdp"
+                   android:background="@color/view_bac" />-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:id="@+id/top_RL"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/_5sdp"
+                    android:layout_centerHorizontal="true">
+
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/profileImg"
+                        android:layout_width="@dimen/_30sdp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:src="@drawable/user_dummy" />
+
+
+                    <com.coachmovecustomer.customviews.RegularTextView
+                        android:id="@+id/userName_TV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_marginLeft="@dimen/_5sdp"
+                        android:layout_toRightOf="@+id/profileImg"
+                        android:text="Amanda"
+                        android:textColor="@color/Black"
+                        android:textSize="@dimen/_14sp" />
+
+
+                </RelativeLayout>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/addPeopleRV"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+            <com.coachmovecustomer.customviews.RegularTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:drawableLeft="@drawable/gender"
+                android:drawablePadding="@dimen/_5sdp"
+                android:gravity="left|center"
+                android:text="@string/coachGender"
+                android:textColor="@color/Black"
+                android:textSize="@dimen/_14sp" />
+
+            <Spinner
+                android:id="@+id/genderSP"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_35dp"
+                android:layout_marginLeft="@dimen/_17sdp"
+                android:layout_marginRight="@dimen/_17sdp"
+                android:background="@drawable/spinner_background"
+                android:gravity="left"
+                android:textColor="@color/colorPrimary" />
+
+
+            <View
+                android:id="@+id/view_gender"
+                android:layout_width="match_parent"
+                android:layout_height="0.5sp"
+                android:layout_marginLeft="@dimen/_17sdp"
+                android:layout_marginRight="@dimen/_17sdp"
+                android:background="@color/view_bac" />
+
+
+            <com.coachmovecustomer.customviews.ButtonView
+                android:id="@+id/searchBTN"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_45sdp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginBottom="@dimen/_15sdp"
+                android:background="@drawable/round_button"
+                android:text="@string/search"
+                android:textColor="@color/White"
+                android:textSize="@dimen/_16sp" />
+
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

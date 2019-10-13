@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/cardRL"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_180sdp"
+        android:background="@drawable/ic_card_bg"
+        android:padding="@dimen/_15sdp">
+
+        <com.coachmovecustomer.customviews.BoldTextView
+            android:id="@+id/cardTypeTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:text="Card Type"
+            android:textColor="@color/Black"
+            android:textSize="@dimen/_11sdp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/_30sdp"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.8"
+                android:orientation="vertical">
+
+                <com.coachmovecustomer.customviews.MediumTextView
+                    android:id="@+id/cardNumTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_2sdp"
+                    android:textColor="@color/Black"
+                    android:textSize="@dimen/_14sdp"
+                    android:textStyle="bold" />
+
+                <com.coachmovecustomer.customviews.RegularTextView
+                    android:id="@+id/validThruTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/validThru"
+                    android:textAllCaps="true"
+                    android:textColor="@color/Black"
+                    android:textSize="@dimen/_10sdp" />
+
+
+                <com.coachmovecustomer.customviews.RegularTextView
+                    android:id="@+id/validDateTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:text="10/19"
+                    android:textColor="@color/Black"
+                    android:textSize="@dimen/_10sdp" />
+
+
+                <com.coachmovecustomer.customviews.MediumTextView
+                    android:id="@+id/cardHolderET"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/Black"
+                    android:textSize="@dimen/_14sdp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/card_IV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="0.2"
+                android:padding="@dimen/_2sdp" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+
+    <com.coachmovecustomer.customviews.RegularTextView
+        android:id="@+id/deleteCard_TV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/card_IV"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:drawableLeft="@drawable/trash"
+        android:drawablePadding="@dimen/_10sdp"
+        android:gravity="left|center"
+        android:paddingLeft="@dimen/_15sdp"
+        android:paddingRight="@dimen/_15sdp"
+        android:text="@string/deleteCard"
+        android:textColor="@color/Red"
+        android:textSize="@dimen/_16sp" />
+
+</LinearLayout>

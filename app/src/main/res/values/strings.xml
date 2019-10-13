@@ -1,0 +1,484 @@
+<resources>
+    <string name="app_name">Coachmove Clients</string>
+    <string name="default_notification_channel_id">com.coachmovecustomer</string>
+
+
+    <string name="forgotPassword">Forgot Password</string>
+
+
+    <string name="out_of_memory">Out Of Memory</string>
+    <string name="not_sufficient_permissions">Not sufficient permissions for this action\ngoto Settings>Apps>%1$s>Permissions</string>
+    <string name="choose_image_source">Choose Image Resource</string>
+    <string name="gallery">Gallery</string>
+    <string name="camera">Camera</string>
+    <string name="please_relaunch">"Please relaunch "</string>
+    <string name="check_gps">Location Update has encountered a problem. Please Check GPS is ON or OFF</string>
+    <string name="gps">" - GPS"</string>
+    <string name="file_provider_authority_" translatable="false">com.coachmovecustomer.fileprovider</string>
+
+
+    <string name="netwrk_status">Network Status</string>
+    <string name="retry">Retry</string>
+    <string name="are_you_sure_want_to_exit">Are you sure you want to exit?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <!--<string name="please_wait">Please Wait...</string>-->
+    <string name="please_wait">Por favor espere...</string>
+    <string name="ok">Ok</string>
+    <string name="serverRespond">Server not responding</string>
+    <string name="requestTimeout">Request timeout</string>
+    <string name="alert">Alert !1</string>
+
+
+    <!--Login Screen-->
+
+    <string name="welcome">Welcome</string>
+    <string name="getStarted">Sign to Get Started!</string>
+    <string name="email_address">Email Address</string>
+    <string name="email_hint">Enter email address</string>
+    <string name="password">Password</string>
+    <string name="hint_password">Enter password</string>
+    <string name="signIn">Sign In</string>
+    <string name="forgotPassScreen">Forgot Password</string>
+    <string name="forgotPass">Forgot Password?</string>
+    <string name="signup">Sign Up</string>
+    <string name="account">Don\'t have an account ?</string>
+
+
+    <!--Sign Up Screen-->
+    <string name="alreadyAccount">Already  have an account?</string>
+    <string name="signin">Sign In</string>
+    <string name="confirmPass">Confirm Password</string>
+    <string name="createAccountStr">Sign Up below and Create\n your Account</string>
+    <string name="forgot_Str">We Just need your registered email address\n to sent your password Instructions</string>
+    <string name="submit">Submit</string>
+
+
+    <!--Create Profile Screen-->
+
+    <string name="change_Picture">Change Profile Image</string>
+    <string name="firstName">First Name</string>
+    <string name="firstName_hint">Enter First Name</string>
+    <string name="hint_lastName">Enter Last Name</string>
+    <string name="lastName">Last Name</string>
+    <string name="mobileNumber">Mobile Number</string>
+    <string name="hint_mobileNO">Enter Mobile Number</string>
+    <string name="gender">Gender</string>
+    <string name="selectFitness">Select Fitness Level</string>
+    <string name="next">Next</string>
+    <string name="hint_professional">* The professional will have  access to these information</string>
+    <string name="age">Age</string>
+    <string name="weight">Weight</string>
+    <string name="height">Height</string>
+    <string name="surgeries">Surgeries</string>
+    <string name="heartDiseases">Heart Diseases</string>
+    <string name="jointPains">Joint Pains</string>
+    <string name="medications">Use of Medications</string>
+    <string name="others">Others</string>
+    <string name="termAndCondition">I accept the Terms &amp; Conditions</string>
+    <string name="createProfile">Create Profile</string>
+    <string name="beginner">Beginner</string>
+    <string name="advance">Advance</string>
+    <string name="athlete">Athlete</string>
+    <string name="sedetancy">Sedetancy</string>
+    <string name="newOthers">Others</string>
+
+    <!--Main Screen-->
+    <string name="profile">Profile</string>
+    <string name="messages">Messages</string>
+    <string name="schedule">Schedule</string>
+    <string name="diet">Diet</string>
+    <string name="workout">Workout</string>
+
+    <!--Profile Screen-->
+    <string name="anamnesis">Anamnesis</string>
+    <string name="financialDate">Financial Date</string>
+    <string name="other_hint_txt">Reference site about Lorem Ipsum,giving information on its origins,as well as a random Lipsum generator.</string>
+    <string name="myCard">My Cards</string>
+    <string name="addNewCard">Add New Card</string>
+    <string name="addCard">Add Card</string>
+    <string name="cardNumber">Card Number</string>
+    <string name="expiry_date">Expiry Date</string>
+    <string name="cvv_no">CVV Number</string>
+    <string name="cardAdded">Card Added Successfully!</string>
+
+    <!--WorkOut Screen-->
+    <string name="selectGender">Select Gender</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="date">Date</string>
+    <string name="time">Time</string>
+    <string name="neighbourhood">Neighbourhood</string>
+    <string name="selectNeighbourhood">Select Neighbourhood</string>
+    <string name="selectModality">Select Modality</string>
+    <string name="address">Address</string>
+    <string name="addAddress">Add Address</string>
+    <string name="noPeople">Number of People</string>
+    <string name="coachGender">Gender of Coach</string>
+    <string name="search">Search</string>
+    <string name="searchNameId">Enter name or id of the coach</string>
+
+
+    <!--Feedback Screen-->
+    <string name="feedback_hint">Your feedback will make this App better \n for everyone.</string>
+    <string name="session_hint">How was the session ?</string>
+    <string name="review">Review</string>
+    <string name="reviewHint">Add review</string>
+    <string name="session_hint_diet">How was the session ?</string>
+
+    <!--Settings Screen-->
+    <string name="termsConditions">Terms &amp; Conditions</string>
+    <string name="logout">Logout</string>
+    <string name="aboutUs">About Us</string>
+    <string name="contactUs">Contact Us</string>
+    <string name="myCards">My Cards</string>
+    <string name="privacyPolicy">Privacy Policy</string>
+    <string name="notifications">Notifications</string>
+    <string name="are_you_sure_want_to_Logout">Are you sure you want to Logout?</string>
+
+    <!--My Cards Screen-->
+    <string name="deleteCard">Delete Card</string>
+
+    <!--Notification Screen-->
+    <string name="noNotification">No notification found</string>
+
+
+    <!--About Us Screen-->
+    <string name="vision">Vision</string>
+    <string name="mission">Mission</string>
+
+    <!--Contact Us Screen-->
+    <string name="description">Description</string>
+    <string name="subject">Subject</string>
+    <string name="fillSubject">Enter subject</string>
+    <string name="briefDescription">Give brief description</string>
+
+
+    <!--Message Screen-->
+    <string name="sendMessage">Send Message</string>
+    <string name="comments">20 Comments</string>
+    <string name="noMessage">No conversation found</string>
+    <string name="newComments">Comments</string>
+
+    <!--Payment Screen-->
+    <string name="dateTime">Date &amp; Time</string>
+    <string name="confirmPay">Confirm and pay</string>
+    <string name="hint_workoutLimit">*Please kindly note that the limit time to cancel your workout is 2 hours before, or it will be charged R$15,00</string>
+    <string name="coach">Coach</string>
+    <string name="awesome">Awesome!</string>
+    <string name="paymentApproved">Your payment has been approved!</string>
+    <string name="okThanks">Okay! Thanks.</string>
+
+    <!--Schedule Screen-->
+    <string name="upcoming">Upcoming</string>
+    <string name="ongoing">Ongoing</string>
+    <string name="ongoingProcess">ongoing...</string>
+    <string name="completed">Completed</string>
+
+
+    <!--Splash Screen-->
+    <string name="english">English</string>
+    <string name="portuguese">Portuguese</string>
+
+    <!--Add People Screen-->
+    <string name="addPeople">Add People</string>
+
+    <!--Edit Profile Screen-->
+    <string name="update">Update</string>
+    <string name="editImage">Edit Profile Image</string>
+    <string name="editProfile">Edit Profile</string>
+    <string name="coaches">Coaches</string>
+    <string name="payments">Payments</string>
+    <string name="feedback">Feedback</string>
+    <string name="nutritionist">Nutritionist</string>
+    <string name="settings">Settings</string>
+    <string name="termCond">Terms &amp; Conditions</string>
+    <string name="coachName_ID">Enter  Name and Id of the coach</string>
+    <string name="nameUser_ID">Enter Name or User Id</string>
+
+
+    <!--Validations-->
+
+    <string name="email_register_alert">Please enter registered email address</string>
+    <string name="email_alert">Please enter email address</string>
+    <string name="valid_email">Please enter valid email address.</string>
+    <string name="passwordEmpty">Please enter password</string>
+    <string name="passwordLength">Password must be at least 8 characters</string>
+    <string name="confirmEmpty">Please re-enter password</string>
+    <string name="passwordconfirmpassword">Password doesn\'t match</string>
+    <string name="ireceived">I received</string>
+
+    <!--Image Pick String-->
+
+    <string name="select_action">Select action</string>
+    <string name="select_from_gallery">Select from gallery</string>
+    <string name="select_camera">Capture from camera</string>
+
+
+    <!--Select Modality-->
+
+    <string-array name="SelectModality">
+        <item>Select Modality</item>
+        <item>Functional trainment</item>
+        <item>Calisthenics</item>
+        <item>Running</item>
+        <item>Martial arts</item>
+        <item>Yoga</item>
+        <item>Slack line</item>
+        <item>Kangoo</item>
+        <item>Body building</item>
+        <item>Best age</item>
+        <item>Flexibility</item>
+        <item>Athletics</item>
+        <item>Soccer Training</item>
+        <item>Pilates</item>
+        <item>Abdomen</item>
+    </string-array>
+
+    <!--Select Neighbourhood-->
+
+    <string-array name="SelectNeighbourhood">
+        <item>Abranches</item>
+        <item>Água Verde</item>
+        <item>Ahú</item>
+        <item>Alto Boqueirão</item>
+        <item>Alto da XV</item>
+        <item>Alto da Glória</item>
+        <item>Atuba</item>
+        <item>Augusta</item>
+        <item>Bacacheri</item>
+        <item>Bairro Alto</item>
+        <item>Barreirinha</item>
+        <item>Batel</item>
+        <item>Bigorrilho</item>
+        <item>Boa Vista</item>
+        <item>Bom Retiro</item>
+        <item>Baqueirão</item>
+        <item>Butiatuvinha</item>
+        <item>Cabral</item>
+        <item>Cachoeira</item>
+        <item>Cajuru</item>
+        <item>Campina do Siqueira</item>
+        <item>Campo Comprido</item>
+        <item>Campo de Santana</item>
+        <item>Capão da Imbuia</item>
+        <item>Capão Raso</item>
+        <item>Cascatinha</item>
+        <item>Centro</item>
+        <item>Centro Historico</item>
+        <item>Caximba</item>
+        <item>Centro Cívico</item>
+        <item>Cidade Industrial</item>
+        <item>Cristo Rei</item>
+        <item>Fanny</item>
+        <item>Fazendinha</item>
+        <item>Ganchinho</item>
+        <item>Guabirotuba</item>
+        <item>Guaíra</item>
+        <item>Hauer</item>
+        <item>Hugo Lange</item>
+        <item>Jardim Botânico</item>
+        <item>Jardim Social</item>
+        <item>Jardim das Américas</item>
+        <item>Juvevê</item>
+        <item>Lamenha Pequena</item>
+        <item>Lindoia</item>
+        <item>Mercês</item>
+        <item>Mossunguê(Ecoville)</item>
+        <item>Novo Mundo</item>
+        <item>Orleans</item>
+        <item>Parolin</item>
+        <item>Pilarzinho</item>
+        <item>Pinheirinho</item>
+        <item>Portão</item>
+        <item>Prado Velho</item>
+        <item>Rebouças</item>
+        <item>Riviera</item>
+        <item>Santa Cândida</item>
+        <item>Santa Felicidade</item>
+        <item>Santa Quitéria</item>
+        <item>Santo Inácio</item>
+        <item>São Brás</item>
+        <item>São Francisco</item>
+        <item>São João</item>
+        <item>São Lourenço</item>
+        <item>São Miguel</item>
+        <item>Seminário</item>
+        <item>Sítio Cercado</item>
+        <item>Taboão</item>
+        <item>Tarumã</item>
+        <item>Tatuquara</item>
+        <item>Tingui</item>
+        <item>Uberaba</item>
+        <item>Umbará</item>
+        <item>Vila Izabel</item>
+        <item>Vista Alegre</item>
+        <item>Xaxim</item>
+
+    </string-array>
+
+
+    <string name="fillFirstName">Enter first name</string>
+    <string name="fillLastName">Enter last name</string>
+    <string name="fillMobileNumber">Enter mobile number</string>
+    <string name="fillCPFNumber">Enter your CPF number</string>
+    <string name="fillAge">Enter age</string>
+    <string name="fillWeight">Enter weight</string>
+    <string name="fillHeight">Enter height</string>
+    <string name="fillSurgeries">Enter surgeries</string>
+    <string name="fillHeartDiseases">Enter heart diseases</string>
+    <string name="fillJoint">Enter joint pains</string>
+    <string name="fillMedications">Enter medications</string>
+    <string name="fillOther">Enter other details</string>
+
+    <string name="exercise">Describe your exercise</string>
+    <string name="fillObjective">Enter objective of the diet</string>
+    <string name="explainDay">Describe your Day</string>
+    <string name="fillLikeEat">Enter you like to eat</string>
+    <string name="fillDontLikeEat">Enter you don\'t like to eat</string>
+    <string name="fillDisorder">Enter eating dis-order</string>
+    <string name="fillAllergies">Enter allergies &amp; intolerance</string>
+    <string name="fillDiabetes">Enter Diabetes</string>
+    <string name="fillCholesterol">Enter Cholesterol</string>
+    <string name="fillDigestive">Enter trouble of digestive system</string>
+    <string name="fillThyroid">Enter trouble of thyroid</string>
+    <string name="fillPregency">Enter pregency &amp; others</string>
+    <string name="fillOthers">Enter others</string>
+    <string name="fillSupplements">Enter food supplements currently\ntaking</string>
+    <string name="noSchedule">No schedule found</string>
+
+
+    <string name="enterCardHolderName">Enter card holder name</string>
+    <string name="enterCardNumber">Enter card number</string>
+    <string name="enterCvvNumber">Enter cvv number</string>
+    <string name="enterExpiryDate">Enter expiry date (mm/yy)</string>
+    <string name="noDataFound">No data found</string>
+
+
+    <string name="selectDate">Select date</string>
+    <string name="fillRating">Please give Rating</string>
+
+
+    <string name="commentss">Comments</string>
+    <string name="selectTime">Select Time</string>
+    <string name="noCard">No card found</string>
+    <string name="noDiet">No diet found</string>
+
+
+    <!--Diet Screen-->
+    <string name="price">Price</string>
+    <string name="routine">Describe your routine of\n exercise during the week</string>
+    <string name="objective_diet">Objective of the Diet</string>
+    <string name="alimentation">Describe your typical day of\n Alimentation and the time</string>
+    <string name="likeEat">What do you like to eat?</string>
+    <string name="dontLike">What do you don\'t like to eat?</string>
+    <string name="disorder">Any Eating Dis-order?</string>
+    <string name="allergies">Allergies &amp; Intolerance</string>
+    <string name="supplements">Food Supplements currently\n taking</string>
+    <string name="pregency">Pregency &amp; Others</string>
+    <string name="thyroid">Trouble of Thyroid</string>
+    <string name="digestive">Trouble of Digestive system</string>
+    <string name="cholesterol">Cholesterol</string>
+    <string name="diabetes">Diabetes</string>
+    <string name="received">Received</string>
+    <string name="give_feedback">Give Feedback</string>
+    <string name="confirmation">Confirmation</string>
+    <string name="sureConfirm">Are you sure you want to Confirm?</string>
+    <string name="done">Done</string>
+    <string name="cancel">Cancel</string>
+
+
+    <string name="pleaseAddCard">Please add card</string>
+    <string name="exitBackPressed">Press back again to exit</string>
+    <string name="completeCardNo">Enter complete card number</string>
+
+
+    <!--Alert Toast-->
+    <string name="alert_email">Please enter email address</string>
+    <string name="alertFirstName">Please enter first name</string>
+    <string name="alertLastName">Please enter last name</string>
+    <string name="alertMobileNumber">Please enter mobile number</string>
+    <string name="alertCPFNumber">Please enter CPF number</string>
+    <string name="alertValidNumber">Please enter valid mobile number</string>
+    <string name="alertAge">Please enter age</string>
+    <string name="alertWeight">Please enter weight</string>
+    <string name="alertHeight">Please enter height</string>
+    <string name="alertSurgeries">Please enter surgeries</string>
+    <string name="alertHeartDiseases">Please enter heart diseases</string>
+    <string name="alertJoint">Please enter joint pains</string>
+    <string name="alertMedications">Please enter use of medications</string>
+    <string name="alertOther">Please enter other</string>
+    <string name="alertReview">Please enter review</string>
+    <string name="alertAddress">Please enter address</string>
+
+    <string name="alertExercise">Please describe your routine of exercise</string>
+    <string name="alertObjective">Please enter objective of diet</string>
+    <string name="alertExplainDay">Please describe your typical day of alimentation and time</string>
+    <string name="alertLikeEat">Please describe what like to eat</string>
+    <string name="alertDontLikeEat">Please describe what you don’t like to eat</string>
+    <string name="alertDisorder">Please enter any eating dis-order</string>
+    <string name="alertAllergies">Please describe your allergies &amp; intolerance</string>
+    <string name="alertDiabetes">Please enter your diabetes</string>
+    <string name="alertCholesterol">Please enter your Cholesterol</string>
+    <string name="alertDigestive">Please enter trouble of Digestive system</string>
+    <string name="alertThyroid">Please enter trouble of thyroid</string>
+    <string name="alertPregency">Please enter Pregency &amp; other information</string>
+    <string name="alertOthers">Please enter others</string>
+    <string name="alertSupplements">Please enter food supplements that you are taking currently</string>
+
+    <string name="alertCardHolderName">Please enter card holder name</string>
+    <string name="alertCardNumber">Please enter card number</string>
+    <string name="alertCvvNumber">Please enter CVV</string>
+    <string name="alertExpiryDate">Please enter expiry date</string>
+    <string name="alertValidExpiryDate">Please enter valid expiry date</string>
+    <string name="invalidTime">Invalid Time</string>
+    <string name="alertTermCondition">Please accept terms &amp; condition to proceed</string>
+    <string name="alertSubject">Please enter subject</string>
+    <string name="alertDescription">Please enter description</string>
+    <string name="alertGender">Please select Gender</string>
+    <string name="alertDate">Please select date</string>
+    <string name="alertTime">Please select time</string>
+    <string name="alertNeighbourhood">Please select neighbourhood</string>
+    <string name="startConversation">Start Conversation....</string>
+    <string name="maxPeople">You can select only five users at a time</string>
+    <string name="notReceivedMail">Not received email yet.</string>
+    <string name="noCardAdded">No card added</string>
+    <string name="cancel_schedule">Are you sure you want to cancel this schedule ?</string>
+    <string name="delete_card">Are you sure you want to delete this card ?</string>
+    <string name="selectLanguage">Select Language</string>
+    <string name="changeLanguage">Change Language</string>
+    <string name="language">Language</string>
+    <string name="updateLanguage">Update Language</string>
+    <string name="messageBox">Message field can\'t be  empty</string>
+    <string name="noComment">No comment found</string>
+    <string name="invalidMonth">Invalid Month</string>
+    <string name="cancelDueToWeather">Workout canceled due to bad weather do you agree?</string>
+    <string name="cpf">CPF</string>
+    <string name="cardHolder">Card Holder</string>
+    <string name="person">1 Person: R$</string>
+    <string name="persons">  Persons: R$</string>
+    <string name="validThru">Valid Thru</string>
+
+
+
+    <string name="enterNeighbourhood">Enter Neighbourhood</string>
+    <string name="invalidExpiry">Invalid expiry date</string>
+
+
+
+
+    <string name="itsOk">Yes</string>
+    <string name="notOk">No</string>
+    <string name="somethingWrong">Something went wrong!</string>
+
+
+    <string name="doneDiet">Done</string>
+    <string name="cancelDiet">Cancel</string>
+
+    <string name="dietCancel">Diet Cancel due to no response</string>
+    <string name="dietCanceled">Diet Canceled</string>
+
+    <string name="uploadProfilePic">Please upload profile picture</string>
+
+
+</resources>

@@ -1,0 +1,489 @@
+<resources>
+
+    <string name="app_name">Coachmove Clients</string>
+    <string name="default_notification_channel_id">com.coachmovecustomer</string>
+
+
+    <string name="forgotPassword">Esqueceu o password</string>
+
+
+    <string name="out_of_memory">Sem memória</string>
+    <string name="not_sufficient_permissions">Not sufficient permissions for this action\ngoto Settings>Apps>%1$s>Permissions</string>
+    <string name="choose_image_source">Escolha a imagem</string>
+    <string name="gallery">Galeria</string>
+    <string name="camera">Câmera</string>
+    <string name="please_relaunch">"Por favor reinicie"</string>
+    <string name="check_gps">Location Update has encountered a problem. Please Check GPS is ON or OFF</string>
+    <string name="gps">" - GPS"</string>
+    <string name="file_provider_authority_" translatable="false">com.coachmovecustomer.fileprovider</string>
+
+
+    <string name="netwrk_status">Status da rede</string>
+    <string name="retry">Tente novamente</string>
+    <string name="are_you_sure_want_to_exit">Você tem certeza que quer sair?</string>
+    <string name="yes">Sim</string>
+    <string name="no">Não</string>
+    <string name="please_wait">Por favor espere...</string>
+    <string name="ok">Ok</string>
+    <string name="serverRespond">Servidor não responde</string>
+    <string name="requestTimeout">Solicitar tempo limite</string>
+    <string name="alert">Alerta 1</string>
+
+    <!--Login Screen-->
+
+    <string name="welcome">BEM-VINDO</string>
+    <string name="getStarted">Registre-se para começar</string>
+    <string name="email_address">Endereço de e-mail</string>
+    <string name="email_hint">Insira o endereço de e-mail</string>
+    <string name="password">Senha</string>
+    <string name="hint_password">Insira sua senha</string>
+    <string name="signIn">Entrar</string>
+    <string name="forgotPassScreen">Esqueceu sua senha</string>
+    <string name="forgotPass">Esqueceu sua senha?</string>
+    <string name="signup">Registre-se</string>
+    <string name="account">Ainda não possui uma conta?</string>
+
+
+    <!--Sign Up Screen-->
+    <string name="alreadyAccount">Já possui uma conta?</string>
+    <string name="signin">Entrar</string>
+    <string name="confirmPass">Confirme sua senha</string>
+    <string name="createAccountStr">Registre-se abaixo e crie \n sua conta</string>
+    <string name="forgot_Str">Precisamos somente do seu endereço de e-mail para enviar as instruções</string>
+    <string name="submit">Enviar</string>
+
+
+
+
+    <!--Create Profile Screen-->
+
+    <string name="change_Picture">Mudar foto de perfil</string>
+    <string name="firstName">Nome</string>
+    <string name="firstName_hint">Coloque seu nome</string>
+    <string name="hint_lastName">Coloque seu sobrenome</string>
+    <string name="lastName">Sobrenome</string>
+    <string name="mobileNumber">Número de celular</string>
+    <string name="hint_mobileNO">Coloque seu número de celular</string>
+    <string name="gender">Gênero</string>
+    <string name="selectFitness">nível de aptidão física</string>
+    <string name="next">Próximo</string>
+    <string name="hint_professional">* O profissional terá acesso a estas informações</string>
+    <string name="age">Idade</string>
+    <string name="weight">Peso</string>
+    <string name="height">Altura</string>
+    <string name="surgeries">Cirurgias</string>
+    <string name="heartDiseases">Doenças cardiovasculares</string>
+    <string name="jointPains">Dores nas articulações</string>
+    <string name="medications">Uso do medicamentos</string>
+    <string name="others">Outros</string>
+    <string name="termAndCondition">Eu aceito os termos e condições</string>
+    <string name="createProfile">Criar perfil</string>
+    <string name="beginner">Beginner</string>
+    <string name="advance">Advance</string>
+    <string name="athlete">Athlete</string>
+    <string name="sedetancy">Sedetancy</string>
+    <string name="newOthers">Outros</string>
+
+
+    <!--Main Screen-->
+    <string name="profile">Perfil</string>
+    <string name="messages">Mensagens</string>
+    <string name="schedule">Agenda</string>
+    <string name="diet">Dieta</string>
+    <string name="workout">Treino</string>
+
+    <!--Profile Screen-->
+    <string name="anamnesis">Anamnese</string>
+    <string name="financialDate">Dados financeiros</string>
+    <string name="other_hint_txt">Reference site about Lorem Ipsum,giving information on its origins,as well as a random Lipsum generator.</string>
+    <string name="myCard">Meus cartões</string>
+    <string name="addNewCard">Adicionar um novo cartão</string>
+    <string name="addCard">Adicionar cartão</string>
+    <string name="cardNumber">Número do cartão</string>
+    <string name="expiry_date">Data de validade</string>
+    <string name="cvv_no">Código de segurança</string>
+    <string name="cardAdded">Cartão adicionado com sucesso!</string>
+
+    <!--WorkOut Screen-->
+    <string name="selectGender">Selecione o gênero</string>
+    <string name="male">Homem</string>
+    <string name="female">Mulher</string>
+    <string name="date">Data</string>
+    <string name="time">Hora</string>
+    <string name="neighbourhood">Bairro</string>
+    <string name="selectNeighbourhood">Selecione o bairro</string>
+    <string name="selectModality">Selecione a modalidade</string>
+    <string name="address">Endereço</string>
+    <string name="addAddress">Adicione o endereço</string>
+    <string name="noPeople">Número de pessoas</string>
+    <string name="coachGender">Gênero do coach</string>
+    <string name="search">Procurar</string>
+    <string name="searchNameId">Coloque o nome ou número de identificação do coach</string>
+
+
+    <!--Feedback Screen-->
+    <string name="feedback_hint">O seu feedback irá tornar este app melhor para todos</string>
+    <string name="session_hint">como foi sua treino ?</string>
+    <string name="review">Avaliar</string>
+    <string name="reviewHint">Adicionar avaliação</string>
+     <string name="session_hint_diet">como foi sua dieta ?</string>
+
+    <!--Settings Screen-->
+    <string name="termsConditions">Termos e condições</string>
+    <string name="logout">Sair</string>
+    <string name="aboutUs">Sobre nós</string>
+    <string name="contactUs">Contate-nos</string>
+    <string name="myCards">Meus cartões</string>
+    <string name="privacyPolicy">Termo de privacidade</string>
+    <string name="notifications">Notificações</string>
+    <string name="are_you_sure_want_to_Logout">Tem certeza que deseja sair?</string>
+
+    <!--My Cards Screen-->
+    <string name="deleteCard">Deletar cartão</string>
+
+    <!--Notification Screen-->
+    <string name="noNotification">Nenhuma notificação</string>
+
+
+    <!--About Us Screen-->
+    <string name="vision">Visão</string>
+    <string name="mission">Missão</string>
+
+    <!--Contact Us Screen-->
+    <string name="description">Descrição</string>
+    <string name="subject">Assunto</string>
+    <string name="fillSubject">Coloque o assunto</string>
+    <string name="briefDescription">De uma breve descrição</string>
+
+
+    <!--Message Screen-->
+    <string name="sendMessage">Enviar mensagem</string>
+    <string name="comments">20 comentários</string>
+    <string name="noMessage">Nenhuma conversa foi encontrada</string>
+    <string name="newComments">Comentários</string>
+
+
+    <!--Payment Screen-->
+    <string name="dateTime">Data e hora</string>
+    <string name="confirmPay">Confirmar e pagar</string>
+    <string name="hint_workoutLimit">*Por favor, note que o tempo limite para cancelar o seu treino é de 2 horas antes, ou será cobrado uma taxa de R$15,00</string>
+    <string name="coach">Coach</string>
+    <string name="awesome">Excelente</string>
+    <string name="paymentApproved">Seu pagamento foi aprovado</string>
+    <string name="okThanks">Ok, obrigado.</string>
+
+    <!--Schedule Screen-->
+    <string name="upcoming">Próximos</string>
+    <string name="ongoing">Em progresso</string>
+    <string name="ongoingProcess">Em progresso...</string>
+    <string name="completed">Completos</string>
+
+
+    <!--Splash Screen-->
+    <string name="english">Inglês</string>
+    <string name="portuguese">Português</string>
+
+    <!--Add People Screen-->
+    <string name="addPeople">Adicionar pessoas</string>
+
+    <!--Edit Profile Screen-->
+    <string name="update">Atualizar</string>
+    <string name="editImage">Editar imagem de perfil</string>
+    <string name="editProfile">Editar perfil</string>
+    <string name="coaches">Coaches</string>
+    <string name="payments">Pagamento</string>
+    <string name="feedback">Avaliação</string>
+    <string name="nutritionist">Nutricionista</string>
+    <string name="settings">Configurações</string>
+    <string name="termCond">Termos e condições</string>
+    <string name="coachName_ID">Coloque o nome ou número de identificação</string>
+    <string name="nameUser_ID">Coloque o nome ou número de identificação do usuário</string>
+
+
+    <!--Validations-->
+
+    <string name="email_register_alert">Por favor digite seu endereço de e-mail cadastrado</string>
+    <string name="email_alert">Por favor coloque seu endereço de e-mail</string>
+    <string name="valid_email">Por favor coloque um endereço de e-mail válido</string>
+    <string name="passwordEmpty">Por favor coloque sua senha</string>
+    <string name="passwordLength">A senha deve conter ao menos 8 caracteres</string>
+    <string name="confirmEmpty">Por favor coloque novamente a senha</string>
+    <string name="passwordconfirmpassword">A sua senha está incorreta</string>
+    <string name="ireceived">Eu recebi</string>
+
+    <!--Image Pick String-->
+
+    <string name="select_action">Selecione a ação</string>
+    <string name="select_from_gallery">Selecione da sua galeria</string>
+    <string name="select_camera">Capture da câmera</string>
+
+
+    <!--Select Modality-->
+
+    <string-array name="SelectModality">
+        <item>Select Modality</item>
+        <item>Functional trainment</item>
+        <item>Calisthenics</item>
+        <item>Running</item>
+        <item>Martial arts</item>
+        <item>Yoga</item>
+        <item>Slack line</item>
+        <item>Kangoo</item>
+        <item>Body building</item>
+        <item>Best age</item>
+        <item>Flexibility</item>
+        <item>Athletics</item>
+        <item>Soccer Training</item>
+        <item>Pilates</item>
+        <item>Abdomen</item>
+    </string-array>
+
+    <!--Select Neighbourhood-->
+
+    <string-array name="SelectNeighbourhood">
+        <item>Abranches</item>
+        <item>Água Verde</item>
+        <item>Ahú</item>
+        <item>Alto Boqueirão</item>
+        <item>Alto da XV</item>
+        <item>Alto da Glória</item>
+        <item>Atuba</item>
+        <item>Augusta</item>
+        <item>Bacacheri</item>
+        <item>Bairro Alto</item>
+        <item>Barreirinha</item>
+        <item>Batel</item>
+        <item>Bigorrilho</item>
+        <item>Boa Vista</item>
+        <item>Bom Retiro</item>
+        <item>Baqueirão</item>
+        <item>Butiatuvinha</item>
+        <item>Cabral</item>
+        <item>Cachoeira</item>
+        <item>Cajuru</item>
+        <item>Campina do Siqueira</item>
+        <item>Campo Comprido</item>
+        <item>Campo de Santana</item>
+        <item>Capão da Imbuia</item>
+        <item>Capão Raso</item>
+        <item>Cascatinha</item>
+        <item>Centro</item>
+        <item>Centro Historico</item>
+        <item>Caximba</item>
+        <item>Centro Cívico</item>
+        <item>Cidade Industrial</item>
+        <item>Cristo Rei</item>
+        <item>Fanny</item>
+        <item>Fazendinha</item>
+        <item>Ganchinho</item>
+        <item>Guabirotuba</item>
+        <item>Guaíra</item>
+        <item>Hauer</item>
+        <item>Hugo Lange</item>
+        <item>Jardim Botânico</item>
+        <item>Jardim Social</item>
+        <item>Jardim das Américas</item>
+        <item>Juvevê</item>
+        <item>Lamenha Pequena</item>
+        <item>Lindoia</item>
+        <item>Mercês</item>
+        <item>Mossunguê(Ecoville)</item>
+        <item>Novo Mundo</item>
+        <item>Orleans</item>
+        <item>Parolin</item>
+        <item>Pilarzinho</item>
+        <item>Pinheirinho</item>
+        <item>Portão</item>
+        <item>Prado Velho</item>
+        <item>Rebouças</item>
+        <item>Riviera</item>
+        <item>Santa Cândida</item>
+        <item>Santa Felicidade</item>
+        <item>Santa Quitéria</item>
+        <item>Santo Inácio</item>
+        <item>São Brás</item>
+        <item>São Francisco</item>
+        <item>São João</item>
+        <item>São Lourenço</item>
+        <item>São Miguel</item>
+        <item>Seminário</item>
+        <item>Sítio Cercado</item>
+        <item>Taboão</item>
+        <item>Tarumã</item>
+        <item>Tatuquara</item>
+        <item>Tingui</item>
+        <item>Uberaba</item>
+        <item>Umbará</item>
+        <item>Vila Izabel</item>
+        <item>Vista Alegre</item>
+        <item>Xaxim</item>
+
+    </string-array>
+
+
+    <string name="fillFirstName">Insira seu nome</string>
+    <string name="fillLastName">Insira seu sobrenome</string>
+    <string name="fillMobileNumber">Insira seu telefone celular</string>
+    <string name="fillCPFNumber">Insira seu número de CPF</string>
+    <string name="fillAge">Insira sua idade</string>
+    <string name="fillWeight">Insira seu peso</string>
+    <string name="fillHeight">Insira sua altura</string>
+    <string name="fillSurgeries">Insira se fez cirurgias</string>
+    <string name="fillHeartDiseases">Insira se possui doenças cardiovasculares</string>
+    <string name="fillJoint">Insira se possui dores nas articulações</string>
+    <string name="fillMedications">Insira se faz uso de medicamentos</string>
+    <string name="fillOther">Insira outros detalhes</string>
+
+    <string name="exercise">Descreva sua rotina de exercícios</string>
+    <string name="fillObjective">Insira qual o objetivo da sua dieta</string>
+    <string name="explainDay">Descreva seu dia</string>
+    <string name="fillLikeEat">Insira o que gosta de comer</string>
+    <string name="fillDontLikeEat">Insira o que não gosta de comer</string>
+    <string name="fillDisorder">Insira se possui algum distúrbio ou transtorno alimentar</string>
+    <string name="fillAllergies">Insira se possui alergias e intolerâncias</string>
+    <string name="fillDiabetes">Insira se possui diabetes</string>
+    <string name="fillCholesterol">Insira se possui problema de colesterol</string>
+    <string name="fillDigestive">Insira se possui algum problema do sistema digestivo</string>
+    <string name="fillThyroid">Insira se possui alguma disfunção tireóide</string>
+    <string name="fillPregency">Insira se está grávida</string>
+    <string name="fillOthers">Insira outros</string>
+    <string name="fillSupplements">Insira se faz uso de algum suplemento?</string>
+    <string name="noSchedule">Nenhum treino achado</string>
+
+
+    <string name="enterCardHolderName">Insira o nome do titular do cartão</string>
+    <string name="enterCardNumber">Insira o número do cartão</string>
+    <string name="enterCvvNumber">Insira o código de segurança</string>
+    <string name="enterExpiryDate">Insira a data de validade (mm/aa)</string>
+    <string name="noDataFound">Nenhum dado encontrado</string>
+
+
+    <string name="selectDate">Selecione a data</string>
+    <string name="fillRating">Por favor dê uma avaliação</string>
+
+
+    <string name="commentss">Comentários</string>
+    <string name="selectTime">Selecione o horário</string>
+    <string name="noCard">Nenhum cartão encontrado</string>
+    <string name="noDiet">Nenhuma dieta encontrada</string>
+
+
+    <!--Diet Screen-->
+    <string name="price">Preço</string>
+    <string name="routine">Descreva sua rotina de exercícios durante a semana</string>
+    <string name="objective_diet">Objetivo da dieta</string>
+    <string name="alimentation">Descreva seu dia de alimentação típico e os horários</string>
+    <string name="likeEat">O que gosta de comer?</string>
+    <string name="dontLike">O que não gosta de comer</string>
+    <string name="disorder">Distúrbio ou transtorno alimentar</string>
+    <string name="allergies">Alergias e intolerâncias</string>
+    <string name="supplements">Faz uso de algum suplemento?</string>
+    <string name="pregency">Grávida?</string>
+    <string name="thyroid">Disfunção da Tireóide</string>
+    <string name="digestive">Problema do sistema digestivo</string>
+    <string name="cholesterol">Colesterol</string>
+    <string name="diabetes">Diabetes</string>
+    <string name="received">Recebido</string>
+    <string name="give_feedback">Fazer avaliação</string>
+    <string name="confirmation">Confirmer</string>
+    <string name="sureConfirm">Tem certeza que gostaria de confirmer?</string>
+    <string name="done">Feito</string>
+    <string name="cancel">Cancelar</string>
+
+
+    <string name="pleaseAddCard">Por favor adicionar cartão</string>
+    <string name="exitBackPressed">Pressione voltar novamente para sair</string>
+    <string name="completeCardNo">Insira o número de cartão completo</string>
+
+
+    <!--Alert Toast-->
+    <string name="alert_email">Por favor insira seu endereço de email</string>
+    <string name="alertFirstName">Por favor insira seu nome</string>
+    <string name="alertLastName">Por favor insira seu sobrenome</string>
+    <string name="alertMobileNumber">Por favor insira seu número de celular</string>
+    <string name="alertCPFNumber">Por favor insira o número do seu CPF</string>
+    <string name="alertValidNumber">Por favor, insira um número de celular válido</string>
+    <string name="alertAge">Por favor insira sua idade</string>
+    <string name="alertWeight">Por favor insira seu peso</string>
+    <string name="alertHeight">Por favor insira suaaltura</string>
+    <string name="alertSurgeries">Por favor insira suas cirurgias</string>
+    <string name="alertHeartDiseases">Por favor insira problemas cardiovasculares</string>
+    <string name="alertJoint">Por favor insira dores nas articulações</string>
+    <string name="alertMedications">Por favor insira se utiliza medicamentos</string>
+    <string name="alertOther">Por favor insira outros</string>
+    <string name="alertReview">Por favor preencha a avaliação</string>
+    <string name="alertAddress">Por favor insira seu endereço</string>
+
+    <string name="alertExercise">Por favor descreva sua rotina de exercícios</string>
+    <string name="alertObjective">Por favor insira o objetivo do dieta</string>
+    <string name="alertExplainDay">Por favor descreva o seu dia típico de alimentação e os horários</string>
+    <string name="alertLikeEat">Por favor descreva o que você gosta de comer</string>
+    <string name="alertDontLikeEat">Por favor descreva o que você não gosta de comer</string>
+    <string name="alertDisorder">Por favor insira se possui alguma diturbio ou transtorno alimetar</string>
+    <string name="alertAllergies">Por favor descreva se possui alergia ou intolerância alimentar</string>
+    <string name="alertDiabetes">Por favor insira se possui diabetes</string>
+    <string name="alertCholesterol">Por favor insira se possui colesterol</string>
+    <string name="alertDigestive">Por favor insira se possui algum problema do sistema digestivo</string>
+    <string name="alertThyroid">Por favor insira se possui algum problema de tireóide </string>
+    <string name="alertPregency">Por favor insira se está grávida</string>
+    <string name="alertOthers">Por favor insira outros</string>
+    <string name="alertSupplements">Por favor insira se faz uso de algum suplemento alimentar</string>
+    <string name="alertCardHolderName">Por favor insira o nome do titular do cartão</string>
+    <string name="alertCardNumber">Por favor insira o número do cartão</string>
+    <string name="alertCvvNumber">Por favor insira o código de segurança</string>
+    <string name="alertExpiryDate">Por favor insira a data de validade</string>
+    <string name="invalidTime">Data de validade inválida</string>
+    <string name="alertTermCondition">Por favor aceite os termos e condições</string>
+    <string name="alertSubject">Por favor insira o assunto</string>
+    <string name="alertDescription">Por favor insira a mensagem</string>
+    <string name="alertGender">Por favor selecione o gênero</string>
+    <string name="alertDate">Por favor selecione a data</string>
+    <string name="alertTime">Por favor selecione o horário</string>
+    <string name="startConversation">Iniciar a conversa....</string>
+    <string name="maxPeople">Você pode somente selecionar 5 usuários por vez</string>
+    <string name="notReceivedMail">Não recebi o email</string>
+    <string name="noCardAdded">Nenhum cartão foi adicionado</string>
+    <string name="cancel_schedule">Você tem certeza que deseja cancelar este agendamento?</string>
+
+
+    <string name="alertValidExpiryDate">Por favor insira uma data de validade válida</string>
+    <string name="alertNeighbourhood">Por favor, selecione vizinhança</string>
+    <string name="delete_card">Tem certeza de que deseja excluir este cartão?</string>
+    <string name="selectLanguage">Selecione o idioma</string>
+    <string name="changeLanguage">Mudar idioma</string>
+    <string name="language">Idioma</string>
+    <string name="updateLanguage">Atualizar o idioma</string>
+    <string name="messageBox">Campo de mensagem não pode estar vazio</string>
+    <string name="cpf">CPF</string>
+    <string name="noComment">Nenhum comentário encontrado</string>
+    <string name="invalidMonth">Mês Inválido</string>
+    <string name="cancelDueToWeather">Treino cancelado devido ao mau tempo você concorda?</string>
+    <string name="cardHolder">Titular do cartão</string>
+    <string name="person">1 Pessoa: R$</string>
+    <string name="persons"> pessoas: R$</string>
+    <string name="validThru">válido até</string>
+
+
+    <string name="enterNeighbourhood">Digite o bairro</string>
+    <string name="invalidExpiry">Data de validade inválida</string>
+
+
+
+
+    <string name="itsOk">Sim</string>
+    <string name="notOk">Não</string>
+    <string name="somethingWrong">Algo deu errado!</string>
+
+
+    <string name="doneDiet">Feito</string>
+    <string name="cancelDiet">Cancelar</string>
+
+    <string name="dietCancel">Dieta Cancelar devido a nenhuma resposta</string>
+    <string name="dietCanceled">Dieta Cancelada</string>
+
+    <string name="uploadProfilePic">Por favor, faça o upload da foto do perfil</string>
+
+
+</resources>
+
+

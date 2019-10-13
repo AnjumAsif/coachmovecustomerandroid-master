@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/_10sdp">
+
+    <RelativeLayout
+        android:id="@+id/top_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profileImg"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:src="@mipmap/ic_launcher" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/profileImg"
+            android:orientation="vertical"
+            android:padding="@dimen/_10sdp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <com.coachmovecustomer.customviews.MediumTextView
+                    android:id="@+id/userName_TV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Amanda "
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/Black"
+                    android:textSize="@dimen/_16sp" />
+
+
+                <com.coachmovecustomer.customviews.RegularTextView
+                    android:id="@+id/userID_TV"
+                    android:layout_toRightOf="@+id/userName_TV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="(MA123567) "
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/_12sp" />
+
+
+
+                <com.coachmovecustomer.customviews.RegularTextView
+                    android:id="@+id/date_TV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/userID_TV"
+                    android:textSize="@dimen/_10sp"
+                    android:text="12 June,2018"
+                    android:layout_centerVertical="true"
+                    android:textColor="@color/Gray" />
+
+            </RelativeLayout>
+
+
+            <RatingBar
+                android:id="@+id/ratingBar"
+                android:theme="@style/RatingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:numStars="5"
+                android:rating="4.5"
+                style="?android:attr/ratingBarStyleSmall"
+                android:progressBackgroundTint="@color/textGray"
+                android:progressTint="@color/ratingColor"/>
+
+
+            <com.coachmovecustomer.customviews.RegularTextView
+                android:id="@+id/comment_hint_TV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_toRightOf="@+id/ratingBar"
+                android:gravity="left|center"
+                android:text="@string/comments"
+                android:textSize="@dimen/_10sp"
+                android:textColor="@color/Gray" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

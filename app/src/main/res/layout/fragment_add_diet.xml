@@ -1,0 +1,511 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/_15sdp">
+
+            <com.coachmovecustomer.customviews.RegularTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/email"
+                android:drawablePadding="@dimen/_5sdp"
+                android:gravity="left|center"
+                android:text="@string/email_address"
+                android:textColor="@color/Black"
+                android:textSize="@dimen/_14sp" />
+
+            <com.coachmovecustomer.customviews.RegularEditText
+                android:id="@+id/emailET"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_14sdp"
+                android:layout_marginRight="@dimen/_14sdp"
+                android:gravity="left"
+                android:hint="@string/email_hint"
+                android:imeOptions="actionNext"
+                android:inputType="textEmailAddress"
+                android:nextFocusForward="@+id/priceET"
+                android:paddingBottom="@dimen/_15sdp"
+                android:singleLine="true"
+                android:textColor="@color/colorPrimary"
+                android:textColorHint="@color/colorPrimary"
+                android:textSize="@dimen/_14sp"
+                android:theme="@style/editTextStyle" />
+
+
+            <com.coachmovecustomer.customviews.RegularTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:drawableLeft="@drawable/note"
+                android:drawablePadding="@dimen/_5sdp"
+                android:gravity="left|center"
+                android:text="@string/price"
+                android:textColor="@color/Black"
+                android:textSize="@dimen/_14sp" />
+
+            <com.coachmovecustomer.customviews.RegularEditText
+                android:id="@+id/priceET"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_14sdp"
+                android:layout_marginRight="@dimen/_14sdp"
+                android:clickable="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:gravity="left"
+                android:hint="@string/price"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:nextFocusForward="@+id/routineET"
+                android:paddingBottom="@dimen/_15sdp"
+                android:textColor="@color/colorPrimary"
+                android:textColorHint="@color/colorPrimary"
+                android:textSize="@dimen/_14sp"
+                android:theme="@style/editTextStyle" />
+
+
+            <com.coachmovecustomer.customviews.RegularTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:drawableLeft="@drawable/note"
+                android:drawablePadding="@dimen/_5sdp"
+                android:gravity="left|center"
+                android:text="@string/routine"
+                android:textColor="@color/Black"
+                android:textSize="@dimen/_14sp" />
+
+            <com.coachmovecustomer.customviews.RegularEditText
+                android:id="@+id/routineET"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_14sdp"
+                android:layout_marginRight="@dimen/_14sdp"
+                android:gravity="left"
+                android:hint="@string/exercise"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:minLines="1"
+                android:maxLines="2"
+                android:nextFocusForward="@+id/dietET"
+                android:paddingBottom="@dimen/_15sdp"
+                android:textColor="@color/colorPrimary"
+                android:textColorHint="@color/colorPrimary"
+                android:textSize="@dimen/_14sp"
+                android:theme="@style/editTextStyle" />
+
+
+            <com.coachmovecustomer.customviews.RegularTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:drawableLeft="@drawable/target"
+                android:drawablePadding="@dimen/_5sdp"
+                android:gravity="left|center"
+                android:text="@string/objective_diet"
+                android:textColor="@color/Black"
+                android:textSize="@dimen/_14sp" />
+
+            <com.coachmovecustomer.customviews.RegularEditText
+                android:id="@+id/dietET"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_14sdp"
+                android:layout_marginRight="@dimen/_14sdp"
+                android:gravity="left"
+                android:hint="@string/fillObjective"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:nextFocusForward="@+id/alimentationET"
+                android:paddingBottom="@dimen/_15sdp"
+                android:singleLine="true"
+                android:textColor="@color/colorPrimary"
+                android:textColorHint="@color/colorPrimary"
+                android:textSize="@dimen/_14sp"
+                android:theme="@style/editTextStyle" />
+
+
+            <com.coachmovecustomer.customviews.RegularTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:drawableLeft="@drawable/note"
+                android:drawablePadding="@dimen/_5sdp"
+                android:gravity="left|center"
+                android:text="@string/alimentation"
+                android:textColor="@color/Black"
+                android:textSize="@dimen/_14sp" />
+
+            <com.coachmovecustomer.customviews.RegularEditText
+                android:id="@+id/alimentationET"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_14sdp"
+                android:layout_marginRight="@dimen/_14sdp"
+                android:gravity="left"
+                android:hint="@string/explainDay"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:nextFocusForward="@+id/likeEatET"
+                android:paddingBottom="@dimen/_15sdp"
+                android:minLines="1"
+                android:maxLines="2"
+                android:textColor="@color/colorPrimary"
+                android:textColorHint="@color/colorPrimary"
+                android:textSize="@dimen/_14sp"
+                android:theme="@style/editTextStyle" />
+
+
+            <com.coachmovecustomer.customviews.RegularTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:drawableLeft="@drawable/like"
+                android:drawablePadding="@dimen/_5sdp"
+                android:gravity="left|center"
+                android:text="@string/likeEat"
+                android:textColor="@color/Black"
+                android:textSize="@dimen/_14sp" />
+
+            <com.coachmovecustomer.customviews.RegularEditText
+                android:id="@+id/likeEatET"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_14sdp"
+                android:layout_marginRight="@dimen/_14sdp"
+                android:gravity="left"
+                android:hint="@string/fillLikeEat"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:nextFocusForward="@+id/dontLikeET"
+                android:paddingBottom="@dimen/_15sdp"
+                android:singleLine="true"
+                android:textColor="@color/colorPrimary"
+                android:textColorHint="@color/colorPrimary"
+                android:textSize="@dimen/_14sp"
+                android:theme="@style/editTextStyle" />
+
+
+            <com.coachmovecustomer.customviews.RegularTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:drawableLeft="@drawable/dislike"
+                android:drawablePadding="@dimen/_5sdp"
+                android:gravity="left|center"
+                android:text="@string/dontLike"
+                android:textColor="@color/Black"
+                android:textSize="@dimen/_14sp" />
+
+            <com.coachmovecustomer.customviews.RegularEditText
+                android:id="@+id/dontLikeET"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_14sdp"
+                android:layout_marginRight="@dimen/_14sdp"
+                android:gravity="left"
+                android:hint="@string/fillDontLikeEat"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:nextFocusForward="@+id/disorderET"
+                android:paddingBottom="@dimen/_15sdp"
+                android:singleLine="true"
+                android:textColor="@color/colorPrimary"
+                android:textColorHint="@color/colorPrimary"
+                android:textSize="@dimen/_14sp"
+                android:theme="@style/editTextStyle" />
+
+
+            <com.coachmovecustomer.customviews.RegularTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:drawableLeft="@drawable/healthy"
+                android:drawablePadding="@dimen/_5sdp"
+                android:gravity="left|center"
+                android:text="@string/disorder"
+                android:textColor="@color/Black"
+                android:textSize="@dimen/_14sp" />
+
+            <com.coachmovecustomer.customviews.RegularEditText
+                android:id="@+id/disorderET"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_14sdp"
+                android:layout_marginRight="@dimen/_14sdp"
+                android:gravity="left"
+                android:hint="@string/fillDisorder"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:nextFocusForward="@+id/allergiesET"
+                android:paddingBottom="@dimen/_15sdp"
+                android:singleLine="true"
+                android:textColor="@color/colorPrimary"
+                android:textColorHint="@color/colorPrimary"
+                android:textSize="@dimen/_14sp"
+                android:theme="@style/editTextStyle" />
+
+
+            <com.coachmovecustomer.customviews.RegularTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:drawableLeft="@drawable/allergic"
+                android:drawablePadding="@dimen/_5sdp"
+                android:gravity="left|center"
+                android:text="@string/allergies"
+                android:textColor="@color/Black"
+                android:textSize="@dimen/_14sp" />
+
+            <com.coachmovecustomer.customviews.RegularEditText
+                android:id="@+id/allergiesET"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_14sdp"
+                android:layout_marginRight="@dimen/_14sdp"
+                android:gravity="left"
+                android:hint="@string/fillAllergies"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:nextFocusForward="@+id/diabetesET"
+                android:paddingBottom="@dimen/_15sdp"
+                android:singleLine="true"
+                android:textColor="@color/colorPrimary"
+                android:textColorHint="@color/colorPrimary"
+                android:textSize="@dimen/_14sp"
+                android:theme="@style/editTextStyle" />
+
+
+            <com.coachmovecustomer.customviews.RegularTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:drawableLeft="@drawable/diabetes"
+                android:drawablePadding="@dimen/_5sdp"
+                android:gravity="left|center"
+                android:text="@string/diabetes"
+                android:textColor="@color/Black"
+                android:textSize="@dimen/_14sp" />
+
+            <com.coachmovecustomer.customviews.RegularEditText
+                android:id="@+id/diabetesET"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_14sdp"
+                android:layout_marginRight="@dimen/_14sdp"
+                android:gravity="left"
+                android:hint="@string/fillDiabetes"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:nextFocusForward="@+id/cholesterolET"
+                android:paddingBottom="@dimen/_15sdp"
+                android:singleLine="true"
+                android:textColor="@color/colorPrimary"
+                android:textColorHint="@color/colorPrimary"
+                android:textSize="@dimen/_14sp"
+                android:theme="@style/editTextStyle" />
+
+            <com.coachmovecustomer.customviews.RegularTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:drawableLeft="@drawable/cholesterol"
+                android:drawablePadding="@dimen/_5sdp"
+                android:gravity="left|center"
+                android:text="@string/cholesterol"
+                android:textColor="@color/Black"
+                android:textSize="@dimen/_14sp" />
+
+            <com.coachmovecustomer.customviews.RegularEditText
+                android:id="@+id/cholesterolET"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_14sdp"
+                android:layout_marginRight="@dimen/_14sdp"
+                android:gravity="left"
+                android:hint="@string/fillCholesterol"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:nextFocusForward="@+id/digestiveET"
+                android:paddingBottom="@dimen/_15sdp"
+                android:singleLine="true"
+                android:textColor="@color/colorPrimary"
+                android:textColorHint="@color/colorPrimary"
+                android:textSize="@dimen/_14sp"
+                android:theme="@style/editTextStyle" />
+
+
+            <com.coachmovecustomer.customviews.RegularTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:drawableLeft="@drawable/digestive"
+                android:drawablePadding="@dimen/_5sdp"
+                android:gravity="left|center"
+                android:text="@string/digestive"
+                android:textColor="@color/Black"
+                android:textSize="@dimen/_14sp" />
+
+            <com.coachmovecustomer.customviews.RegularEditText
+                android:id="@+id/digestiveET"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_14sdp"
+                android:layout_marginRight="@dimen/_14sdp"
+                android:gravity="left"
+                android:hint="@string/fillDigestive"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:nextFocusForward="@+id/thyroidET"
+                android:paddingBottom="@dimen/_15sdp"
+                android:singleLine="true"
+                android:textColor="@color/colorPrimary"
+                android:textColorHint="@color/colorPrimary"
+                android:textSize="@dimen/_14sp"
+                android:theme="@style/editTextStyle" />
+
+            <com.coachmovecustomer.customviews.RegularTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:drawableLeft="@drawable/thyroid"
+                android:drawablePadding="@dimen/_5sdp"
+                android:gravity="left|center"
+                android:text="@string/thyroid"
+                android:textColor="@color/Black"
+                android:textSize="@dimen/_14sp" />
+
+            <com.coachmovecustomer.customviews.RegularEditText
+                android:id="@+id/thyroidET"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_14sdp"
+                android:layout_marginRight="@dimen/_14sdp"
+                android:gravity="left"
+                android:hint="@string/fillThyroid"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:nextFocusForward="@+id/pregencyET"
+                android:paddingBottom="@dimen/_15sdp"
+                android:singleLine="true"
+                android:textColor="@color/colorPrimary"
+                android:textColorHint="@color/colorPrimary"
+                android:textSize="@dimen/_14sp"
+                android:theme="@style/editTextStyle" />
+
+            <com.coachmovecustomer.customviews.RegularTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:drawableLeft="@drawable/pregency"
+                android:drawablePadding="@dimen/_5sdp"
+                android:gravity="left|center"
+                android:text="@string/pregency"
+                android:textColor="@color/Black"
+                android:textSize="@dimen/_14sp" />
+
+            <com.coachmovecustomer.customviews.RegularEditText
+                android:id="@+id/pregencyET"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_14sdp"
+                android:layout_marginRight="@dimen/_14sdp"
+                android:gravity="left"
+                android:hint="@string/fillPregency"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:nextFocusForward="@+id/othersET"
+                android:paddingBottom="@dimen/_15sdp"
+                android:singleLine="true"
+                android:textColor="@color/colorPrimary"
+                android:textColorHint="@color/colorPrimary"
+                android:textSize="@dimen/_14sp"
+                android:theme="@style/editTextStyle" />
+
+
+            <com.coachmovecustomer.customviews.RegularTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:drawableLeft="@drawable/note"
+                android:drawablePadding="@dimen/_5sdp"
+                android:gravity="left|center"
+                android:text="@string/others"
+                android:textColor="@color/Black"
+                android:textSize="@dimen/_14sp" />
+
+            <com.coachmovecustomer.customviews.RegularEditText
+                android:id="@+id/othersET"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_14sdp"
+                android:layout_marginRight="@dimen/_14sdp"
+                android:gravity="left"
+                android:hint="@string/fillOthers"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:nextFocusForward="@+id/supplementsET"
+                android:paddingBottom="@dimen/_15sdp"
+                android:minLines="1"
+                android:maxLines="2"
+                android:textColor="@color/colorPrimary"
+                android:textColorHint="@color/colorPrimary"
+                android:textSize="@dimen/_14sp"
+                android:theme="@style/editTextStyle" />
+
+            <com.coachmovecustomer.customviews.RegularTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:drawableLeft="@drawable/food_supplement"
+                android:drawablePadding="@dimen/_5sdp"
+                android:gravity="left|center"
+                android:singleLine="true"
+                android:text="@string/supplements"
+                android:textColor="@color/Black"
+                android:textSize="@dimen/_14sp" />
+
+            <com.coachmovecustomer.customviews.RegularEditText
+                android:id="@+id/supplementsET"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_14sdp"
+                android:layout_marginRight="@dimen/_14sdp"
+                android:gravity="left"
+                android:hint="@string/fillSupplements"
+                android:imeOptions="actionDone"
+                android:inputType="text"
+                android:nextFocusForward="@+id/submit_btn"
+                android:paddingBottom="@dimen/_15sdp"
+                android:singleLine="true"
+                android:textColor="@color/colorPrimary"
+                android:textColorHint="@color/colorPrimary"
+                android:textSize="@dimen/_14sp"
+                android:theme="@style/editTextStyle" />
+
+
+            <com.coachmovecustomer.customviews.ButtonView
+                android:id="@+id/submit_btn"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_45sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:background="@drawable/round_button"
+                android:text="@string/submit"
+                android:textColor="@color/White"
+                android:textSize="@dimen/_16sp" />
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

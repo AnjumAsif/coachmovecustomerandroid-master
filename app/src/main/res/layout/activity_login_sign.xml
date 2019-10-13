@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/White"
+    tools:context=".activity.LoginSignActivity">
+
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbarLoginSignUp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:background="@color/colorPrimary">
+
+        <ImageView
+            android:id="@+id/back_TB_IV"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_margin="@dimen/_10sdp"
+            android:src="@drawable/back" />
+
+        <com.coachmovecustomer.customviews.RegularTextView
+            android:id="@+id/title_TB_TV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="@color/White"
+            android:textSize="@dimen/_18sp" />
+
+
+        <ImageView
+            android:id="@+id/title_TB_IV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/co_logo" />
+
+
+    </android.support.v7.widget.Toolbar>
+
+
+    <FrameLayout
+        android:id="@+id/frameLayoutLogin"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbarLoginSignUp">
+
+
+    </FrameLayout>
+
+
+</RelativeLayout>

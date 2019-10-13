@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/top_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/profile_curve_background"
+        android:padding="@dimen/_10sdp">
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_Img"
+            android:layout_width="@dimen/_65sdp"
+            android:layout_height="@dimen/_65sdp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/user_dummy" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_toRightOf="@+id/profile_Img"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <com.coachmovecustomer.customviews.RegularTextView
+                    android:id="@+id/userNameTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Olivia Smith "
+                    android:textColor="@color/White"
+                    android:textSize="@dimen/_16sp" />
+
+
+                <com.coachmovecustomer.customviews.RegularTextView
+                    android:id="@+id/userIDTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="(OL234564)"
+                    android:textColor="@color/White"
+                    android:textSize="@dimen/_12sp" />
+
+
+            </LinearLayout>
+
+            <com.coachmovecustomer.customviews.RegularTextView
+                android:id="@+id/genderTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Female"
+                android:textColor="@color/White"
+                android:textSize="@dimen/_12sp" />
+
+
+            <com.coachmovecustomer.customviews.RegularTextView
+                android:id="@+id/fitnessTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/workout_white"
+                android:drawablePadding="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:gravity="left|center"
+                android:text="Athlete"
+                android:textColor="@color/White"
+                android:textSize="@dimen/_12sp" />
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/select_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/top_layout"
+        android:gravity="center"
+        android:padding="@dimen/_10sdp">
+
+
+        <LinearLayout
+            android:id="@+id/anamnesis_LL"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:orientation="vertical">
+
+
+            <com.coachmovecustomer.customviews.MediumTextView
+                android:id="@+id/anamnesisTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/anamnesis"
+                android:textColor="@color/Black"
+                android:textSize="@dimen/_16sp" />
+
+
+            <View
+                android:id="@+id/anamnesis_View"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_3sdp"
+                android:background="@color/colorPrimary" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/financial_LL"
+            android:layout_toRightOf="@+id/anamnesis_LL"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:orientation="vertical">
+
+
+            <com.coachmovecustomer.customviews.MediumTextView
+                android:id="@+id/financialTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/financialDate"
+                android:layout_gravity="center"
+                android:textColor="@color/Black"
+                android:textSize="@dimen/_16sp" />
+
+            <View
+                android:id="@+id/financial_View"
+                android:layout_width="@dimen/_110sdp"
+                android:layout_height="@dimen/_3sdp"
+                android:visibility="invisible"
+                android:background="@color/colorPrimary" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/frameProfile"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/select_layout">
+
+
+    </FrameLayout>
+
+
+</RelativeLayout>

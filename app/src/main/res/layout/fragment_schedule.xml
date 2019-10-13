@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/top_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_5sdp"
+            android:background="@drawable/round_button_popup"
+            android:orientation="horizontal">
+
+            <com.coachmovecustomer.customviews.RegularTextView
+                android:id="@+id/upcoming_TV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/round_btn_black"
+                android:gravity="center"
+                android:padding="@dimen/_14sp"
+                android:text="@string/upcoming"
+                android:textAllCaps="false"
+                android:textColor="@color/White" />
+
+
+            <com.coachmovecustomer.customviews.RegularTextView
+                android:id="@+id/ongoing_TV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="@dimen/_14sp"
+                android:text="@string/ongoing"
+                android:textColor="@color/Black"
+                android:textAllCaps="false" />
+
+
+            <com.coachmovecustomer.customviews.RegularTextView
+                android:id="@+id/complete_TV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:padding="@dimen/_14sp"
+                android:text="@string/completed"
+                android:textColor="@color/Black"
+                android:textAllCaps="false" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/frameLayoutSchedule"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/top_layout">
+
+    </FrameLayout>
+
+</RelativeLayout>

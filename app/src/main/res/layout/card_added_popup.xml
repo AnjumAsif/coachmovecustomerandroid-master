@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:background="@color/blackPopup"
+    android:padding="@dimen/_15sdp"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/checked"/>
+
+    <com.coachmovecustomer.customviews.RegularTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/_16sp"
+        android:gravity="center"
+        android:textColor="@color/White"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:text="@string/cardAdded"/>
+
+    <com.coachmovecustomer.customviews.RegularTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/_10sp"
+        android:textColor="@color/White"
+        android:gravity="center"
+        android:visibility="invisible"
+        android:layout_marginTop="@dimen/_10sp"/>
+
+
+
+    <com.coachmovecustomer.customviews.ButtonView
+        android:id="@+id/doneBTN"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_45sdp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:background="@drawable/round_button_popup"
+        android:text="@string/done"
+        android:textColor="@color/Black"
+        android:textSize="@dimen/_16sp" />
+
+</LinearLayout>

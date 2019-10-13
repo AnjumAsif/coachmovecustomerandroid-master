@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/parentLL"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/Black"
+    android:orientation="vertical"
+    android:padding="@dimen/_12sdp">
+
+    <com.coachmovecustomer.customviews.RegularTextView
+        android:id="@+id/toastTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/_14sp"
+        android:textColor="@color/White" />
+
+</LinearLayout>

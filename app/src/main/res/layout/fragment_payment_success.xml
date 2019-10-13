@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/_15sdp">
+
+    <LinearLayout
+        android:id="@+id/top_layout"
+        android:layout_above="@+id/thanksBTN"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <com.coachmovecustomer.customviews.MediumTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:text="@string/awesome"
+            android:textColor="@color/greenNew"
+            android:textSize="@dimen/_18sp" />
+
+
+        <ImageView
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_100sdp"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_35sdp"
+            android:src="@drawable/ic_checkmark" />
+
+
+        <com.coachmovecustomer.customviews.RegularTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/_35sdp"
+            android:text="@string/paymentApproved"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/_16sp" />
+
+
+    </LinearLayout>
+
+
+    <com.coachmovecustomer.customviews.ButtonView
+        android:id="@+id/thanksBTN"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/round_button"
+        android:text="@string/okThanks"
+        android:textColor="@color/White"
+        android:textSize="@dimen/_16sp" />
+
+</RelativeLayout>

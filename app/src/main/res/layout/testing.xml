@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:id="@+id/toolbarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/backIV"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginLeft="@dimen/_5sdp"
+            android:src="@drawable/back" />
+
+
+        <com.coachmovecustomer.customviews.RegularTextView
+            android:id="@+id/titleTV"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginRight="@dimen/_20sdp"
+            android:gravity="center"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:text="@string/addPeople"
+            android:textAllCaps="false"
+            android:textColor="@color/White"
+            android:textSize="@dimen/_16sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/search_LL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbarLayout"
+        android:background="@color/LightGrey"
+        android:padding="@dimen/_4sdp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:background="@drawable/round_button_popup"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="@dimen/_4sdp">
+
+
+            <com.coachmovecustomer.customviews.RegularEditText
+                android:id="@+id/searchET"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:layout_weight="1"
+                android:background="@color/White"
+                android:drawablePadding="@dimen/_10dp"
+                android:hint="@string/coachName_ID"
+                android:imeOptions="actionSearch"
+                android:inputType="textPersonName"
+                android:nextFocusForward="@+id/done_btn"
+                android:padding="@dimen/_4dp"
+                android:singleLine="true"
+                android:textSize="@dimen/_12sp" />
+
+            <ImageView
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sp"
+                android:layout_marginRight="@dimen/_5sdp"
+                android:layout_weight="0.2"
+                android:src="@drawable/search" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/selectPeopleRV"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+            <!--android:visibility="gone" -->
+
+            <com.coachmovecustomer.customviews.RegularTextView
+                android:id="@+id/noDataTV"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/noDataFound"
+                android:textSize="@dimen/_16sp" />
+            <!--   android:visibility="gone" -->
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/addedPeopleRV"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_80sdp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp" />
+
+
+            <com.coachmovecustomer.customviews.ButtonView
+                android:id="@+id/done_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_15sdp"
+                android:background="@drawable/round_button"
+                android:text="@string/done"
+                android:textColor="@color/White"
+                android:textSize="@dimen/_16sp" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

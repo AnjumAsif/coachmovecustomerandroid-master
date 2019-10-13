@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "17873858192",
+    "firebase_url": "https://coachmovecustomer.firebaseio.com",
+    "project_id": "coachmovecustomer",
+    "storage_bucket": "coachmovecustomer.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:17873858192:android:3ea117908f47c5d8",
+        "android_client_info": {
+          "package_name": "com.coachmovecustomer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "17873858192-0777mmmbq2ci41751fi97j4e0p5d0nnb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.coachmovecustomer",
+            "certificate_hash": "09202b356fe828b91b2ccb7c0deeb00fe31f5778"
+          }
+        },
+        {
+          "client_id": "17873858192-umd310v3tdvuhcf4njransn8dbpdho3v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCRl4Fuzy3A-EoSDMR3c0RMBY83shkp27k"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "17873858192-umd310v3tdvuhcf4njransn8dbpdho3v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

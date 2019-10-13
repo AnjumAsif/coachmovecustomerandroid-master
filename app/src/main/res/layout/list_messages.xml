@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/parentRL"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/_10sdp"
+    android:layout_marginRight="@dimen/_10sdp">
+
+    <RelativeLayout
+        android:id="@+id/userImageRL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/userImage_IV"
+            android:layout_width="@dimen/_45sdp"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_margin="@dimen/_5sdp"
+            android:src="@drawable/ic_launcher_background" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/nameLL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@+id/userImageRL"
+        android:layout_toRightOf="@+id/userImageRL"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:padding="@dimen/_5sdp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="2"
+            android:orientation="horizontal">
+
+
+            <com.coachmovecustomer.customviews.MediumTextView
+                android:id="@+id/nameTV"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:layout_weight="1"
+                android:textColor="@color/Black"
+                android:textSize="@dimen/_16sp" />
+
+
+            <com.coachmovecustomer.customviews.RegularTextView
+                android:id="@+id/timeTV"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:gravity="right"
+                android:textSize="@dimen/_12sp"
+                android:textColor="@color/Gray" />
+
+
+        </LinearLayout>
+
+
+        <com.coachmovecustomer.customviews.RegularTextView
+            android:id="@+id/msgTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:textSize="@dimen/_14sp"
+            android:textColor="@color/Gray" />
+    </LinearLayout>
+
+</RelativeLayout>

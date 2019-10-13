@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/cardRL"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_140sdp"
+        android:background="@drawable/ic_card_bg"
+        android:paddingLeft="@dimen/_15sdp"
+        android:paddingRight="@dimen/_15sdp"
+        android:paddingTop="@dimen/_5sdp">
+
+        <com.coachmovecustomer.customviews.BoldTextView
+            android:id="@+id/cardTypeTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="Card Type"
+            android:textColor="@color/Black"
+            android:textSize="@dimen/_11sdp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/_30sdp"
+            android:layout_marginLeft="@dimen/_15sdp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.8"
+                android:orientation="vertical">
+
+                <com.coachmovecustomer.customviews.MediumTextView
+                    android:id="@+id/cardNo_TV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_2sdp"
+                    android:textColor="@color/Black"
+                    android:textSize="@dimen/_14sdp"
+                    android:textStyle="bold" />
+
+                <com.coachmovecustomer.customviews.RegularTextView
+                    android:id="@+id/validThruTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/validThru"
+                    android:textAllCaps="true"
+                    android:textColor="@color/Black"
+                    android:textSize="@dimen/_10sdp" />
+
+                <com.coachmovecustomer.customviews.RegularTextView
+                    android:id="@+id/expiry_TV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:text="10/19"
+                    android:textColor="@color/Black"
+                    android:textSize="@dimen/_10sdp" />
+
+                <com.coachmovecustomer.customviews.MediumTextView
+                    android:id="@+id/cardHolderET"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/Black"
+                    android:textSize="@dimen/_14sdp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/im_slider"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="0.2"
+                android:padding="@dimen/_2sdp" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>
+
+<!--<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/_5sdp"
+    android:layout_marginRight="@dimen/_5sdp"
+    android:background="@drawable/ic_card_bg"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/im_slider"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_70sdp"
+        android:layout_gravity="center"
+        android:scaleType="centerCrop"
+        android:src="@drawable/master_detail_card" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:gravity="bottom"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <com.coachmovecustomer.customviews.RegularTextView
+            android:id="@+id/cardNo_TV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_12sp" />
+
+        <com.coachmovecustomer.customviews.RegularTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Valid Thru"
+            android:textAllCaps="true"
+            android:textSize="@dimen/_9sp" />
+
+
+        <com.coachmovecustomer.customviews.RegularTextView
+            android:id="@+id/expiry_TV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_9sp" />
+
+
+    </LinearLayout>
+
+</RelativeLayout>-->

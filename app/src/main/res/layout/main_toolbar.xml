@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/layout_top"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbarTB"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:background="@color/colorPrimary">
+
+
+        <com.coachmovecustomer.customviews.RegularTextView
+            android:id="@+id/titleTBTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text=""
+            android:singleLine="true"
+            android:textColor="@color/White"
+            android:textSize="@dimen/_18sp" />
+
+        <ImageView
+            android:id="@+id/title_TBIMG"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/co_logo" />
+
+    </android.support.v7.widget.Toolbar>
+
+</RelativeLayout>
+

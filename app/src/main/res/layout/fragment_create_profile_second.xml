@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/White"
+        android:scrollbars="none">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/account_text"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/_30sdp"
+            android:paddingRight="@dimen/_30sdp">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.coachmovecustomer.customviews.RegularTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="-2dp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:drawableLeft="@drawable/ic_cpf"
+                    android:drawablePadding="@dimen/_2sdp"
+                    android:gravity="left|center"
+                    android:text="@string/cpf"
+                    android:textColor="@color/Black"
+                    android:textSize="@dimen/_14sp" />
+
+
+                <com.coachmovecustomer.customviews.RegularEditText
+                    android:id="@+id/cpfET"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_14sdp"
+                    android:layout_marginRight="@dimen/_14sdp"
+                    android:gravity="left"
+                    android:hint="@string/fillCPFNumber"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:digits="1234567890-."
+                    android:nextFocusForward="@+id/ageET"
+                    android:paddingBottom="@dimen/_15sdp"
+                    android:singleLine="true"
+                    android:textColor="@color/colorPrimary"
+                    android:textColorHint="@color/colorPrimary"
+                    android:textSize="@dimen/_14sp"
+                    android:theme="@style/editTextStyle" />
+
+
+            </LinearLayout>
+            <!--
+              android:inputType="number"
+            android:digits="0123456789.-" -->
+
+            <com.coachmovecustomer.customviews.RegularTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:drawableLeft="@drawable/age"
+                android:drawablePadding="@dimen/_5sdp"
+                android:gravity="left|center"
+                android:text="@string/age"
+                android:textColor="@color/Black"
+                android:textSize="@dimen/_14sp" />
+
+
+            <com.coachmovecustomer.customviews.RegularEditText
+                android:id="@+id/ageET"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_14sdp"
+                android:layout_marginRight="@dimen/_14sdp"
+                android:gravity="left"
+                android:hint="@string/fillAge"
+                android:imeOptions="actionNext"
+                android:inputType="number"
+                android:nextFocusForward="@+id/weightET"
+                android:paddingBottom="@dimen/_15sdp"
+                android:singleLine="true"
+                android:textColor="@color/colorPrimary"
+                android:textColorHint="@color/colorPrimary"
+                android:textSize="@dimen/_14sp"
+                android:theme="@style/editTextStyle" />
+
+
+            <com.coachmovecustomer.customviews.RegularTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:drawableLeft="@drawable/weight"
+                android:drawablePadding="@dimen/_5sdp"
+                android:gravity="left|center"
+                android:text="@string/weight"
+                android:textColor="@color/Black"
+                android:textSize="@dimen/_14sp" />
+
+
+            <com.coachmovecustomer.customviews.RegularEditText
+                android:id="@+id/weightET"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_14sdp"
+                android:layout_marginRight="@dimen/_14sdp"
+                android:gravity="left"
+                android:hint="@string/fillWeight"
+                android:imeOptions="actionNext"
+                android:inputType="number"
+                android:nextFocusForward="@+id/heightET"
+                android:paddingBottom="@dimen/_15sdp"
+                android:singleLine="true"
+                android:textColor="@color/colorPrimary"
+                android:textColorHint="@color/colorPrimary"
+                android:textSize="@dimen/_14sp"
+                android:theme="@style/editTextStyle" />
+
+
+            <com.coachmovecustomer.customviews.RegularTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:drawableLeft="@drawable/height"
+                android:drawablePadding="@dimen/_5sdp"
+                android:gravity="left|center"
+                android:text="@string/height"
+                android:textColor="@color/Black"
+                android:textSize="@dimen/_14sp" />
+
+
+            <com.coachmovecustomer.customviews.RegularEditText
+                android:id="@+id/heightET"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_14sdp"
+                android:layout_marginRight="@dimen/_14sdp"
+                android:gravity="left"
+                android:hint="@string/fillHeight"
+                android:imeOptions="actionNext"
+                android:inputType="number"
+                android:nextFocusForward="@+id/surgeriesET"
+                android:paddingBottom="@dimen/_15sdp"
+                android:singleLine="true"
+                android:textColor="@color/colorPrimary"
+                android:textColorHint="@color/colorPrimary"
+                android:textSize="@dimen/_14sp"
+                android:theme="@style/editTextStyle" />
+
+
+            <com.coachmovecustomer.customviews.RegularTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:drawableLeft="@drawable/surgery"
+                android:drawablePadding="@dimen/_5sdp"
+                android:gravity="left|center"
+                android:text="@string/surgeries"
+                android:textColor="@color/Black"
+                android:textSize="@dimen/_14sp" />
+
+
+            <com.coachmovecustomer.customviews.RegularEditText
+                android:id="@+id/surgeriesET"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_14sdp"
+                android:layout_marginRight="@dimen/_14sdp"
+                android:gravity="left"
+                android:hint="@string/fillSurgeries"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:nextFocusForward="@+id/heartDiseasesET"
+                android:paddingBottom="@dimen/_15sdp"
+                android:singleLine="true"
+                android:textColor="@color/colorPrimary"
+                android:textColorHint="@color/colorPrimary"
+                android:textSize="@dimen/_14sp"
+                android:theme="@style/editTextStyle" />
+
+
+            <com.coachmovecustomer.customviews.RegularTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:drawableLeft="@drawable/heartbeat"
+                android:drawablePadding="@dimen/_5sdp"
+                android:gravity="left|center"
+                android:text="@string/heartDiseases"
+                android:textColor="@color/Black"
+                android:textSize="@dimen/_14sp" />
+
+
+            <com.coachmovecustomer.customviews.RegularEditText
+                android:id="@+id/heartDiseasesET"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_14sdp"
+                android:layout_marginRight="@dimen/_14sdp"
+                android:gravity="left"
+                android:hint="@string/fillHeartDiseases"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:nextFocusForward="@+id/jointET"
+                android:paddingBottom="@dimen/_15sdp"
+                android:singleLine="true"
+                android:textColor="@color/colorPrimary"
+                android:textColorHint="@color/colorPrimary"
+                android:textSize="@dimen/_14sp"
+                android:theme="@style/editTextStyle" />
+
+
+            <com.coachmovecustomer.customviews.RegularTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:drawableLeft="@drawable/knee"
+                android:drawablePadding="@dimen/_5sdp"
+                android:gravity="left|center"
+                android:text="@string/jointPains"
+                android:textColor="@color/Black"
+                android:textSize="@dimen/_14sp" />
+
+
+            <com.coachmovecustomer.customviews.RegularEditText
+                android:id="@+id/jointET"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_14sdp"
+                android:layout_marginRight="@dimen/_14sdp"
+                android:gravity="left"
+                android:hint="@string/fillJoint"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:nextFocusForward="@+id/medicationsET"
+                android:paddingBottom="@dimen/_15sdp"
+                android:singleLine="true"
+                android:textColor="@color/colorPrimary"
+                android:textColorHint="@color/colorPrimary"
+                android:textSize="@dimen/_14sp"
+                android:theme="@style/editTextStyle" />
+
+
+            <com.coachmovecustomer.customviews.RegularTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:drawableLeft="@drawable/pills"
+                android:drawablePadding="@dimen/_5sdp"
+                android:gravity="left|center"
+                android:text="@string/medications"
+                android:textColor="@color/Black"
+                android:textSize="@dimen/_14sp" />
+
+
+            <com.coachmovecustomer.customviews.RegularEditText
+                android:id="@+id/medicationsET"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_14sdp"
+                android:layout_marginRight="@dimen/_14sdp"
+                android:gravity="left"
+                android:hint="@string/fillMedications"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:nextFocusForward="@+id/otherET"
+                android:paddingBottom="@dimen/_15sdp"
+                android:singleLine="true"
+                android:textColor="@color/colorPrimary"
+                android:textColorHint="@color/colorPrimary"
+                android:textSize="@dimen/_14sp"
+                android:theme="@style/editTextStyle" />
+
+
+            <com.coachmovecustomer.customviews.RegularTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:drawableLeft="@drawable/note"
+                android:drawablePadding="@dimen/_5sdp"
+                android:gravity="left|center"
+                android:text="@string/others"
+                android:textColor="@color/Black"
+                android:textSize="@dimen/_14sp" />
+
+
+            <com.coachmovecustomer.customviews.RegularEditText
+                android:id="@+id/otherET"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_14sdp"
+                android:layout_marginRight="@dimen/_14sdp"
+                android:gravity="left"
+                android:hint="@string/fillOther"
+                android:imeOptions="actionDone"
+                android:inputType="text"
+                android:nextFocusForward="@+id/termsCB"
+                android:paddingBottom="@dimen/_15sdp"
+                android:singleLine="true"
+                android:textColor="@color/colorPrimary"
+                android:textColorHint="@color/colorPrimary"
+                android:textSize="@dimen/_14sp"
+                android:theme="@style/editTextStyle" />
+
+
+            <com.coachmovecustomer.customviews.CheckBoxView
+                android:id="@+id/termsCB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:drawablePadding="@dimen/_5sdp"
+                android:gravity="center"
+                android:nextFocusForward="@+id/createProfile_btn"
+                android:text="@string/termAndCondition"
+                android:textColor="@color/Gray"
+                android:textSize="@dimen/_12sdp"
+                android:theme="@style/customCheckBox" />
+
+
+            <com.coachmovecustomer.customviews.ButtonView
+                android:id="@+id/createProfile_btn"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_45sdp"
+                android:layout_marginBottom="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:background="@drawable/round_button"
+                android:text="@string/createProfile"
+                android:textColor="@color/White"
+                android:textSize="@dimen/_16sp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

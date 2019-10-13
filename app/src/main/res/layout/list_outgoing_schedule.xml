@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <RelativeLayout
+        android:id="@+id/top_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_5sdp"
+        android:gravity="center">
+
+
+        <LinearLayout
+            android:id="@+id/profile_LL"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profile_Img"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_gravity="center"
+                android:src="@mipmap/ic_launcher" />
+
+
+            <com.coachmovecustomer.customviews.RegularTextView
+                android:id="@+id/userName_TV"
+                android:layout_below="@+id/profile_Img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:singleLine="true"
+                android:textColor="@color/Black"
+                android:textSize="@dimen/_14sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/profileData_LL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_toRightOf="@+id/profile_LL"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <com.coachmovecustomer.customviews.RegularTextView
+                    android:id="@+id/session_TV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Session"
+                    android:textColor="@color/Black"
+                    android:textSize="@dimen/_14sp" />
+
+
+            </RelativeLayout>
+
+            <com.coachmovecustomer.customviews.RegularTextView
+                android:id="@+id/address_TV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:drawablePadding="@dimen/_5sdp"
+                android:textSize="@dimen/_12sp"
+                android:drawableLeft="@drawable/location"
+                android:text="@string/address"/>
+
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:orientation="horizontal">
+
+
+                <com.coachmovecustomer.customviews.RegularTextView
+                    android:id="@+id/date_TV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="@dimen/_5sdp"
+                    android:drawableLeft="@drawable/calendar"
+                    android:gravity="left|center"
+                    android:text="@string/date"
+                    android:textSize="@dimen/_12sp"
+                    android:textColor="@color/colorPrimary" />
+
+
+                <com.coachmovecustomer.customviews.RegularTextView
+                    android:id="@+id/time_TV"
+                    android:layout_toRightOf="@+id/date_TV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="@dimen/_5sdp"
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:drawableLeft="@drawable/clock"
+                    android:gravity="left|center"
+                    android:text="@string/time"
+                    android:textSize="@dimen/_12sp"
+                    android:textColor="@color/colorPrimary" />
+
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+    <com.coachmovecustomer.customviews.RegularTextView
+        android:id="@+id/Ongoing_TV"
+        android:layout_below="@+id/top_layout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_20sdp"
+        android:paddingLeft="@dimen/_10sdp"
+        android:gravity="left|center"
+        android:background="@drawable/ongoing_green"
+        android:layout_marginRight="@dimen/_55sdp"
+        android:layout_marginLeft="@dimen/_65sdp"
+        android:textSize="@dimen/_14sp"
+        android:text="@string/ongoingProcess"
+        android:textColor="@color/Gray" />
+
+
+
+</RelativeLayout>

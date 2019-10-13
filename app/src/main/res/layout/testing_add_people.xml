@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        tools:ignore="MissingConstraints">
+
+        <com.coachmovecustomer.customviews.BoldTextView
+            android:id="@+id/cancel_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:padding="@dimen/_5sdp"
+            android:textSize="@dimen/_14sdp"
+            android:paddingLeft="@dimen/_10sdp"
+            android:textColor="@color/Black"
+            android:text="@string/cancel" />
+
+        <com.coachmovecustomer.customviews.BoldTextView
+            android:id="@+id/done_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center|right"
+            android:padding="@dimen/_5sdp"
+            android:textSize="@dimen/_14sdp"
+            android:paddingRight="@dimen/_10sdp"
+            android:textColor="@color/Black"
+            android:text="@string/done" />
+    </LinearLayout>
+
+
+    <com.github.florent37.singledateandtimepicker.SingleDateAndTimePicker
+        android:id="@+id/nowDatePicker"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/_10sdp"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:picker_curved="true"
+        app:picker_cyclic="false"
+        app:picker_textSize="@dimen/_26sdp"
+        app:picker_displayMinutes="false"
+        app:picker_visibleItemCount="4"
+        tools:layout_editor_absoluteX="26dp" />
+</android.support.constraint.ConstraintLayout>

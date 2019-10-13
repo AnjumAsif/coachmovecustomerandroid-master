@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/parentFriendChatLL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/recycler_view_chat_click">
+
+        <LinearLayout
+            android:id="@+id/friendChatLL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_80sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@drawable/message_blue"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/_10sdp">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingEnd="@dimen/_8sdp"
+                android:paddingStart="@dimen/_8sdp"
+                android:padding="@dimen/_10sdp">
+
+                <com.coachmovecustomer.customviews.RegularTextView
+                    android:id="@+id/senderNameTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hello!"
+                    android:textSize="@dimen/_14sp"
+                    android:textColor="@color/White" />
+
+                <com.coachmovecustomer.customviews.RegularTextView
+                    android:id="@+id/senderTimeTV"
+                    android:layout_below="@+id/senderNameTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2 min ago"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:textSize="@dimen/_12sp"
+                    android:textColor="@color/White" />
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/parentmyChatLL"
+        android:layout_below="@+id/parentFriendChatLL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        android:background="@drawable/recycler_view_chat_click">
+
+
+        <LinearLayout
+            android:id="@+id/myChatLL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_80sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_80sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@drawable/message_white"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/_10sdp"
+            android:paddingStart="@dimen/_10sdp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_10sdp">
+
+                <com.coachmovecustomer.customviews.RegularTextView
+                    android:id="@+id/myMessage_TV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hey! how are you today?"
+                    android:textSize="@dimen/_14sp"
+                    android:textColor="@color/Black" />
+
+                <com.coachmovecustomer.customviews.RegularTextView
+                    android:id="@+id/myTime_TV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/myMessage_TV"
+                    android:text="1 min ago"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:textSize="@dimen/_12sp"
+                    android:textColor="@color/textGray" />
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

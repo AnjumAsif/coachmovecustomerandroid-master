@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blackPopup"
+    android:padding="@dimen/_20sdp"
+    android:layout_gravity="center"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="@dimen/_100sdp"
+        android:layout_height="@dimen/_100sdp"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_50sdp"
+        android:src="@drawable/ic_checkmark"/>
+
+    <com.coachmovecustomer.customviews.BoldTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/confirmation"
+        android:textColor="@color/White"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:gravity="center"
+        android:textSize="@dimen/_18sp"/>
+
+    <com.coachmovecustomer.customviews.RegularTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/sureConfirm"
+        android:gravity="center"
+        android:textColor="@color/White"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:textSize="@dimen/_14sp"/>
+
+    <com.coachmovecustomer.customviews.ButtonView
+        android:id="@+id/doneBTN"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_45sdp"
+        android:layout_below="@+id/receivedBTN"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:background="@drawable/round_button_popup"
+        android:text="@string/doneDiet"
+        android:textColor="@color/blackPopup"
+        android:textSize="@dimen/_16sp" />
+
+    <com.coachmovecustomer.customviews.ButtonView
+        android:id="@+id/cancelBTN"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_45sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:background="@drawable/black_btn_round"
+        android:text="@string/cancelDiet"
+        android:textColor="@color/White"
+        android:textSize="@dimen/_16sp" />
+
+
+
+</LinearLayout>

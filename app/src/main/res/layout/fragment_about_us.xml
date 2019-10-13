@@ -1,0 +1,41 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/_15sdp"
+    android:paddingRight="@dimen/_15sdp">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <com.coachmovecustomer.customviews.RegularTextView
+        android:id="@+id/aboutUsTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_17sdp"
+        android:text="@string/vision"
+        android:textSize="@dimen/_16sp" />
+
+    <com.coachmovecustomer.customviews.RegularTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:visibility="gone"
+        android:textSize="@dimen/_14sp" />
+
+    <com.coachmovecustomer.customviews.RegularTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_17sdp"
+        android:text="@string/mission"
+        android:visibility="gone"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/_16sp" />
+
+    <com.coachmovecustomer.customviews.RegularTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:visibility="gone"
+        android:textSize="@dimen/_14sp" />
+
+</LinearLayout>

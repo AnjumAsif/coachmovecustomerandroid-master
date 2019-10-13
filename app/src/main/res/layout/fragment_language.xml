@@ -1,0 +1,62 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/relative_radioButton"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:visibility="visible">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="14dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="6dp">
+
+            <RadioButton
+                android:id="@+id/radio_english"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/english"
+                android:textSize="@dimen/_14sdp" />
+
+            <View
+                android:layout_width="100dp"
+                android:layout_height="0dp"></View>
+
+            <RadioButton
+                android:id="@+id/radio_portuguese"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/portuguese"
+                android:textSize="@dimen/_14sdp" />
+        </RadioGroup>
+
+        <com.coachmovecustomer.customviews.ButtonView
+            android:id="@+id/btn_update"
+            android:layout_width="200dp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_below="@+id/radioGroup"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_marginLeft="50sp"
+            android:layout_marginRight="50sp"
+            android:layout_marginTop="10dp"
+            android:background="@color/colorPrimary"
+            android:text="@string/updateLanguage"
+            android:textColor="@color/White"
+            android:textSize="@dimen/_14sdp" />
+
+
+    </LinearLayout>
+</RelativeLayout>
+
