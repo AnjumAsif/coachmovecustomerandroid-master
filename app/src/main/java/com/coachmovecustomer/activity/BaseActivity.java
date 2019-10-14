@@ -220,6 +220,9 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
             store.cleanPref();
             startActivity(new Intent(this, LoginSignActivity.class));
             finish();
+
+
+
         } else if (codee > 400 || codee < 499) {
             showToast(msg, false);
         } else if (codee == 500) {
