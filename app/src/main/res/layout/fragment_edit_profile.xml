@@ -510,6 +510,7 @@
                     android:layout_height="@dimen/_45sdp"
                     android:layout_marginBottom="@dimen/_15sdp"
                     android:layout_marginTop="@dimen/_30sdp"
+                    android:visibility="gone"
                     android:background="@drawable/round_button"
                     android:text="@string/update"
                     android:textColor="@color/White"

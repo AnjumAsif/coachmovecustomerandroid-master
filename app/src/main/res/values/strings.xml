@@ -479,6 +479,7 @@
     <string name="dietCanceled">Diet Canceled</string>
 
     <string name="uploadProfilePic">Please upload profile picture</string>
+    <string name="contact_url_ccheck">Please, before send us your question click here and have a look if your question is already answered on our website.</string>
 
 
 </resources>
