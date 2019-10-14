@@ -131,9 +131,7 @@ public class LoginFragment extends BaseFragment {
         jsonbody.put("token", baseActivity.store.getString(Const.FIREBASE_TOKEN));
         Call<JsonObject> call = baseActivity.apiInterface.postAPI(Const.LOGIN_API, jsonbody);
         baseActivity.apiHitAndHandle.makeApiCall(call, this);
-
         baseActivity.startProgressDialog();
-
     }
 
 
@@ -147,12 +145,9 @@ public class LoginFragment extends BaseFragment {
             String access_token = data.optString("access_token");
             Log.e("accessToken", access_token + "");
             baseActivity.store.saveString(Const.ACCESS_TOKEN, access_token);
-
             profileData = new Gson().fromJson(user.toString(), ProfileData.class);
             baseActivity.store.setProfileData(profileData);
             baseActivity.store.saveString(Const.LANGUAGE, baseActivity.store.getString(Const.LANGUAGE));
-
-
             if (profileData.isProfileCreated != null && profileData.isProfileCreated) {
                 Intent intent = new Intent(getActivity(), MainActivity.class);
                 baseActivity.startActivity(intent);
@@ -160,8 +155,6 @@ public class LoginFragment extends BaseFragment {
             } else {
                 gotoCreateProfile();
             }
-
-
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -169,17 +162,17 @@ public class LoginFragment extends BaseFragment {
 
 
     private void gotoCreateProfile() {
-   /*     Fragment createProfileFirstFragment = new CreateProfileFirstFragment();
-        Bundle bundle = new Bundle();
-        bundle.putString("language", languageType);
-        createProfileFirstFragment.setArguments(bundle);*/
+        /*
+           Fragment createProfileFirstFragment = new CreateProfileFirstFragment();
+           Bundle bundle = new Bundle();
+           bundle.putString("language", languageType);
+           createProfileFirstFragment.setArguments(bundle);
+       */
         baseActivity.getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.frameLayoutLogin,new CreateProfileFirstFragment())
                 .addToBackStack(null)
                 .commit();
-
-
     }
 
 }
