@@ -41,6 +41,8 @@ public class ApiHitAndHandle implements Callback<JsonObject> {
         gson = new Gson();
         mContext = context;
         return apiHitAndHandle;
+
+
     }
 
 
