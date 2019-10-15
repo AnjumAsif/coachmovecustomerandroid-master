@@ -52,7 +52,7 @@ public class EditProfileFragment extends BaseFragment implements ImageUtils.Imag
 
     ImageView profileImg, editProfile;
     EditText firstNameET, lastNameET, mobileNoET, cpfNoET, ageET, weightET, heightET, surgeriesET,
-            heartDiseasesET, jointET,medicationsET, otherET;
+            heartDiseasesET, jointET, medicationsET, otherET;
     Button update_btn;
     String[] gender_array;
     Spinner gender_sp, fitnessSP;
@@ -197,6 +197,35 @@ public class EditProfileFragment extends BaseFragment implements ImageUtils.Imag
         profileImg.setOnClickListener(this);
 //        editProfile.setOnClickListener(this);
 
+        //updated code
+        gender_sp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                selected_gender = gender_array[position];
+                if (isInstantChange)
+                    callForInstantChange();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+
+        fitnessSP.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                fitnessId = addFitnessList.get(fitnessSP.getSelectedItemPosition()).id;
+                fitnessLevelStr = addFitnessList.get(fitnessSP.getSelectedItemPosition()).level;
+                if (isInstantChange)
+                    callForInstantChange();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
 
     }
 
@@ -312,9 +341,9 @@ public class EditProfileFragment extends BaseFragment implements ImageUtils.Imag
     public void onItemSelected(AdapterView<?> parent, View view, int position,
                                long id) {
 
-        if (parent.getId() == R.id.gender_sp) {
+        /*if (parent.getId() == R.id.gender_sp) {
             selected_gender = gender_array[position];
-        }
+        }*/
     }
 
 
