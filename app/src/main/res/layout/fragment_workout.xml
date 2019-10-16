@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -172,6 +173,64 @@
                 android:textColorHint="@color/colorPrimary"
                 android:textSize="@dimen/_14sp"
                 android:theme="@style/editTextStyle" />
+            <com.coachmovecustomer.customviews.RegularTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:drawableLeft="@drawable/location"
+                android:drawablePadding="@dimen/_5sdp"
+                android:gravity="left|center"
+                android:text="@string/city"
+                android:textColor="@color/Black"
+                android:textSize="@dimen/_14sp" />
+
+            <com.coachmovecustomer.customviews.RegularEditText
+                android:id="@+id/cityEDT"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_17sdp"
+                android:layout_marginRight="@dimen/_17sdp"
+                android:gravity="left"
+                android:hint="@string/addCity"
+                android:imeOptions="actionDone"
+                android:inputType="textPostalAddress"
+                android:paddingBottom="@dimen/_15sdp"
+                android:singleLine="true"
+                android:enabled="false"
+                android:text="Curitiba"
+                android:textColor="@color/colorPrimary"
+                android:textColorHint="@color/colorPrimary"
+                android:textSize="@dimen/_14sp"
+                android:theme="@style/editTextStyle" />
+            <com.coachmovecustomer.customviews.RegularTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:drawableLeft="@drawable/location"
+                android:drawablePadding="@dimen/_5sdp"
+                android:gravity="left|center"
+                android:text="@string/state"
+                android:textColor="@color/Black"
+                android:textSize="@dimen/_14sp" />
+
+            <com.coachmovecustomer.customviews.RegularEditText
+                android:id="@+id/stateEDT"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_17sdp"
+                android:layout_marginRight="@dimen/_17sdp"
+                android:gravity="left"
+                android:hint="@string/addCity"
+                android:imeOptions="actionDone"
+                android:inputType="textPostalAddress"
+                android:paddingBottom="@dimen/_15sdp"
+                android:singleLine="true"
+                android:text="Paraná"
+                android:enabled="false"
+                android:textColor="@color/colorPrimary"
+                android:textColorHint="@color/colorPrimary"
+                android:textSize="@dimen/_14sp"
+                android:theme="@style/editTextStyle" />
 
             <com.coachmovecustomer.customviews.RegularTextView
                 android:layout_width="match_parent"
@@ -192,8 +251,10 @@
                 android:layout_marginRight="@dimen/_17sdp"
                 android:background="@drawable/spinner_background"
                 android:gravity="left"
+                android:overlapAnchor="false"
                 android:textColor="@color/colorPrimary"
-                android:textSize="@dimen/_14sdp" />
+                android:textSize="@dimen/_14sdp"
+                tools:targetApi="lollipop" />
 
             <View
                 android:id="@+id/view_mod"
@@ -227,6 +288,7 @@
                     android:drawableLeft="@drawable/add_people"
                     android:drawablePadding="@dimen/_5sdp"
                     android:gravity="center_vertical"
+                    android:visibility="gone"
                     android:text="@string/addPeople"
                     android:textColor="@color/Black"
                     android:textSize="@dimen/_12sp" />
@@ -286,8 +348,8 @@
                     android:id="@+id/top_RL"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/_5sdp"
-                    android:layout_centerHorizontal="true">
+                    android:layout_centerHorizontal="true"
+                    android:padding="@dimen/_5sdp">
 
 
                     <de.hdodenhof.circleimageview.CircleImageView
@@ -338,7 +400,9 @@
                 android:layout_marginRight="@dimen/_17sdp"
                 android:background="@drawable/spinner_background"
                 android:gravity="left"
-                android:textColor="@color/colorPrimary" />
+                android:overlapAnchor="false"
+                android:textColor="@color/colorPrimary"
+                tools:targetApi="lollipop" />
 
 
             <View
