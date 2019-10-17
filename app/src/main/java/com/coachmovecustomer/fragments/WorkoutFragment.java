@@ -1,11 +1,9 @@
 package com.coachmovecustomer.fragments;
 
 import android.app.DatePickerDialog;
-import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomSheetDialog;
 import android.support.v4.app.Fragment;
@@ -45,7 +43,6 @@ import com.coachmovecustomer.myInterface.CollageDialogCloseListener;
 import com.coachmovecustomer.myInterface.onClickDelete;
 import com.coachmovecustomer.utils.Const;
 import com.github.florent37.singledateandtimepicker.SingleDateAndTimePicker;
-import com.github.florent37.singledateandtimepicker.dialog.SingleDateAndTimePickerDialog;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
@@ -57,12 +54,10 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Locale;
 
+import cn.carbswang.android.numberpickerview.library.NumberPickerView;
 import de.hdodenhof.circleimageview.CircleImageView;
 import retrofit2.Call;
-
-import static android.support.constraint.Constraints.TAG;
 
 public class WorkoutFragment extends BaseFragment implements CollageDialogCloseListener {
 
@@ -74,7 +69,8 @@ public class WorkoutFragment extends BaseFragment implements CollageDialogCloseL
     Button searchBTN;
     RecyclerView addPeopleRV;
 
-    SingleDateAndTimePicker nowDatePicker;
+    //    SingleDateAndTimePicker nowDatePicker;
+    NumberPickerView nowDatePicker;
 
     EditText dateEDT, timeEDT, addressEDT, neighbourhoodEDT, peopleSP;
     //    ArrayList<AddModalitiesData> selectModalityList = new ArrayList<>();
@@ -290,7 +286,7 @@ public class WorkoutFragment extends BaseFragment implements CollageDialogCloseL
                     showToast(getResources().getString(R.string.selectModality), false);
                 }/* else if (selected_gender.equals(getResources().getString(R.string.selectGender))) {
                     showToast(getResources().getString(R.string.selectGender), false);
-                } */else {
+                } */ else {
                     searchCoachesMethod();
                 }
                 break;
@@ -481,16 +477,13 @@ public class WorkoutFragment extends BaseFragment implements CollageDialogCloseL
         }*/
         String gender;
 
-         if (selected_gender.equalsIgnoreCase(getResources().getString(R.string.selectGender))) {
-             gender = "";
-         }
-         else if (selected_gender.equalsIgnoreCase(getResources().getString(R.string.male))) {
+        if (selected_gender.equalsIgnoreCase(getResources().getString(R.string.selectGender))) {
+            gender = "";
+        } else if (selected_gender.equalsIgnoreCase(getResources().getString(R.string.male))) {
             gender = "M";
-         }
-        else {
+        } else {
             gender = "F";
         }
-
 
 
         Fragment fragmentGet = new NearbyCoachFragment();
@@ -504,8 +497,8 @@ public class WorkoutFragment extends BaseFragment implements CollageDialogCloseL
                 .commit();
 
 
-        baseActivity.log(date+"\n"+time
-                +"\n"+neighbourhood+"\n"+ addressEDT.getText().toString().trim()+"\n"+modalityID+"\n"+gender+"\n"+product + "");
+        baseActivity.log(date + "\n" + time
+                + "\n" + neighbourhood + "\n" + addressEDT.getText().toString().trim() + "\n" + modalityID + "\n" + gender + "\n" + product + "");
 
     }
 
@@ -517,11 +510,11 @@ public class WorkoutFragment extends BaseFragment implements CollageDialogCloseL
         bottomSheetDialog.setContentView(R.layout.testing_add_people);
         cancel_tv = bottomSheetDialog.findViewById(R.id.cancel_tv);
         done_tv = bottomSheetDialog.findViewById(R.id.done_tv);
-        nowDatePicker = (SingleDateAndTimePicker) bottomSheetDialog.findViewById(R.id.nowDatePicker);
+        nowDatePicker = bottomSheetDialog.findViewById(R.id.nowDatePicker);
         bottomSheetDialog.setCanceledOnTouchOutside(false);
 
-        nowDatePicker.setIsAmPm(false);
-        nowDatePicker.addOnDateChangedListener(new SingleDateAndTimePicker.OnDateChangedListener() {
+//        nowDatePicker.setIsAmPm(false);
+        /*nowDatePicker.addOnDateChangedListener(new SingleDateAndTimePicker.OnDateChangedListener() {
             @Override
             public void onDateChanged(String displayed, Date date) {
 
@@ -533,7 +526,7 @@ public class WorkoutFragment extends BaseFragment implements CollageDialogCloseL
                 timeEDT.setText(selectedTime + ":00");
                 dateIn12Hour = selectedTime;
 
-               /* String AM_PM;
+               *//* String AM_PM;
                 int newTime = Integer.parseInt(selectedTime);
 
                 if (newTime < 12) {
@@ -555,9 +548,9 @@ public class WorkoutFragment extends BaseFragment implements CollageDialogCloseL
                 timeEDT.setText(selectedTime);
                 dateIn12Hour = baseActivity.convertDateFormat(date + "", "E MMM dd HH:mm:ss Z yyyy", "HH");
 
-                log(timeEDT.getText().toString() + "\n" + dateIn12Hour);*/
+                log(timeEDT.getText().toString() + "\n" + dateIn12Hour);*//*
             }
-        });
+        });*/
 
 
         cancel_tv.setOnClickListener(new View.OnClickListener() {

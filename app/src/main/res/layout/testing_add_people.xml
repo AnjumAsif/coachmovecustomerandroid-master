@@ -38,7 +38,7 @@
     </LinearLayout>
 
 
-    <com.github.florent37.singledateandtimepicker.SingleDateAndTimePicker
+    <!--<com.github.florent37.singledateandtimepicker.SingleDateAndTimePicker
         android:id="@+id/nowDatePicker"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -49,5 +49,16 @@
         app:picker_textSize="@dimen/_26sdp"
         app:picker_displayMinutes="false"
         app:picker_visibleItemCount="4"
-        tools:layout_editor_absoluteX="26dp" />
+        tools:layout_editor_absoluteX="26dp" />-->
+    <cn.carbswang.android.numberpickerview.library.NumberPickerView
+        android:id="@+id/nowDatePicker"
+        style="@style/Shp.ScrollNumberPickerStyle"
+        android:layout_width="match_parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        android:layout_height="match_parent"
+        app:npv_MaxValue="23"
+        app:npv_MinValue="0"
+        app:npv_TextSizeNormal="@dimen/_25dp"
+        app:npv_TextSizeSelected="@dimen/_36sdp"
+        app:npv_TextArray="@array/shp_0to99" />
 </android.support.constraint.ConstraintLayout>
