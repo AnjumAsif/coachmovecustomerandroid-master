@@ -69,7 +69,7 @@ public class WorkoutFragment extends BaseFragment implements CollageDialogCloseL
     Button searchBTN;
     RecyclerView addPeopleRV;
 
-    //    SingleDateAndTimePicker nowDatePicker;
+    //        SingleDateAndTimePicker nowDatePicker;
     NumberPickerView nowDatePicker;
 
     EditText dateEDT, timeEDT, addressEDT, neighbourhoodEDT, peopleSP;
@@ -513,6 +513,47 @@ public class WorkoutFragment extends BaseFragment implements CollageDialogCloseL
         nowDatePicker = bottomSheetDialog.findViewById(R.id.nowDatePicker);
         bottomSheetDialog.setCanceledOnTouchOutside(false);
 
+
+        nowDatePicker.setOnValueChangedListener(new NumberPickerView.OnValueChangeListener() {
+            @Override
+            public void onValueChange(NumberPickerView picker, int oldVal, int newVal) {
+                Log.e("value selected change", picker.getContentByCurrValue());
+                selectedTime = picker.getContentByCurrValue();
+                int newTime = Integer.parseInt(selectedTime);
+                String AM_PM;
+
+                if (newTime < 12) {
+                    AM_PM = " AM";
+                    if (newTime == 0) {
+                        selectedTime = "12 AM";
+                    } else {
+                        selectedTime = newTime + AM_PM;
+                    }
+                    dateIn12Hour = selectedTime.replace(" AM", "");
+                } else if (newTime >= 13 && newTime < 24) {
+                    AM_PM = " PM";
+                    newTime = newTime - 12;
+                    selectedTime = newTime + AM_PM;
+                    dateIn12Hour = selectedTime.replace(" PM", "");
+                } else {
+                    selectedTime = "12 PM";
+                    dateIn12Hour = selectedTime.replace(" PM", "");
+                }
+                timeEDT.setText(selectedTime);
+                if (Integer.parseInt(dateIn12Hour) < 10)
+                    dateIn12Hour = "0" + dateIn12Hour;
+                else {
+                    if (selectedTime.contains(" PM"))
+                        dateIn12Hour = selectedTime.replace(" PM", "");
+                    else
+                        dateIn12Hour = selectedTime.replace(" AM", "");
+                }
+                Log.e("final date", dateIn12Hour);
+
+            }
+        });
+
+
 //        nowDatePicker.setIsAmPm(false);
         /*nowDatePicker.addOnDateChangedListener(new SingleDateAndTimePicker.OnDateChangedListener() {
             @Override
@@ -526,7 +567,7 @@ public class WorkoutFragment extends BaseFragment implements CollageDialogCloseL
                 timeEDT.setText(selectedTime + ":00");
                 dateIn12Hour = selectedTime;
 
-               *//* String AM_PM;
+               String AM_PM;
                 int newTime = Integer.parseInt(selectedTime);
 
                 if (newTime < 12) {
@@ -548,10 +589,10 @@ public class WorkoutFragment extends BaseFragment implements CollageDialogCloseL
                 timeEDT.setText(selectedTime);
                 dateIn12Hour = baseActivity.convertDateFormat(date + "", "E MMM dd HH:mm:ss Z yyyy", "HH");
 
-                log(timeEDT.getText().toString() + "\n" + dateIn12Hour);*//*
+                log(timeEDT.getText().toString() + "\n" + dateIn12Hour);
             }
-        });*/
-
+        });
+*/
 
         cancel_tv.setOnClickListener(new View.OnClickListener() {
             @Override
