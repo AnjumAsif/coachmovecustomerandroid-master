@@ -13,6 +13,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.coachmovecustomer.R;
 import com.coachmovecustomer.adapters.ChatAdapter;
@@ -51,6 +52,7 @@ public class SingleChatActivity extends BaseActivity {
     private ImageView backIV;
     private String headerTitle;
     private LinearLayoutManager mLayoutManager;
+    private boolean isUserBlock;
 
     private int count = 0;
     private String countString = "0";
@@ -113,8 +115,14 @@ public class SingleChatActivity extends BaseActivity {
                 if (messageEt.getText().toString().trim().length() == 0) {
                     showToast(getResources().getString(R.string.messageBox), false);
                 } else {
+
+//                    TODO need to sho alert in later
+                    if (isUserBlock){
+                        Toast.makeText(this, "your are blocked", Toast.LENGTH_SHORT).show();
+                    }
+                    else {
                     sendMessageApi();
-                    messageEt.setText("");
+                    messageEt.setText("");}
                 }
                 break;
             case R.id.backIV:
@@ -124,7 +132,8 @@ public class SingleChatActivity extends BaseActivity {
     }
 
     private void getMessagesApi(boolean isLoader, String pageNO) {
-        getMessageCall = apiInterface.getAPI("Bearer " + store.getString(Const.ACCESS_TOKEN), Const.MESSAGE_USER + profileData.id + "/messages?receiverId=" + receiverID + "&page=" + pageNO);
+        getMessageCall = apiInterface.getAPI("Bearer " + store.getString(Const.ACCESS_TOKEN),
+                Const.MESSAGE_USER + profileData.id + "/messages?receiverId=" + receiverID + "&page=" + pageNO);
 //        apiHitAndHandle.makeApiCall(getMessageCall, this);
         apiHitAndHandle.makeApiCall(getMessageCall, isLoader, this);
     }
@@ -164,6 +173,10 @@ public class SingleChatActivity extends BaseActivity {
             try {
                 chatData = new Gson().fromJson(resp, ChatData.class);
                 if (chatData != null && chatData.data.messagesList.size() > 0) {
+                    if (chatData.mBlock)
+                        isUserBlock = true;
+                    else
+                        isUserBlock = false;
 
                     noDataTV.setVisibility(View.GONE);
                     chatRV.setVisibility(View.VISIBLE);

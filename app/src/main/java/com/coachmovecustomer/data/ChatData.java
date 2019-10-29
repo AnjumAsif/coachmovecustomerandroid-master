@@ -20,6 +20,10 @@ public class ChatData {
     @Expose
     public String status;
 
+    @SerializedName("block")
+    @Expose
+    public boolean mBlock;
+
     public class Data {
         @SerializedName("messages")
         @Expose

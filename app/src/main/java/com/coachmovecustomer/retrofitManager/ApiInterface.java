@@ -55,6 +55,9 @@ public interface ApiInterface {
     @GET
     Call<JsonObject> getAPI(@Header("Authorization") String header, @Url String url);
 
+    @GET
+    Call<JsonObject> blockUser(@Header("Authorization") String header, @Url String url);
+
 
     @POST
     Call<JsonObject> postAPI(@Url String url, @Body HashMap<String, String> hashMap);

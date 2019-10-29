@@ -2,7 +2,8 @@ package com.coachmovecustomer.utils;
 
 public class Const {
     //New URL live
-    public static final String SERVER_REMOTE_URL = "http://104.248.216.183:8008/";
+    public static final String SERVER_REMOTE_URL = "http://192.168.43.138:8008/";
+//    public static final String SERVER_REMOTE_URL = "http://104.248.216.183:8008/";
     public static final String SERVER_IMAGE_URL = "http://104.248.216.183:8008/CoachMove/";
    /*//language live
     public static final String SERVER_REMOTE_URL = "http://192.168.2.85:8008/";
@@ -38,6 +39,7 @@ public class Const {
     public static final String UPDATE_DIET_API = url + "/diets/";
     public static final String MESSAGE_USER = url + "/user/";
     public static final String MESSAGE_LIST_API = "/recent/messsages";
+    public static final String BLOCK_USER = "/blockUser?";
     public static final String SEND_MESSAGE_API = url + "/messages";
     public static final String SCHEDULE_TERMS_API = url + "/customers/";
     public static final String LOGOUT_API = url + "/users/";

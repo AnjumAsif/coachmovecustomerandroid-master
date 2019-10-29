@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.coachmovecustomer.R;
 import com.coachmovecustomer.activity.MainActivity;
@@ -22,6 +23,7 @@ import com.coachmovecustomer.activity.SingleChatActivity;
 import com.coachmovecustomer.adapters.MessageAdapter;
 import com.coachmovecustomer.data.MessageData;
 import com.coachmovecustomer.data.ProfileData;
+import com.coachmovecustomer.myInterface.OnClickListener;
 import com.coachmovecustomer.myInterface.onClickAdd;
 import com.coachmovecustomer.utils.Const;
 import com.coachmovecustomer.utils.MyDividerItemDecoration;
@@ -89,7 +91,8 @@ public class MessageFragment extends BaseFragment {
 
     private void fetchMessageApi(boolean isLoader) {
 
-        Call<JsonObject> fetchMessageCall = baseActivity.apiInterface.getAPI("Bearer " + baseActivity.store.getString(Const.ACCESS_TOKEN), Const.MESSAGE_USER + profileData.id + Const.MESSAGE_LIST_API);
+        Call<JsonObject> fetchMessageCall = baseActivity.apiInterface.getAPI("Bearer " +
+                baseActivity.store.getString(Const.ACCESS_TOKEN), Const.MESSAGE_USER + profileData.id + Const.MESSAGE_LIST_API);
 //        baseActivity.apiHitAndHandle.makeApiCall(fetchMessageCall, this);
         baseActivity.apiHitAndHandle.makeApiCall(fetchMessageCall, isLoader, this);
 //        baseActivity.startProgressDialog();
@@ -117,7 +120,7 @@ public class MessageFragment extends BaseFragment {
                 noDataTV.setVisibility(View.VISIBLE);
                 messageRV.setVisibility(View.GONE);
             }
-            handler.postDelayed(timedTask, 10000);
+//            handler.postDelayed(timedTask, 10000);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -126,13 +129,43 @@ public class MessageFragment extends BaseFragment {
 
 
     private void prepareMessageData() {
-        msgsAdapter = new MessageAdapter(baseActivity, this, messageDataList);
+        msgsAdapter = new MessageAdapter(baseActivity, this, messageDataList, new OnClickListener() {
+            @Override
+            public void onClick(int pos) {
+//                if (messageDataList.get(pos).mBlock)
+//                    unBlockUserApiCall(pos);
+//                else
+                    blockUserApiCall(pos);
+            }
+        }
+        );
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         messageRV.setLayoutManager(mLayoutManager);
         messageRV.setItemAnimator(new DefaultItemAnimator());
         messageRV.addItemDecoration(new MyDividerItemDecoration(baseActivity, LinearLayoutManager.VERTICAL, 16));
         messageRV.setAdapter(msgsAdapter);
 
+    }
+
+    //TODO new API call
+    private void blockUserApiCall(int pos) {
+        Call<JsonObject> fetchMessageCall = baseActivity.apiInterface.blockUser("Bearer " +
+                        baseActivity.store.getString(Const.ACCESS_TOKEN),
+                /*Const.MESSAGE_USER + Const.BLOCK_USER*/"CoachMove/api/user/blockUser?" + "senderId=" +
+                        messageDataList.get(pos).message.receiver.id
+                        + "&" + "receiverId=" + messageDataList.get(pos).message.sender.id);
+//        baseActivity.apiHitAndHandle.makeApiCall(fetchMessageCall, this);
+        baseActivity.apiHitAndHandle.makeApiCall(fetchMessageCall, true, this);
+    }
+    //TODO new API call
+    private void unBlockUserApiCall(int pos) {
+        Call<JsonObject> fetchMessageCall = baseActivity.apiInterface.blockUser("Bearer " +
+                        baseActivity.store.getString(Const.ACCESS_TOKEN),
+                /*Const.MESSAGE_USER + Const.BLOCK_USER*/"CoachMove/api/user/unblockUser?" + "senderId=" +
+                        messageDataList.get(pos).message.receiver.id
+                        + "&" + "receiverId=" + messageDataList.get(pos).message.sender.id);
+//        baseActivity.apiHitAndHandle.makeApiCall(fetchMessageCall, this);
+        baseActivity.apiHitAndHandle.makeApiCall(fetchMessageCall, true, this);
     }
 
 
@@ -190,16 +223,16 @@ public class MessageFragment extends BaseFragment {
     }
 
 
-    Handler handler = new Handler();
-    Runnable timedTask =
-            new Runnable() {
-
-                @Override
-                public void run() {
-                    fetchMessageApi(false);
-                    msgsAdapter.notifyDataSetChanged();
-                }
-            };
+//    Handler handler = new Handler();
+//    Runnable timedTask =
+//            new Runnable() {
+//
+//                @Override
+//                public void run() {
+//                    fetchMessageApi(false);
+//                    msgsAdapter.notifyDataSetChanged();
+//                }
+//            };
 
     @Override
     public void onDestroy() {
@@ -211,7 +244,7 @@ public class MessageFragment extends BaseFragment {
     @Override
     public void onPause() {
         super.onPause();
-        handler.removeCallbacks(timedTask);
+//        handler.removeCallbacks(timedTask);
 
     }
 
