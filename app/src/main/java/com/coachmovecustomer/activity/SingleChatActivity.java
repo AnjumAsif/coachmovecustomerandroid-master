@@ -115,14 +115,15 @@ public class SingleChatActivity extends BaseActivity {
                 if (messageEt.getText().toString().trim().length() == 0) {
                     showToast(getResources().getString(R.string.messageBox), false);
                 } else {
-
-//                    TODO need to sho alert in later
+                    //comment for testing
+////                    TODO need to sho alert in later
                     if (isUserBlock){
                         Toast.makeText(this, "your are blocked", Toast.LENGTH_SHORT).show();
                     }
                     else {
                     sendMessageApi();
-                    messageEt.setText("");}
+                    messageEt.setText("");
+                }
                 }
                 break;
             case R.id.backIV:
@@ -173,6 +174,7 @@ public class SingleChatActivity extends BaseActivity {
             try {
                 chatData = new Gson().fromJson(resp, ChatData.class);
                 if (chatData != null && chatData.data.messagesList.size() > 0) {
+                    //comment for testing
                     if (chatData.mBlock)
                         isUserBlock = true;
                     else

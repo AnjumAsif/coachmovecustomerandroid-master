@@ -70,7 +70,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MyViewHo
     }
 
     @Override
-    public void onBindViewHolder(MessageAdapter.MyViewHolder holder, final int position) {
+    public void onBindViewHolder(final MessageAdapter.MyViewHolder holder, final int position) {
         MessageData messageData = messagesDataList.get(position);
         holder.nameTV.setText(messageData.receiver.firstName);
         String toServerUnicodeEncoded = StringEscapeUtils.unescapeJava(messageData.message.message);
@@ -99,7 +99,10 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MyViewHo
         holder.parentRL.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                openBlockDAlertDialog(position);
+                if (messagesDataList.get(position).mBlock)
+                openBlockDAlertDialog(position,"Do you want to unblock?","unblock");
+                else
+                openBlockDAlertDialog(position,"Do you want to block?","block");
                 return true;
             }
         });
@@ -126,12 +129,12 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MyViewHo
 
     }
 
-    private void openBlockDAlertDialog(final int position) {
+    private void openBlockDAlertDialog(final int position,String message,String buttonName) {
         AlertDialog.Builder mBuilder=new AlertDialog.Builder(baseActivity);
         //Setting message manually and performing action on button click
-        mBuilder.setMessage("Do you want to block ?")
+        mBuilder.setMessage(message)
                 .setCancelable(false)
-                .setPositiveButton("Block", new DialogInterface.OnClickListener() {
+                .setPositiveButton(buttonName, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         //TODO call block api here
                         mOnClickListener.onClick(position);

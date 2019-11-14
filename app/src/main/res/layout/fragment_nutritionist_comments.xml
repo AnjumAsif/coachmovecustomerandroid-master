@@ -93,6 +93,7 @@
                     android:layout_marginLeft="@dimen/_5sdp"
                     android:layout_toRightOf="@+id/ratingBar"
                     android:layout_weight="0.1"
+                    android:visibility="visible"
                     android:drawableLeft="@drawable/comment"
                     android:drawablePadding="@dimen/_5sdp"
                     android:gravity="center"

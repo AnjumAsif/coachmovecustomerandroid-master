@@ -173,6 +173,7 @@
                 android:textColorHint="@color/colorPrimary"
                 android:textSize="@dimen/_14sp"
                 android:theme="@style/editTextStyle" />
+
             <com.coachmovecustomer.customviews.RegularTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -190,18 +191,19 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/_17sdp"
                 android:layout_marginRight="@dimen/_17sdp"
+                android:enabled="false"
                 android:gravity="left"
                 android:hint="@string/addCity"
                 android:imeOptions="actionDone"
                 android:inputType="textPostalAddress"
                 android:paddingBottom="@dimen/_15sdp"
                 android:singleLine="true"
-                android:enabled="false"
                 android:text="Curitiba"
                 android:textColor="@color/colorPrimary"
                 android:textColorHint="@color/colorPrimary"
                 android:textSize="@dimen/_14sp"
                 android:theme="@style/editTextStyle" />
+
             <com.coachmovecustomer.customviews.RegularTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -219,6 +221,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/_17sdp"
                 android:layout_marginRight="@dimen/_17sdp"
+                android:enabled="false"
                 android:gravity="left"
                 android:hint="@string/addCity"
                 android:imeOptions="actionDone"
@@ -226,7 +229,6 @@
                 android:paddingBottom="@dimen/_15sdp"
                 android:singleLine="true"
                 android:text="Paraná"
-                android:enabled="false"
                 android:textColor="@color/colorPrimary"
                 android:textColorHint="@color/colorPrimary"
                 android:textSize="@dimen/_14sp"
@@ -288,10 +290,10 @@
                     android:drawableLeft="@drawable/add_people"
                     android:drawablePadding="@dimen/_5sdp"
                     android:gravity="center_vertical"
-                    android:visibility="gone"
                     android:text="@string/addPeople"
                     android:textColor="@color/Black"
-                    android:textSize="@dimen/_12sp" />
+                    android:textSize="@dimen/_12sp"
+                    android:visibility="gone" />
 
                 <!--android:layout_marginLeft="@dimen/_8sdp"-->
 
@@ -412,6 +414,42 @@
                 android:layout_marginLeft="@dimen/_17sdp"
                 android:layout_marginRight="@dimen/_17sdp"
                 android:background="@color/view_bac" />
+
+            <android.support.v7.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10dp"
+                android:layout_marginLeft="@dimen/_17sdp"
+                android:gravity="center"
+                android:layout_marginRight="@dimen/_17sdp">
+
+                <com.coachmovecustomer.customviews.RegularEditText
+                    android:id="@+id/refferalCode"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="left"
+                    android:hint="Referal Code"
+                    android:layout_marginRight="@dimen/_10dp"
+                    android:imeOptions="actionDone"
+                    android:inputType="textPostalAddress"
+                    android:paddingBottom="@dimen/_15sdp"
+                    android:singleLine="true"
+                    android:textColor="@color/colorPrimary"
+                    android:textColorHint="@color/colorPrimary"
+                    android:textSize="@dimen/_14sp"
+                    android:theme="@style/editTextStyle" />
+
+                <com.coachmovecustomer.customviews.ButtonView
+                    android:id="@+id/buttonApply"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textColor="@color/White"
+                    android:textSize="@dimen/_16sp"
+                    android:background="@drawable/round_button"
+                    android:text="Apply" />
+
+            </android.support.v7.widget.LinearLayoutCompat>
 
 
             <com.coachmovecustomer.customviews.ButtonView

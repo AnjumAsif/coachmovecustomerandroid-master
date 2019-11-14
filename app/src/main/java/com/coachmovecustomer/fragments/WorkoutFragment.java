@@ -10,6 +10,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -25,6 +26,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
@@ -66,13 +68,13 @@ public class WorkoutFragment extends BaseFragment implements CollageDialogCloseL
     TextView addPeopleTV, userName_TV;
     String[] gender_array;
     Spinner genderSP, modalitySP;
-    Button searchBTN;
+    Button searchBTN,buttonApply;
     RecyclerView addPeopleRV;
 
     //        SingleDateAndTimePicker nowDatePicker;
     NumberPickerView nowDatePicker;
 
-    EditText dateEDT, timeEDT, addressEDT, neighbourhoodEDT, peopleSP;
+    EditText dateEDT, timeEDT, addressEDT, neighbourhoodEDT, peopleSP,refferalCode;
     //    ArrayList<AddModalitiesData> selectModalityList = new ArrayList<>();
     ArrayList<String> selectModalityList = new ArrayList<>();
     AddedPeopleAdapter addedPeopleAdapter;
@@ -126,6 +128,8 @@ public class WorkoutFragment extends BaseFragment implements CollageDialogCloseL
         modalitySP = view.findViewById(R.id.modalitySP);
         peopleSP = view.findViewById(R.id.peopleSP);
         searchBTN = view.findViewById(R.id.searchBTN);
+        buttonApply = view.findViewById(R.id.buttonApply);
+        refferalCode = view.findViewById(R.id.refferalCode);
         addPeopleRV = view.findViewById(R.id.addPeopleRV);
 
 
@@ -156,6 +160,7 @@ public class WorkoutFragment extends BaseFragment implements CollageDialogCloseL
         searchBTN.setOnClickListener(this);
         addPeopleTV.setOnClickListener(this);
         timeEDT.setOnClickListener(this);
+        buttonApply.setOnClickListener(this);
 
 
         GenderAdapter genderAdapter = new GenderAdapter(baseActivity, gender_array);
@@ -288,6 +293,17 @@ public class WorkoutFragment extends BaseFragment implements CollageDialogCloseL
                     showToast(getResources().getString(R.string.selectGender), false);
                 } */ else {
                     searchCoachesMethod();
+                }
+                break;
+            case R.id.buttonApply:
+                if (TextUtils.isEmpty(refferalCode.getText().toString()))
+                    Toast.makeText(baseActivity, "Referal code can't empty.", Toast.LENGTH_SHORT).show();
+                else if (refferalCode.getText().toString().length()<6){
+                    Toast.makeText(baseActivity, "Invalid referal code.", Toast.LENGTH_SHORT).show();
+                    //code for referal code
+                }
+                else {
+
                 }
                 break;
 

@@ -29,7 +29,7 @@
             app:civ_border_width="@dimen/_2sdp" />
 
 
-        <com.coachmovecustomer.customviews.MediumTextView
+        <com.coachmovecustomer.customviews.BoldTextView
             android:id="@+id/userNameTV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -39,7 +39,7 @@
             android:textSize="@dimen/_16sp"
             tools:text="Olivia Smith " />
 
-        <com.coachmovecustomer.customviews.RegularTextView
+        <com.coachmovecustomer.customviews.BoldTextView
             android:id="@+id/userIDTV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -70,13 +70,13 @@
 
             <!--          style="?android:attr/ratingBarStyleSmall"-->
 
-            <com.coachmovecustomer.customviews.RegularTextView
+            <com.coachmovecustomer.customviews.BoldTextView
                 android:id="@+id/ratingText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="(4.5)"
-                android:textColor="@color/colorPrimary"
+                android:textColor="@color/colorHighlighter"
                 android:textSize="@dimen/_12sdp" />
 
         </LinearLayout>

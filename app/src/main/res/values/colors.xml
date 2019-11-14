@@ -14,7 +14,8 @@
     <color name="textGray">#9A9A9A</color>
     <color name="gray_background">#F3F3F3</color>
     <color name="view_bac">#D8D8D8</color>
-    <color name="colorHighlighter">#ccff00</color>
+<!--    <color name="colorHighlighter">#ccff00</color>-->
+    <color name="colorHighlighter">#20CF23</color>
 
 
 

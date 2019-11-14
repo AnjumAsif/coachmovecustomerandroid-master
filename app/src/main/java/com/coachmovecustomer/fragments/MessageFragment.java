@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -104,37 +105,50 @@ public class MessageFragment extends BaseFragment {
 //        baseActivity.stopProgressDialog();
         try {
             JSONObject jsonObject = new JSONObject(object.toString());
-            JSONObject data = jsonObject.getJSONObject("data");
-            messageDataList.clear();
-            JSONArray cards = data.getJSONArray("messages");
-            for (int i = 0; i < cards.length(); i++) {
-                Log.e("jsonMessages", cards.get(i).toString() + "");
-                MessageData messageData = new Gson().fromJson(cards.get(i).toString(), MessageData.class);
-                messageDataList.add(messageData);
-            }
-            /*     msgsAdapter.notifyDataSetChanged();*/
-            if (messageDataList.size() > 0) {
-                messageRV.setVisibility(View.VISIBLE);
-                noDataTV.setVisibility(View.GONE);
+            if (jsonObject.getString("message").equalsIgnoreCase("user is blocked") ||
+                    jsonObject.getString("message").equalsIgnoreCase("user is unblocked")) {
+                gotoMainFragment(new MessageFragment());
             } else {
-                noDataTV.setVisibility(View.VISIBLE);
-                messageRV.setVisibility(View.GONE);
+                JSONObject data = jsonObject.getJSONObject("data");
+                messageDataList.clear();
+                JSONArray cards = data.getJSONArray("messages");
+                for (int i = 0; i < cards.length(); i++) {
+                    Log.e("jsonMessages", cards.get(i).toString() + "");
+                    MessageData messageData = new Gson().fromJson(cards.get(i).toString(), MessageData.class);
+                    messageDataList.add(messageData);
+                }
+                /*     msgsAdapter.notifyDataSetChanged();*/
+                if (messageDataList.size() > 0) {
+                    messageRV.setVisibility(View.VISIBLE);
+                    noDataTV.setVisibility(View.GONE);
+                } else {
+                    noDataTV.setVisibility(View.VISIBLE);
+                    messageRV.setVisibility(View.GONE);
+                }
             }
 //            handler.postDelayed(timedTask, 10000);
+
+
         } catch (Exception e) {
             e.printStackTrace();
         }
 
     }
 
+    private void gotoMainFragment(Fragment targetFragment) {
+        getActivity().getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.frameLayoutMain, targetFragment)
+                .commit();
+    }
 
     private void prepareMessageData() {
         msgsAdapter = new MessageAdapter(baseActivity, this, messageDataList, new OnClickListener() {
             @Override
             public void onClick(int pos) {
-//                if (messageDataList.get(pos).mBlock)
-//                    unBlockUserApiCall(pos);
-//                else
+                if (messageDataList.get(pos).mBlock)
+                    unBlockUserApiCall(pos);
+                else
                     blockUserApiCall(pos);
             }
         }
@@ -157,6 +171,7 @@ public class MessageFragment extends BaseFragment {
 //        baseActivity.apiHitAndHandle.makeApiCall(fetchMessageCall, this);
         baseActivity.apiHitAndHandle.makeApiCall(fetchMessageCall, true, this);
     }
+
     //TODO new API call
     private void unBlockUserApiCall(int pos) {
         Call<JsonObject> fetchMessageCall = baseActivity.apiInterface.blockUser("Bearer " +
@@ -223,16 +238,16 @@ public class MessageFragment extends BaseFragment {
     }
 
 
-//    Handler handler = new Handler();
-//    Runnable timedTask =
-//            new Runnable() {
-//
-//                @Override
-//                public void run() {
-//                    fetchMessageApi(false);
-//                    msgsAdapter.notifyDataSetChanged();
-//                }
-//            };
+    Handler handler = new Handler();
+    Runnable timedTask =
+            new Runnable() {
+
+                @Override
+                public void run() {
+                    fetchMessageApi(false);
+                    msgsAdapter.notifyDataSetChanged();
+                }
+            };
 
     @Override
     public void onDestroy() {
