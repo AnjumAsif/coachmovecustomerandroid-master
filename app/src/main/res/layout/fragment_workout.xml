@@ -418,19 +418,19 @@
             <android.support.v7.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_10dp"
                 android:layout_marginLeft="@dimen/_17sdp"
-                android:gravity="center"
-                android:layout_marginRight="@dimen/_17sdp">
+                android:layout_marginTop="@dimen/_10dp"
+                android:layout_marginRight="@dimen/_17sdp"
+                android:gravity="center">
 
                 <com.coachmovecustomer.customviews.RegularEditText
                     android:id="@+id/refferalCode"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginRight="@dimen/_10dp"
                     android:layout_weight="1"
                     android:gravity="left"
                     android:hint="Referal Code"
-                    android:layout_marginRight="@dimen/_10dp"
                     android:imeOptions="actionDone"
                     android:inputType="textPostalAddress"
                     android:paddingBottom="@dimen/_15sdp"
@@ -444,10 +444,10 @@
                     android:id="@+id/buttonApply"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:textColor="@color/White"
-                    android:textSize="@dimen/_16sp"
                     android:background="@drawable/round_button"
-                    android:text="Apply" />
+                    android:text="Apply"
+                    android:textColor="@color/White"
+                    android:textSize="@dimen/_16sp" />
 
             </android.support.v7.widget.LinearLayoutCompat>
 

@@ -44,7 +44,6 @@ import com.coachmovecustomer.data.SearchWorkoutData;
 import com.coachmovecustomer.myInterface.CollageDialogCloseListener;
 import com.coachmovecustomer.myInterface.onClickDelete;
 import com.coachmovecustomer.utils.Const;
-import com.github.florent37.singledateandtimepicker.SingleDateAndTimePicker;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
@@ -68,35 +67,29 @@ public class WorkoutFragment extends BaseFragment implements CollageDialogCloseL
     TextView addPeopleTV, userName_TV;
     String[] gender_array;
     Spinner genderSP, modalitySP;
-    Button searchBTN,buttonApply;
+    Button searchBTN, buttonApply;
     RecyclerView addPeopleRV;
 
     //        SingleDateAndTimePicker nowDatePicker;
     NumberPickerView nowDatePicker;
 
-    EditText dateEDT, timeEDT, addressEDT, neighbourhoodEDT, peopleSP,refferalCode;
+    EditText dateEDT, timeEDT, addressEDT, neighbourhoodEDT, peopleSP, refferalCode;
     //    ArrayList<AddModalitiesData> selectModalityList = new ArrayList<>();
     ArrayList<String> selectModalityList = new ArrayList<>();
     AddedPeopleAdapter addedPeopleAdapter;
-
-
-    private ArrayList<PeopleForAddData> selectedPeopleDataList = new ArrayList<>();
     String selected_gender = "", selectModality = "", selectNeighbourhood = "";
-    private ArrayList<NeighbourhoodData> neighbourhoodLists = new ArrayList<>();
     String neighbourhood, modality;
+    String selectedTime;
+    AddedPeopleData addedPeopleData;
+    private ArrayList<PeopleForAddData> selectedPeopleDataList = new ArrayList<>();
+    private ArrayList<NeighbourhoodData> neighbourhoodLists = new ArrayList<>();
     private Call<JsonObject> getModalityCall;
     private AddModalitiesData modalitiesData;
-
     private ArrayList<PeopleForAddData> peopleDialog = new ArrayList<>();
     private String dateIn12Hour = "";
     private ArrayAdapter adapter;
-    String selectedTime;
     private int product;
     private String modalityPrice;
-
-    AddedPeopleData addedPeopleData;
-
-
     private ArrayList<AddModalitiesData> allModalitiesData = new ArrayList<>();
     private String modalityID;
     private ProfileData profileData = new ProfileData();
@@ -298,11 +291,10 @@ public class WorkoutFragment extends BaseFragment implements CollageDialogCloseL
             case R.id.buttonApply:
                 if (TextUtils.isEmpty(refferalCode.getText().toString()))
                     Toast.makeText(baseActivity, "Referal code can't empty.", Toast.LENGTH_SHORT).show();
-                else if (refferalCode.getText().toString().length()<6){
+                else if (refferalCode.getText().toString().length() < 6) {
                     Toast.makeText(baseActivity, "Invalid referal code.", Toast.LENGTH_SHORT).show();
                     //code for referal code
-                }
-                else {
+                } else {
 
                 }
                 break;
@@ -511,8 +503,6 @@ public class WorkoutFragment extends BaseFragment implements CollageDialogCloseL
                 .replace(R.id.frameLayoutMain, fragmentGet)
                 .addToBackStack(null)
                 .commit();
-
-
         baseActivity.log(date + "\n" + time
                 + "\n" + neighbourhood + "\n" + addressEDT.getText().toString().trim() + "\n" + modalityID + "\n" + gender + "\n" + product + "");
 

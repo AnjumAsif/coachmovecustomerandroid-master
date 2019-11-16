@@ -63,9 +63,9 @@ public class SignUpFragment extends BaseFragment {
         signUp_btn.setOnClickListener(this);
         signInTV.setOnClickListener(this);
 
-        emailEDT.setFilters(baseActivity.setFiltersET(30));
-        passwordEDT.setFilters(baseActivity.setFiltersET(30));
-        confirm_passwordEDT.setFilters(baseActivity.setFiltersET(30));
+        emailEDT.setFilters(baseActivity.setFiltersET(40));
+        passwordEDT.setFilters(baseActivity.setFiltersET(40));
+        confirm_passwordEDT.setFilters(baseActivity.setFiltersET(40));
 
         android_deviceID = Settings.Secure.getString(getContext().getContentResolver(),
                 Settings.Secure.ANDROID_ID);

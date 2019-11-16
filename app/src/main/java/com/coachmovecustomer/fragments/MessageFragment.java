@@ -16,7 +16,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.coachmovecustomer.R;
 import com.coachmovecustomer.activity.MainActivity;
@@ -43,10 +42,20 @@ public class MessageFragment extends BaseFragment {
 
 
     RecyclerView messageRV;
-    private ArrayList<MessageData> messageDataList = new ArrayList<>();
     MessageAdapter msgsAdapter;
     TextView noDataTV;
     ProfileData profileData = new ProfileData();
+    Handler handler = new Handler();
+    Runnable timedTask =
+            new Runnable() {
+
+                @Override
+                public void run() {
+                    fetchMessageApi(false);
+                    msgsAdapter.notifyDataSetChanged();
+                }
+            };
+    private ArrayList<MessageData> messageDataList = new ArrayList<>();
     private Timer timer;
 
     @Override
@@ -69,7 +78,6 @@ public class MessageFragment extends BaseFragment {
 
     }
 
-
     private void initUI(View view) {
 
         messageRV = view.findViewById(R.id.messageRV);
@@ -81,14 +89,12 @@ public class MessageFragment extends BaseFragment {
 
     }
 
-
     @Override
     public void onResume() {
         super.onResume();
         fetchMessageApi(true);
         Log.e("response", "onResume");
     }
-
 
     private void fetchMessageApi(boolean isLoader) {
 
@@ -98,7 +104,6 @@ public class MessageFragment extends BaseFragment {
         baseActivity.apiHitAndHandle.makeApiCall(fetchMessageCall, isLoader, this);
 //        baseActivity.startProgressDialog();
     }
-
 
     @Override
     public void onSuccess(Call call, Object object, String resp) {
@@ -183,7 +188,6 @@ public class MessageFragment extends BaseFragment {
         baseActivity.apiHitAndHandle.makeApiCall(fetchMessageCall, true, this);
     }
 
-
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         menu.clear();
@@ -216,7 +220,6 @@ public class MessageFragment extends BaseFragment {
         });
     }
 
-
     public void gotoChatFragment(int pos) {
 
         Intent chat = new Intent(baseActivity, SingleChatActivity.class);
@@ -236,18 +239,6 @@ public class MessageFragment extends BaseFragment {
                 .commit();*/
 
     }
-
-
-    Handler handler = new Handler();
-    Runnable timedTask =
-            new Runnable() {
-
-                @Override
-                public void run() {
-                    fetchMessageApi(false);
-                    msgsAdapter.notifyDataSetChanged();
-                }
-            };
 
     @Override
     public void onDestroy() {

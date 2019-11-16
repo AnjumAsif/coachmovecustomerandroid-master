@@ -73,6 +73,66 @@
                 android:textColorHint="@color/colorPrimary"
                 android:textSize="@dimen/_14sp"
                 android:theme="@style/editTextStyle" />
+            <com.coachmovecustomer.customviews.RegularTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:drawableLeft="@drawable/location"
+                android:drawablePadding="@dimen/_5sdp"
+                android:gravity="left|center"
+                android:text="@string/city"
+                android:textColor="@color/Black"
+                android:textSize="@dimen/_14sp" />
+
+            <com.coachmovecustomer.customviews.RegularEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_14sdp"
+                android:layout_marginRight="@dimen/_14sdp"
+                android:clickable="false"
+                android:focusable="false"
+                android:enabled="false"
+                android:focusableInTouchMode="false"
+                android:gravity="left"
+                android:hint="Curitiba"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:nextFocusForward="@+id/routineET"
+                android:paddingBottom="@dimen/_15sdp"
+                android:textColor="@color/colorPrimary"
+                android:textColorHint="@color/colorPrimary"
+                android:textSize="@dimen/_14sp"
+                android:theme="@style/editTextStyle" />
+            <com.coachmovecustomer.customviews.RegularTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:drawableLeft="@drawable/location"
+                android:drawablePadding="@dimen/_5sdp"
+                android:gravity="left|center"
+                android:text="@string/state"
+                android:textColor="@color/Black"
+                android:textSize="@dimen/_14sp" />
+
+            <com.coachmovecustomer.customviews.RegularEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_14sdp"
+                android:layout_marginRight="@dimen/_14sdp"
+                android:clickable="false"
+                android:focusable="false"
+                android:enabled="false"
+                android:focusableInTouchMode="false"
+                android:gravity="left"
+                android:hint="Paraná"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:nextFocusForward="@+id/routineET"
+                android:paddingBottom="@dimen/_15sdp"
+                android:textColor="@color/colorPrimary"
+                android:textColorHint="@color/colorPrimary"
+                android:textSize="@dimen/_14sp"
+                android:theme="@style/editTextStyle" />
 
 
             <com.coachmovecustomer.customviews.RegularTextView

@@ -93,13 +93,13 @@
                 android:layout_marginTop="@dimen/_5sdp"
                 android:layout_toRightOf="@+id/ratingBar"
                 android:layout_weight="0.1"
-                android:visibility="gone"
                 android:drawableLeft="@drawable/comment"
                 android:drawablePadding="@dimen/_5sdp"
                 android:gravity="center"
                 android:text="@string/comments"
                 android:textColor="@color/Gray"
-                android:textSize="@dimen/_12sp" />
+                android:textSize="@dimen/_12sp"
+                android:visibility="gone" />
 
 
             <com.coachmovecustomer.customviews.RegularTextView

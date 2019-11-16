@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
@@ -21,13 +20,10 @@ import com.coachmovecustomer.fragments.MessageFragment;
 import com.coachmovecustomer.myInterface.OnClickListener;
 import com.coachmovecustomer.myInterface.onClickAdd;
 import com.coachmovecustomer.utils.Const;
-import com.google.gson.JsonObject;
 
 import org.apache.commons.lang3.StringEscapeUtils;
 
 import java.util.ArrayList;
-
-import retrofit2.Call;
 
 public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MyViewHolder> {
 
@@ -37,30 +33,14 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MyViewHo
     private ArrayList<MessageData> messagesDataList = new ArrayList<>();
 
     private OnClickListener mOnClickListener;
+
     public MessageAdapter(BaseActivity baseActivity, MessageFragment messagesFragment
             , ArrayList<MessageData> messagesDataList, OnClickListener onClickListener) {
         this.baseActivity = baseActivity;
         this.messagesDataList = messagesDataList;
         this.fragment = messagesFragment;
-        mOnClickListener=onClickListener;
+        mOnClickListener = onClickListener;
     }
-
-
-    public class MyViewHolder extends RecyclerView.ViewHolder {
-        private TextView nameTV, msgTV, timeTV;
-        private ImageView userImage_IV;
-        private RelativeLayout parentRL;
-
-        public MyViewHolder(View view) {
-            super(view);
-            userImage_IV = view.findViewById(R.id.userImage_IV);
-            nameTV = view.findViewById(R.id.nameTV);
-            msgTV = view.findViewById(R.id.msgTV);
-            timeTV = view.findViewById(R.id.timeTV);
-            parentRL = view.findViewById(R.id.parentRL);
-        }
-    }
-
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -100,9 +80,9 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MyViewHo
             @Override
             public boolean onLongClick(View v) {
                 if (messagesDataList.get(position).mBlock)
-                openBlockDAlertDialog(position,"Do you want to unblock?","unblock");
+                    openBlockDAlertDialog(position, "Deseja desbloquear esta pessoa?", "desbloquear");
                 else
-                openBlockDAlertDialog(position,"Do you want to block?","block");
+                    openBlockDAlertDialog(position, "Você gostertaria de bloquear esta pessoa?", "bloquear");
                 return true;
             }
         });
@@ -113,7 +93,6 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MyViewHo
                 int pos = (int) view.getTag();
                 if (clickChatOpen != null) {
                     clickChatOpen.onClick(messagesDataList.get(pos), pos);
-
                 }
 
 //                ((MessageFragment) baseActivity).gotoChatFragment(pos);
@@ -129,18 +108,17 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MyViewHo
 
     }
 
-    private void openBlockDAlertDialog(final int position,String message,String buttonName) {
-        AlertDialog.Builder mBuilder=new AlertDialog.Builder(baseActivity);
+    private void openBlockDAlertDialog(final int position, String message, String buttonName) {
+        AlertDialog.Builder mBuilder = new AlertDialog.Builder(baseActivity);
         //Setting message manually and performing action on button click
         mBuilder.setMessage(message)
                 .setCancelable(false)
                 .setPositiveButton(buttonName, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        //TODO call block api here
                         mOnClickListener.onClick(position);
-                        }
+                    }
                 })
-                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                .setNegativeButton("não", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         //  Action for 'NO' Button
                         dialog.cancel();
@@ -149,20 +127,32 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.MyViewHo
         //Creating dialog box
         AlertDialog alert = mBuilder.create();
         //Setting the title manually
-        alert.setTitle("Alert");
+        alert.setTitle("Alerta");
         alert.show();
 
     }
-
-
 
     @Override
     public int getItemCount() {
         return messagesDataList.size();
     }
 
-
     public void setOnChatClick(onClickAdd click) {
         this.clickChatOpen = click;
+    }
+
+    public class MyViewHolder extends RecyclerView.ViewHolder {
+        private TextView nameTV, msgTV, timeTV;
+        private ImageView userImage_IV;
+        private RelativeLayout parentRL;
+
+        public MyViewHolder(View view) {
+            super(view);
+            userImage_IV = view.findViewById(R.id.userImage_IV);
+            nameTV = view.findViewById(R.id.nameTV);
+            msgTV = view.findViewById(R.id.msgTV);
+            timeTV = view.findViewById(R.id.timeTV);
+            parentRL = view.findViewById(R.id.parentRL);
+        }
     }
 }

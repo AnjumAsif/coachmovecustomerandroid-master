@@ -100,6 +100,14 @@ public class EditProfileFragment extends BaseFragment implements ImageUtils.Imag
         medicationsET.addTextChangedListener(this);
         otherET.addTextChangedListener(this);
 
+//        firstNameET.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+//            @Override
+//            public void onFocusChange(View v, boolean hasFocus) {
+//                if (!hasFocus)
+//                    callForInstantChange();
+//            }
+//        });
+
     }
 
     private void initUI(View view) {
