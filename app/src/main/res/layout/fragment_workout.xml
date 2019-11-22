@@ -430,7 +430,7 @@
                     android:layout_marginRight="@dimen/_10dp"
                     android:layout_weight="1"
                     android:gravity="left"
-                    android:hint="Referal Code"
+                    android:hint="Código de Referencia"
                     android:imeOptions="actionDone"
                     android:inputType="textPostalAddress"
                     android:paddingBottom="@dimen/_15sdp"
@@ -443,11 +443,13 @@
                 <com.coachmovecustomer.customviews.ButtonView
                     android:id="@+id/buttonApply"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="@dimen/_30sdp"
                     android:background="@drawable/round_button"
-                    android:text="Apply"
+                    android:text="Aplicar"
+                    android:paddingStart="@dimen/_10dp"
+                    android:paddingEnd="@dimen/_10dp"
                     android:textColor="@color/White"
-                    android:textSize="@dimen/_16sp" />
+                    android:textSize="@dimen/_14sp" />
 
             </android.support.v7.widget.LinearLayoutCompat>
 

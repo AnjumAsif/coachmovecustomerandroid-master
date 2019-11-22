@@ -6,7 +6,7 @@ android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.coachmovecustomer"
-        minSdkVersion 16
+        minSdkVersion 19
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
@@ -55,9 +55,9 @@ dependencies {
     implementation 'com.crashlytics.sdk.android:crashlytics:2.9.9'
     //add dependency for number picker
     implementation 'cn.carbswang.android:NumberPickerView:1.2.0'
+    implementation project(path: ':fancywalkthroughlib')
+    //walk through
+//    implementation 'com.github.Shashank02051997:FancyWalkthrough-Android:2.1'
 
 
 }
-
-
-

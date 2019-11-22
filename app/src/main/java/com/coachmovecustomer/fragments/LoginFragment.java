@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.coachmovecustomer.R;
+import com.coachmovecustomer.activity.IntroActivity;
 import com.coachmovecustomer.activity.LoginSignActivity;
 import com.coachmovecustomer.activity.MainActivity;
 import com.coachmovecustomer.data.ProfileData;
@@ -149,9 +150,16 @@ public class LoginFragment extends BaseFragment {
             baseActivity.store.setProfileData(profileData);
             baseActivity.store.saveString(Const.LANGUAGE, baseActivity.store.getString(Const.LANGUAGE));
             if (profileData.isProfileCreated != null && profileData.isProfileCreated) {
-                Intent intent = new Intent(getActivity(), MainActivity.class);
-                baseActivity.startActivity(intent);
-                baseActivity.finish();
+                /*code done by Asif*/
+                if (baseActivity.store.getString(Const.FIRST_TIME_VISIT) != null && baseActivity.store.getString(Const.FIRST_TIME_VISIT).equals("1")) {
+                    Intent intent = new Intent(getActivity(), MainActivity.class);
+                    baseActivity.startActivity(intent);
+                    baseActivity.finish();
+                } else {
+                    Intent intent = new Intent(getActivity(), IntroActivity.class);
+                    baseActivity.startActivity(intent);
+                    baseActivity.finish();
+                }
             } else {
                 gotoCreateProfile();
             }
@@ -170,7 +178,7 @@ public class LoginFragment extends BaseFragment {
        */
         baseActivity.getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.frameLayoutLogin,new CreateProfileFirstFragment())
+                .replace(R.id.frameLayoutLogin, new CreateProfileFirstFragment())
                 .addToBackStack(null)
                 .commit();
     }

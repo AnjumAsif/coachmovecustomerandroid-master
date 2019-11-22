@@ -24,6 +24,7 @@ public class Const {
     public static final String LANGUAGE = "language";
     public static final String LANG_CREATE_TIME = "lang_create_time";
     public static final String MODALITY = "selected_modality";
+    public static final String FIRST_TIME_VISIT = "first_time_visit";
 
     /*---------------------- API CONSTANTS-----------------------------------------*/
 

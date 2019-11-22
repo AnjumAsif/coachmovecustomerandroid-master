@@ -486,6 +486,7 @@
     <string name="contact_url_ccheck">Antes de nos enviar sua pergunta, clique aqui e veja se sua pergunta já foi respondida em nosso site</string>
     <string name="city">Cidade</string>
     <string name="state">Estado</string>
+    <string name="confirm">confirme</string>
 
     <string-array name="shp_0to99">
         <item>00</item>

@@ -384,6 +384,7 @@
     <string name="received">Received</string>
     <string name="give_feedback">Give Feedback</string>
     <string name="confirmation">Confirmation</string>
+    <string name="confirm">confirm</string>
     <string name="sureConfirm">Are you sure you want to Confirm?</string>
     <string name="done">Done</string>
     <string name="cancel">Cancel</string>
@@ -461,11 +462,8 @@
     <string name="validThru">Valid Thru</string>
 
 
-
     <string name="enterNeighbourhood">Enter Neighbourhood</string>
     <string name="invalidExpiry">Invalid expiry date</string>
-
-
 
 
     <string name="itsOk">Yes</string>

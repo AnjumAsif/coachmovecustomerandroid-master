@@ -13,16 +13,19 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.coachmovecustomer.R;
+import com.coachmovecustomer.activity.IntroActivity;
 import com.coachmovecustomer.activity.LoginSignActivity;
 import com.coachmovecustomer.activity.MainActivity;
 import com.coachmovecustomer.data.ProfileData;
 import com.coachmovecustomer.utils.Const;
+import com.coachmovecustomer.utils.PrefStore;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.lang.invoke.ConstantCallSite;
 import java.util.HashMap;
 
 import okhttp3.MediaType;
@@ -37,6 +40,7 @@ public class CreateProfileSecondFragment extends BaseFragment {
     Button createProfile_btn;
     ProfileData profileData = new ProfileData();
     String fitnessID, fitnessLevelStr;
+    private PrefStore mPrefStore;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -195,10 +199,14 @@ public class CreateProfileSecondFragment extends BaseFragment {
             baseActivity.store.setProfileData(profileData);
 
             baseActivity.store.saveString(Const.LANGUAGE, baseActivity.store.getString(Const.LANGUAGE));
-
-            Intent intent = new Intent(baseActivity, MainActivity.class);
+            /*code for first time user*/
+            Intent intent = new Intent(baseActivity, IntroActivity.class);
             startActivity(intent);
             baseActivity.finish();
+
+            /*Intent intent = new Intent(baseActivity, MainActivity.class);
+            startActivity(intent);
+            baseActivity.finish();*/
             /*getFragmentManager()
                     .beginTransaction()
                     .replace(R.id.frameLayoutLogin, new HomeFragment())

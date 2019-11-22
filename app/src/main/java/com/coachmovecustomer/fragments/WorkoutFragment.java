@@ -290,9 +290,9 @@ public class WorkoutFragment extends BaseFragment implements CollageDialogCloseL
                 break;
             case R.id.buttonApply:
                 if (TextUtils.isEmpty(refferalCode.getText().toString()))
-                    Toast.makeText(baseActivity, "Referal code can't empty.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(baseActivity, "O código de referência não pode ser vazio.", Toast.LENGTH_SHORT).show();
                 else if (refferalCode.getText().toString().length() < 6) {
-                    Toast.makeText(baseActivity, "Invalid referal code.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(baseActivity, "Código de referência inválido.", Toast.LENGTH_SHORT).show();
                     //code for referal code
                 } else {
 
