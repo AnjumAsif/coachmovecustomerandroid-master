@@ -103,7 +103,8 @@ public class ScheduleFragment extends BaseFragment {
     }
 
     private void fetchScheduleApi(String selectedSchedule) {
-        fetchScheduleCall = baseActivity.apiInterface.getAPI("Bearer " + baseActivity.store.getString(Const.ACCESS_TOKEN), Const.SCHEDULE_TERMS_API + profileData.id + "/workouts?term=" + selectedSchedule);
+        fetchScheduleCall = baseActivity.apiInterface.getAPI("Bearer " + baseActivity.store.getString(Const.ACCESS_TOKEN),
+                Const.SCHEDULE_TERMS_API + profileData.id + "/workouts?term=" + selectedSchedule);
         baseActivity.apiHitAndHandle.makeApiCall(fetchScheduleCall, this);
         baseActivity.startProgressDialog();
     }

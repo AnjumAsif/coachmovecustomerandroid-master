@@ -118,6 +118,7 @@
     <string name="coachGender">Gender of Coach</string>
     <string name="search">Search</string>
     <string name="searchNameId">Enter name or id of the coach</string>
+    <string name="searchNameIdMsg">Enter name or id of the user</string>
 
 
     <!--Feedback Screen-->
@@ -583,5 +584,8 @@
         <item>98</item>
         <item>99</item>
     </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

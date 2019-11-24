@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -43,6 +44,7 @@ public class MessageFragment extends BaseFragment {
 
     RecyclerView messageRV;
     MessageAdapter msgsAdapter;
+    FloatingActionButton mFloatingButton;
     TextView noDataTV;
     ProfileData profileData = new ProfileData();
     Handler handler = new Handler();
@@ -82,9 +84,18 @@ public class MessageFragment extends BaseFragment {
 
         messageRV = view.findViewById(R.id.messageRV);
         noDataTV = view.findViewById(R.id.noDataTV);
+        mFloatingButton = view.findViewById(R.id.floatingSearch);
 
         prepareMessageData();
         onClickRecycler();
+
+        //click on view
+        mFloatingButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gotoMainFragment(new SearchChatUserFragment());
+            }
+        });
 
 
     }
@@ -131,7 +142,7 @@ public class MessageFragment extends BaseFragment {
                     messageRV.setVisibility(View.GONE);
                 }
             }
-//            handler.postDelayed(timedTask, 10000);
+            handler.postDelayed(timedTask, 10000);
 
 
         } catch (Exception e) {
@@ -250,7 +261,7 @@ public class MessageFragment extends BaseFragment {
     @Override
     public void onPause() {
         super.onPause();
-//        handler.removeCallbacks(timedTask);
+        handler.removeCallbacks(timedTask);
 
     }
 

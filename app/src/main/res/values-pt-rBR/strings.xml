@@ -120,6 +120,8 @@
     <string name="coachGender">Gênero do coach</string>
     <string name="search">Procurar</string>
     <string name="searchNameId">Coloque o nome ou número de identificação do coach</string>
+    <string name="searchNameIdMsg">Coloque o nome ou número de identificação do user</string>
+
 
 
     <!--Feedback Screen-->

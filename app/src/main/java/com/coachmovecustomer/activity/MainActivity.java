@@ -9,6 +9,7 @@ import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v4.content.res.ResourcesCompat;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
@@ -32,6 +33,7 @@ import com.coachmovecustomer.fragments.MessageFragment;
 import com.coachmovecustomer.fragments.NotificationFragment;
 import com.coachmovecustomer.fragments.ProfileFragment;
 import com.coachmovecustomer.fragments.ScheduleFragment;
+import com.coachmovecustomer.fragments.SearchChatUserFragment;
 import com.coachmovecustomer.fragments.SettingsFragment;
 import com.coachmovecustomer.fragments.WorkoutFragment;
 import com.coachmovecustomer.utils.Const;
@@ -246,13 +248,20 @@ public class MainActivity extends BaseActivity {
                 fragment instanceof WorkoutFragment ||
                 fragment instanceof ScheduleFragment ||
                 fragment instanceof MessageFragment ||
+                fragment instanceof SearchChatUserFragment ||
                 fragment instanceof AddDietFragment) {
             bottom_layout.setVisibility(View.VISIBLE);
             if (getSupportActionBar() != null) {
                 getSupportActionBar().setDisplayHomeAsUpEnabled(false);
                 getSupportActionBar().setDisplayShowHomeEnabled(false);
-                Drawable drawable = ResourcesCompat.getDrawable(getResources(), R.drawable.home, getTheme());
-                toolbarTB.setNavigationIcon(drawable);
+                if (!(fragment instanceof SearchChatUserFragment)) {
+                    Drawable drawable = ResourcesCompat.getDrawable(getResources(), R.drawable.home, getTheme());
+                    toolbarTB.setNavigationIcon(drawable);
+                }
+                else {
+                    Drawable drawable = ResourcesCompat.getDrawable(getResources(), R.drawable.back, getTheme());
+                    toolbarTB.setNavigationIcon(drawable);
+                }
             }
 
         } else if (fragment instanceof SettingsFragment) {
@@ -296,6 +305,10 @@ public class MainActivity extends BaseActivity {
 
                     unseleted();
                     //gotoSettings
+                } else if (fragment instanceof SearchChatUserFragment) {
+                    getSupportFragmentManager().beginTransaction().
+                            replace(R.id.frameLayoutMain, new MessageFragment())
+                            .addToBackStack(null).commit();
                 } else
                     onBackPressed();
                 break;
