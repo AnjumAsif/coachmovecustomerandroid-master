@@ -254,6 +254,8 @@ public class MainActivity extends BaseActivity {
             if (getSupportActionBar() != null) {
                 getSupportActionBar().setDisplayHomeAsUpEnabled(false);
                 getSupportActionBar().setDisplayShowHomeEnabled(false);
+
+
                 if (!(fragment instanceof SearchChatUserFragment)) {
                     Drawable drawable = ResourcesCompat.getDrawable(getResources(), R.drawable.home, getTheme());
                     toolbarTB.setNavigationIcon(drawable);
