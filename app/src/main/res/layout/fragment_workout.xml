@@ -293,7 +293,7 @@
                     android:text="@string/addPeople"
                     android:textColor="@color/Black"
                     android:textSize="@dimen/_12sp"
-                    android:visibility="gone" />
+                    android:visibility="visible" />
 
                 <!--android:layout_marginLeft="@dimen/_8sdp"-->
 
