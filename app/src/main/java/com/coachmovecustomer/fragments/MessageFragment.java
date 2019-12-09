@@ -119,6 +119,9 @@ public class MessageFragment extends BaseFragment {
     @Override
     public void onSuccess(Call call, Object object, String resp) {
 //        baseActivity.stopProgressDialog();
+
+
+
         try {
             JSONObject jsonObject = new JSONObject(object.toString());
             if (jsonObject.getString("message").equalsIgnoreCase("user is blocked") ||
