@@ -22,27 +22,31 @@ public class IntroActivity extends FancyWalkthroughActivity {
         mPrefStore = new PrefStore(this);
         FancyWalkthroughCard fancyWalkThroughCard1 =
                 new FancyWalkthroughCard("Duração",
-                        "A duração de todas as modalidades é de 50 minutos.",
+                        "O tempo de duração de todas as modalidades é de 50 minutos.",
                         R.drawable.co_logo);
         FancyWalkthroughCard fancyWalkThroughCard2 =
                 new FancyWalkthroughCard("Número do cliente",
-                        "O número máximo de clientes por classe é 1 para Nutrição e 6 para Atividade Física.",
+                        "A quantidade máxima de clientes por aula é de 1 para Nutrição e 6 para atividade física.",
                         R.drawable.co_logo);
         FancyWalkthroughCard fancyWalkThroughCard3 =
                 new FancyWalkthroughCard("Contratar Treinador",
-                        "É proibido contratar treinadores fora do aplicativo, os treinadores podem ser responsabilizados.",
+                        "É proibido contratar os Coachs por fora do App, os Coachs podem responder judicialmente por isto.",
                         R.drawable.co_logo);
         FancyWalkthroughCard fancyWalkThroughCard4 =
                 new FancyWalkthroughCard("Consciência",
-                        "Ao clicar aqui, você está ciente de sua saúde e se considera apto para as atividades que escolher.",
+                        "Ao clicar aqui você está ciente do seu estado de saúde e se considera apto para as atividades que assim escolher.",
                         R.drawable.co_logo);
         FancyWalkthroughCard fancyWalkThroughCard5 =
                 new FancyWalkthroughCard("Regra do Horário de Funcionamento",
-                        "Verifique o horário de funcionamento do site de treinamento e, se você for treinar na academia, sem cobrança de taxas, se for cobrado, é de responsabilidade do cliente pagar",
+                        "Verifique os horários de funcionamento do local de treinamento e caso vá treinar em academias se não serão cobradas taxas, se caso forem cobradas é de responsabilidade do cliente o pagamento.",
                         R.drawable.co_logo);
         FancyWalkthroughCard fancyWalkThroughCard6 =
                 new FancyWalkthroughCard("Consulta do plano",
-                        "O valor cobrado pela consulta nutricional inclui 50 minutos presenciais para anamnese e envio de um plano de refeições. ",
+                        "O valor cobrado pela consulta nutricional está incluso 50 minutos presenciais para a anamnese e o envio de um plano alimentar.",
+                        R.drawable.co_logo);
+FancyWalkthroughCard fancyWalkThroughCard7 =
+                new FancyWalkthroughCard("Reagendar",
+                        "Se o profissional não aparecer para o treino/dieta, por favor utilize o chat e marque uma nova aula, não tendo necessidade de agendar novamente pelo app. ",
                         R.drawable.co_logo);
 
         fancyWalkThroughCard1.setBackgroundColor(R.color.white);
@@ -57,6 +61,8 @@ public class IntroActivity extends FancyWalkthroughActivity {
         fancyWalkThroughCard5.setIconLayoutParams(300, 300, 0, 0, 0, 0);
         fancyWalkThroughCard6.setBackgroundColor(R.color.white);
         fancyWalkThroughCard6.setIconLayoutParams(300, 300, 0, 0, 0, 0);
+        fancyWalkThroughCard7.setBackgroundColor(R.color.white);
+        fancyWalkThroughCard7.setIconLayoutParams(300, 300, 0, 0, 0, 0);
         //
         fancyWalkThroughCard1.setTitleTextSize(16f);
         fancyWalkThroughCard1.setDescriptionTextSize(12f);
@@ -70,6 +76,7 @@ public class IntroActivity extends FancyWalkthroughActivity {
         pages.add(fancyWalkThroughCard4);
         pages.add(fancyWalkThroughCard5);
         pages.add(fancyWalkThroughCard6);
+        pages.add(fancyWalkThroughCard7);
 
         for (FancyWalkthroughCard page : pages) {
             page.setTitleColor(R.color.black);

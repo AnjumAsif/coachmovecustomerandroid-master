@@ -115,6 +115,7 @@
                 android:drawablePadding="@dimen/_5sdp"
                 android:gravity="center"
                 android:text="@string/comments"
+                android:visibility="gone"
                 android:textColor="@color/Gray"
                 android:textSize="@dimen/_12sp" />
 

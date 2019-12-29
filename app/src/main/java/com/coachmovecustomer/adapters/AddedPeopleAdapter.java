@@ -28,13 +28,13 @@ public class AddedPeopleAdapter extends RecyclerView.Adapter<AddedPeopleAdapter.
     private List<PeopleForAddData> addedPeopleDataList;
     Context mContext;
     private BaseActivity baseActivity;
-    private Fragment fragment;
+//    private Fragment fragment;
 
-    public AddedPeopleAdapter(BaseActivity baseActivity, WorkoutFragment workoutFragment
+    public AddedPeopleAdapter(BaseActivity baseActivity/*, WorkoutFragment workoutFragment*/
             , ArrayList<PeopleForAddData> addedPeopleDataList) {
         this.baseActivity = baseActivity;
         this.addedPeopleDataList = addedPeopleDataList;
-        this.fragment = workoutFragment;
+//        this.fragment = workoutFragment;
     }
 
 

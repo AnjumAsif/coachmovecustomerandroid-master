@@ -28,6 +28,7 @@ import com.coachmovecustomer.data.ProfileData;
 import com.coachmovecustomer.fragments.AddDietFragment;
 import com.coachmovecustomer.fragments.DietDetailFragment;
 import com.coachmovecustomer.fragments.DietFragment;
+import com.coachmovecustomer.fragments.DietWorkoutFragment;
 import com.coachmovecustomer.fragments.HomeFragment;
 import com.coachmovecustomer.fragments.MessageFragment;
 import com.coachmovecustomer.fragments.NotificationFragment;
@@ -218,7 +219,8 @@ public class MainActivity extends BaseActivity {
                 unseleted();
                 dietIMG.setImageDrawable(getResources().getDrawable(R.drawable.groceries_select));
                 dietTV.setTextColor(getResources().getColor(R.color.Black));
-                gotoMainFragment(new DietFragment());
+//                gotoMainFragment(new DietFragment());
+                gotoMainFragment(new DietWorkoutFragment());
                 break;
             case R.id.scheduleLL:
                 unseleted();
@@ -244,7 +246,8 @@ public class MainActivity extends BaseActivity {
         Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.frameLayoutMain);
         if (fragment instanceof HomeFragment ||
                 fragment instanceof ProfileFragment ||
-                fragment instanceof DietFragment ||
+//                fragment instanceof DietFragment ||
+                fragment instanceof DietWorkoutFragment ||
                 fragment instanceof WorkoutFragment ||
                 fragment instanceof ScheduleFragment ||
                 fragment instanceof MessageFragment ||
@@ -295,7 +298,8 @@ public class MainActivity extends BaseActivity {
 
                 if (fragment instanceof HomeFragment) {
                 } else if (fragment instanceof ProfileFragment ||
-                        fragment instanceof DietFragment ||
+//                        fragment instanceof DietFragment ||
+                        fragment instanceof DietWorkoutFragment ||
                         fragment instanceof WorkoutFragment ||
                         fragment instanceof ScheduleFragment ||
                         fragment instanceof MessageFragment ||
@@ -330,7 +334,8 @@ public class MainActivity extends BaseActivity {
 //            showExit();
             showExitMethod();
         } else if (fragment instanceof ProfileFragment ||
-                fragment instanceof DietFragment ||
+//                fragment instanceof DietFragment ||
+                fragment instanceof DietWorkoutFragment ||
                 fragment instanceof WorkoutFragment ||
                 fragment instanceof ScheduleFragment ||
                 fragment instanceof MessageFragment) {

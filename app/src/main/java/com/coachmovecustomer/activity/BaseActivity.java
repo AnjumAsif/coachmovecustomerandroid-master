@@ -331,22 +331,6 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     public String convertDateFormat(String dateTime, String previousFormat, String destinationFormat) {
 
         String formattedDateTime = null;

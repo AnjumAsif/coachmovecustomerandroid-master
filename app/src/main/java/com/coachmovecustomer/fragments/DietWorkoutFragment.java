@@ -1,5 +1,6 @@
 package com.coachmovecustomer.fragments;
 
+
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.DialogInterface;
@@ -23,6 +24,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -33,15 +35,18 @@ import com.bumptech.glide.request.RequestOptions;
 import com.coachmovecustomer.R;
 import com.coachmovecustomer.activity.MainActivity;
 import com.coachmovecustomer.adapters.AddedPeopleAdapter;
+import com.coachmovecustomer.adapters.DietDetailAdapter;
 import com.coachmovecustomer.adapters.GenderAdapter;
 import com.coachmovecustomer.customDialog.NeighbourhoodSelectDialog;
 import com.coachmovecustomer.data.AddModalitiesData;
 import com.coachmovecustomer.data.AddedPeopleData;
+import com.coachmovecustomer.data.DietDetailData;
 import com.coachmovecustomer.data.NeighbourhoodData;
 import com.coachmovecustomer.data.PeopleForAddData;
 import com.coachmovecustomer.data.ProfileData;
 import com.coachmovecustomer.data.SearchWorkoutData;
 import com.coachmovecustomer.myInterface.CollageDialogCloseListener;
+import com.coachmovecustomer.myInterface.onClickAdd;
 import com.coachmovecustomer.myInterface.onClickDelete;
 import com.coachmovecustomer.utils.Const;
 import com.google.gson.Gson;
@@ -60,7 +65,10 @@ import cn.carbswang.android.numberpickerview.library.NumberPickerView;
 import de.hdodenhof.circleimageview.CircleImageView;
 import retrofit2.Call;
 
-public class WorkoutFragment extends BaseFragment implements CollageDialogCloseListener {
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class DietWorkoutFragment extends BaseFragment implements CollageDialogCloseListener {
 
     CircleImageView profileImg;
 
@@ -104,7 +112,7 @@ public class WorkoutFragment extends BaseFragment implements CollageDialogCloseL
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        ((MainActivity) getActivity()).setToolbarTitle(getResources().getString(R.string.workout), false);
+        ((MainActivity) getActivity()).setToolbarTitle(getResources().getString(R.string.diet), false);
         setHasOptionsMenu(true);
         profileData = baseActivity.store.getProfileData();
         initUI(view);
@@ -125,6 +133,8 @@ public class WorkoutFragment extends BaseFragment implements CollageDialogCloseL
         refferalCode = view.findViewById(R.id.refferalCode);
         addPeopleRV = view.findViewById(R.id.addPeopleRV);
 
+        //Hide add people view
+        addPeopleTV.setVisibility(View.GONE);
 
         profileImg = view.findViewById(R.id.profileImg);
         userName_TV = view.findViewById(R.id.userName_TV);
