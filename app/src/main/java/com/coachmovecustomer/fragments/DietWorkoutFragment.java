@@ -157,7 +157,8 @@ public class DietWorkoutFragment extends BaseFragment implements CollageDialogCl
         spinnerOptionData();
 
         genderSP.setOnItemSelectedListener(this);
-        modalitySP.setOnItemSelectedListener(this);
+//        modalitySP.setOnItemSelectedListener(this);
+        modalitySP.setEnabled(false);
         dateEDT.setOnClickListener(this);
         neighbourhoodEDT.setOnClickListener(this);
         searchBTN.setOnClickListener(this);
@@ -459,6 +460,7 @@ public class DietWorkoutFragment extends BaseFragment implements CollageDialogCl
         adapter = new ArrayAdapter(baseActivity, R.layout.genderadapter, modality);
         adapter.setDropDownViewResource(R.layout.genderadapter);
         modalitySP.setAdapter(adapter);
+        modalitySP.setSelection(2);
 
     }
 
