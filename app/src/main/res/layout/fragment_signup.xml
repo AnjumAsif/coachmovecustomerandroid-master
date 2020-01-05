@@ -87,6 +87,7 @@
             android:inputType="textPassword"
             android:nextFocusForward="@+id/confirm_passwordEDT"
             android:paddingBottom="@dimen/_15sdp"
+            android:maxLength="40"
             android:textColor="@color/colorPrimary"
             android:textColorHint="@color/colorPrimary"
             android:textSize="@dimen/_14sp"
@@ -119,6 +120,7 @@
             android:inputType="textPassword"
             android:paddingBottom="@dimen/_15sdp"
             android:textColor="@color/colorPrimary"
+            android:maxLength="40"
             android:textColorHint="@color/colorPrimary"
             android:textSize="@dimen/_14sp"
             android:theme="@style/editTextStyle" />
