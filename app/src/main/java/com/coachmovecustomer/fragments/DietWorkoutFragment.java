@@ -133,6 +133,7 @@ public class DietWorkoutFragment extends BaseFragment implements CollageDialogCl
         refferalCode = view.findViewById(R.id.refferalCode);
         addPeopleRV = view.findViewById(R.id.addPeopleRV);
 
+
         //Hide add people view
         addPeopleTV.setVisibility(View.GONE);
 
@@ -157,7 +158,7 @@ public class DietWorkoutFragment extends BaseFragment implements CollageDialogCl
         spinnerOptionData();
 
         genderSP.setOnItemSelectedListener(this);
-//        modalitySP.setOnItemSelectedListener(this);
+        modalitySP.setOnItemSelectedListener(this);
         modalitySP.setEnabled(false);
         dateEDT.setOnClickListener(this);
         neighbourhoodEDT.setOnClickListener(this);
@@ -227,7 +228,7 @@ public class DietWorkoutFragment extends BaseFragment implements CollageDialogCl
             }
 
         } catch (Exception e) {
-
+            e.printStackTrace();
         }
 
 

@@ -31,21 +31,31 @@
 
         <com.coachmovecustomer.customviews.BoldTextView
             android:id="@+id/userNameTV"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_5sdp"
+            android:background="@color/black"
             android:gravity="center"
-            android:textColor="@color/colorHighlighter"
+            android:paddingStart="@dimen/_5dp"
+            android:paddingTop="@dimen/_2dp"
+            android:paddingEnd="@dimen/_5dp"
+            android:paddingBottom="@dimen/_2dp"
+            android:textColor="@color/Cyan"
             android:textSize="@dimen/_16sp"
             tools:text="Olivia Smith " />
 
         <com.coachmovecustomer.customviews.BoldTextView
             android:id="@+id/userIDTV"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_5sdp"
+            android:background="@color/black"
             android:gravity="center"
-            android:textColor="@color/colorHighlighter"
+            android:paddingStart="@dimen/_5dp"
+            android:paddingTop="@dimen/_2dp"
+            android:paddingEnd="@dimen/_5dp"
+            android:paddingBottom="@dimen/_2dp"
+            android:textColor="@color/Cyan"
             android:textSize="@dimen/_12sp"
             android:textStyle="bold"
             tools:text="(OL234564)" />
@@ -64,7 +74,12 @@
                 style="?android:attr/ratingBarStyleSmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@color/black"
                 android:numStars="5"
+                android:paddingStart="@dimen/_5dp"
+                android:paddingTop="@dimen/_2dp"
+                android:paddingEnd="@dimen/_5dp"
+                android:paddingBottom="@dimen/_2dp"
                 android:progressBackgroundTint="@color/textGray"
                 android:progressTint="@color/ratingColor"
                 android:theme="@style/RatingBar" />
@@ -75,9 +90,12 @@
                 android:id="@+id/ratingText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@color/black"
                 android:gravity="center"
+                android:paddingStart="@dimen/_5dp"
+                android:paddingEnd="@dimen/_5dp"
                 android:text="(4.5)"
-                android:textColor="@color/colorHighlighter"
+                android:textColor="@color/Cyan"
                 android:textSize="@dimen/_12sdp"
                 android:textStyle="bold" />
 
