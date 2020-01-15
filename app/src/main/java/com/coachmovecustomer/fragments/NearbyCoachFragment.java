@@ -107,7 +107,9 @@ public class NearbyCoachFragment extends BaseFragment implements TextView.OnEdit
     }
 
     private void getNearbyCoaches(String searchStr) {
-        Call<JsonObject> nearbyCoach = baseActivity.apiInterface.getSearchWorkoutCoaches("Bearer " + baseActivity.store.getString(Const.ACCESS_TOKEN), neigbourhoodStr, modalityIdStr, searchStr, timeStr, dateStr, genderStr);
+        Call<JsonObject> nearbyCoach = baseActivity.apiInterface.getSearchWorkoutCoaches("Bearer " +
+                baseActivity.store.getString(Const.ACCESS_TOKEN),
+                neigbourhoodStr, modalityIdStr, searchStr, timeStr, dateStr, genderStr);
         baseActivity.apiHitAndHandle.makeApiCall(nearbyCoach, this);
         baseActivity.startProgressDialog();
     }
