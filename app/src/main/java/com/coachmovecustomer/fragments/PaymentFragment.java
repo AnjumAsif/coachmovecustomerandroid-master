@@ -196,7 +196,9 @@ public class PaymentFragment extends BaseFragment implements ViewPager.OnPageCha
             Log.e("jsonObject=====>>>.", jsonObject + " " + workoutArray + "\n" +prefferedGender);
 
 
-            confirmPayCall = baseActivity.apiInterface.postApiObject("Bearer " + baseActivity.store.getString(Const.ACCESS_TOKEN), Const.ADD_GET_CARD + profileData.id + "/workouts", jsonObject);
+            confirmPayCall = baseActivity.apiInterface.postApiObject("Bearer " +
+                    baseActivity.store.getString(Const.ACCESS_TOKEN), Const.ADD_GET_CARD + profileData.id + "/workouts",
+                    jsonObject);
             baseActivity.apiHitAndHandle.makeApiCall(confirmPayCall, this);
             baseActivity.startProgressDialog();
 

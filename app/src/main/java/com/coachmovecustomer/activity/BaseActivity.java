@@ -53,6 +53,7 @@ import com.coachmovecustomer.utils.ImageUtils;
 import com.coachmovecustomer.utils.NetworkUtil;
 import com.coachmovecustomer.utils.PrefStore;
 import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.gson.Gson;
 import com.nispok.snackbar.Snackbar;
 import com.nispok.snackbar.SnackbarManager;
 import com.nispok.snackbar.enums.SnackbarType;
@@ -99,6 +100,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
     public MultiImageCallBack mImageCallBack;
     Locale myLocale = null;
 
+    public Gson gson;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -111,6 +113,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         strictModeThread();
         toast = Toast.makeText(this, "", Toast.LENGTH_LONG);
         progressDialog();
+        gson = new Gson();
 
         networkDialog = new AlertDialog.Builder(this);
         apiHitAndHandle = ApiHitAndHandle.getInstance(this);

@@ -49,6 +49,7 @@ public class Const {
     public static final String URL_AboutUS = SERVER_REMOTE_URL + url + "/aboutus";
     public static final String URL_PrivacyPolicy = SERVER_IMAGE_URL + "privacy_policy.html";
     public static final String URL_TermAndCondition = SERVER_IMAGE_URL + "terms_and_conditions.html";
+    public static final String USER_LIST_FOR_CHAT_API = url + "/admin/coachesById?id=";
 
     /*---------------------- NOTIFICATION CONSTANTS-----------------------------------------*/
 

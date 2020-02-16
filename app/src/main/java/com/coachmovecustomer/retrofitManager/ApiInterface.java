@@ -2,6 +2,7 @@ package com.coachmovecustomer.retrofitManager;
 
 import android.view.textclassifier.TextClassification;
 
+import com.coachmovecustomer.data.SearchChatResponse;
 import com.google.firebase.annotations.PublicApi;
 import com.google.gson.JsonObject;
 
@@ -46,6 +47,9 @@ public interface ApiInterface {
     Call<JsonObject> uploadSurvey(@Url String url,
                                   @Part MultipartBody.Part[] surveyImage,
                                   @PartMap HashMap<String, RequestBody> map);
+    @GET
+    Call<JsonObject> getUserForSearchApi(@Header("Authorization") String auth,
+                                         @Url String url);
 
 
     @PUT
@@ -54,6 +58,9 @@ public interface ApiInterface {
 
     @GET
     Call<JsonObject> getAPI(@Header("Authorization") String header, @Url String url);
+
+    @GET
+    Call<SearchChatResponse> getUserForChatAPI(@Header("Authorization") String header, @Url String url);
 
     @GET
     Call<JsonObject> blockUser(@Header("Authorization") String header, @Url String url);
@@ -112,6 +119,9 @@ public interface ApiInterface {
     @GET("CoachMove/api/customers/")
     Call<JsonObject> scheduleWorkoutApi(@Header("Authorization") String header, @Query("term") String term);
 
+    @GET("CoachMove/api/customers/")
+    Call<JsonObject> searchForUSerForChat(@Header("Authorization") String header, @Query("term") String term);
+
 
     @FormUrlEncoded
     @PUT
@@ -123,7 +133,7 @@ public interface ApiInterface {
 
 
     @PUT("CoachMove/api/workouts/{id}/status")
-    Call<JsonObject> cancelWorkout(@Header("Authorization") String header, @Path("id") String id,  @Body RequestBody hashMap);
+    Call<JsonObject> cancelWorkout(@Header("Authorization") String header, @Path("id") String id, @Body RequestBody hashMap);
 
 
 }

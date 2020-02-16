@@ -18,6 +18,7 @@ import com.coachmovecustomer.R;
 import com.coachmovecustomer.activity.BaseActivity;
 import com.coachmovecustomer.data.MessageData;
 import com.coachmovecustomer.data.NearbyCoachesData;
+import com.coachmovecustomer.data.SearchChatResponse;
 import com.coachmovecustomer.fragments.MessageFragment;
 import com.coachmovecustomer.fragments.SearchChatUserFragment;
 import com.coachmovecustomer.myInterface.OnClickListener;
@@ -33,14 +34,14 @@ public class SearchChatMessageAdapter extends RecyclerView.Adapter<SearchChatMes
 
     private BaseActivity baseActivity;
     private Fragment fragment;
-    private ArrayList<MessageData> messagesDataList = new ArrayList<>();
-    private ArrayList<MessageData> arrayList = new ArrayList<>();
+//    private ArrayList<MessageData> messagesDataList = new ArrayList<>();
 
+    private ArrayList<SearchChatResponse.User> messagesDataList;
 
     private OnClickListener mOnClickListener;
 
     public SearchChatMessageAdapter(BaseActivity baseActivity, SearchChatUserFragment messagesFragment
-            , ArrayList<MessageData> messagesDataList,OnClickListener onClickListener) {
+            , ArrayList<SearchChatResponse.User> messagesDataList,OnClickListener onClickListener) {
         this.baseActivity = baseActivity;
         this.messagesDataList = messagesDataList;
         this.fragment = messagesFragment;
@@ -56,14 +57,16 @@ public class SearchChatMessageAdapter extends RecyclerView.Adapter<SearchChatMes
 
     @Override
     public void onBindViewHolder(final SearchChatMessageAdapter.MyViewHolder holder, final int position) {
-        MessageData messageData = messagesDataList.get(position);
-        holder.nameTV.setText(messageData.receiver.firstName);
-        String toServerUnicodeEncoded = StringEscapeUtils.unescapeJava(messageData.message.message);
-        holder.msgTV.setText(toServerUnicodeEncoded);
-        holder.timeTV.setText(baseActivity.changeDate(messageData.message.createdAt, "yyyy-MM-dd'T'HH:mm:ss.SSSZ"));
-        if (messageData.receiver.profilePicPath != null && !messageData.receiver.profilePicPath.isEmpty())
+        SearchChatResponse.User messageData = messagesDataList.get(position);
+        holder.nameTV.setText(messageData.getCustomer().getFirstName());
+//        String toServerUnicodeEncoded = StringEscapeUtils.unescapeJava(messageData.message.message);
+//        holder.msgTV.setText(toServerUnicodeEncoded);
+        holder.msgTV.setVisibility(View.GONE);
+        holder.timeTV.setVisibility(View.GONE);
+//        holder.timeTV.setText(baseActivity.changeDate(messageData.message.createdAt, "yyyy-MM-dd'T'HH:mm:ss.SSSZ"));
+        if (messageData.getCustomer().getProfilePicPath() != null && !messageData.getCustomer().getProfilePicPath().isEmpty())
             Glide.with(baseActivity)
-                    .load(Const.SERVER_IMAGE_URL + messageData.receiver.profilePicPath + "" + BaseActivity.setCurrentTimeMillis(baseActivity))
+                    .load(Const.SERVER_IMAGE_URL + messageData.getCustomer().getProfilePicPath() + "" + BaseActivity.setCurrentTimeMillis(baseActivity))
                     .apply(new RequestOptions()
                             .dontAnimate()
                             .placeholder(R.drawable.placeholder)
@@ -92,7 +95,7 @@ public class SearchChatMessageAdapter extends RecyclerView.Adapter<SearchChatMes
 
     }
 
-    public void filterList(ArrayList<MessageData> filterdNames) {
+    public void filterList(ArrayList<SearchChatResponse.User> filterdNames) {
         this.messagesDataList = filterdNames;
         notifyDataSetChanged();
     }
