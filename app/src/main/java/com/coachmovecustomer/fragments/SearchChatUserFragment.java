@@ -220,8 +220,8 @@ public class SearchChatUserFragment extends BaseFragment implements TextView.OnE
                 nearbyCoachRV.setVisibility(View.VISIBLE);
                 noDataTV.setVisibility(View.GONE);
             } else {
-                nearbyCoachRV.setVisibility(View.VISIBLE);
-                noDataTV.setVisibility(View.GONE);
+                nearbyCoachRV.setVisibility(View.GONE);
+                noDataTV.setVisibility(View.VISIBLE);
             }
 
         } catch (Exception e) {

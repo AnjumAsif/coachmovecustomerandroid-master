@@ -834,7 +834,7 @@ public class SearchChatResponse {
         private String street;
         @SerializedName("avgRating")
         @Expose
-        private Integer avgRating;
+        private String avgRating;
         @SerializedName("id")
         @Expose
         private Integer id;
@@ -983,11 +983,11 @@ public class SearchChatResponse {
             this.street = street;
         }
 
-        public Integer getAvgRating() {
+        public String getAvgRating() {
             return avgRating;
         }
 
-        public void setAvgRating(Integer avgRating) {
+        public void setAvgRating(String avgRating) {
             this.avgRating = avgRating;
         }
 
@@ -1172,7 +1172,7 @@ public class SearchChatResponse {
         private String heartDiseases;
         @SerializedName("avgRating")
         @Expose
-        private Integer avgRating;
+        private String avgRating;
         @SerializedName("id")
         @Expose
         private Integer id;
@@ -1302,11 +1302,11 @@ public class SearchChatResponse {
             this.heartDiseases = heartDiseases;
         }
 
-        public Integer getAvgRating() {
+        public String getAvgRating() {
             return avgRating;
         }
 
-        public void setAvgRating(Integer avgRating) {
+        public void setAvgRating(String avgRating) {
             this.avgRating = avgRating;
         }
 

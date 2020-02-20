@@ -101,6 +101,7 @@ public class SearchChatMessageAdapter extends RecyclerView.Adapter<SearchChatMes
     }
     @Override
     public int getItemCount() {
+
         return messagesDataList.size();
     }
 
