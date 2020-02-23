@@ -1,6 +1,8 @@
 package com.coachmovecustomer.activity;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -161,8 +163,7 @@ public class SingleChatActivity extends BaseActivity {
                     //comment for testing
 ////                    TODO need to sho alert in later
                     if (isUserBlock) {
-                        Toast.makeText(this, "your are blocked", Toast.LENGTH_SHORT).show();
-                    } else {
+                        openAlertDialog(getString(R.string.you_are_blocked), "OK");} else {
                         sendMessageApi();
                         messageEt.setText("");
                     }
@@ -346,5 +347,23 @@ public class SingleChatActivity extends BaseActivity {
         apiHitAndHandle.makeApiCall(latestMessageCall, isLoader, this);
     }
 
+
+    private void openAlertDialog(String message, String buttonName) {
+        AlertDialog.Builder mBuilder = new AlertDialog.Builder(this);
+        //Setting message manually and performing action on button click
+        mBuilder.setMessage(message)
+                .setCancelable(false)
+                .setPositiveButton(buttonName, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
+                    }
+                });
+        //Creating dialog box
+        AlertDialog alert = mBuilder.create();
+        //Setting the title manually
+        alert.setTitle("Alerta");
+        alert.show();
+
+    }
 
 }

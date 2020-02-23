@@ -92,7 +92,13 @@ public interface ApiInterface {
 
 
     @GET("CoachMove/api/coaches/workouts")
-    Call<JsonObject> getSearchWorkoutCoaches(@Header("Authorization") String header, @Query("neigbourhood") String neigbourhood, @Query("modalityId") String modalityId, @Query("search") String search, @Query("time") String time, @Query("date") String date, @Query("gender") String gender);
+    Call<JsonObject> getSearchWorkoutCoaches(@Header("Authorization") String header,
+                                             @Query("neigbourhood") String neigbourhood,
+                                             @Query("modalityId") String modalityId,
+                                             @Query("search") String search,
+                                             @Query("time") String time,
+                                             @Query("date") String date,
+                                             @Query("gender") String gender);
 
 
     @POST
