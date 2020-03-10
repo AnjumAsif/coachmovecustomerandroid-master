@@ -32,6 +32,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.coachmovecustomer.ApplyPromoCodeResponse;
 import com.coachmovecustomer.R;
 import com.coachmovecustomer.activity.MainActivity;
 import com.coachmovecustomer.adapters.AddedPeopleAdapter;
@@ -91,7 +92,7 @@ public class DietWorkoutFragment extends BaseFragment implements CollageDialogCl
     AddedPeopleData addedPeopleData;
     private ArrayList<PeopleForAddData> selectedPeopleDataList = new ArrayList<>();
     private ArrayList<NeighbourhoodData> neighbourhoodLists = new ArrayList<>();
-    private Call<JsonObject> getModalityCall;
+    private Call<JsonObject> getModalityCall,applyPromoCodeCall;
     private AddModalitiesData modalitiesData;
     private ArrayList<PeopleForAddData> peopleDialog = new ArrayList<>();
     private String dateIn12Hour = "";
@@ -101,6 +102,9 @@ public class DietWorkoutFragment extends BaseFragment implements CollageDialogCl
     private ArrayList<AddModalitiesData> allModalitiesData = new ArrayList<>();
     private String modalityID;
     private ProfileData profileData = new ProfileData();
+
+    String numberOfPerson;
+    private int finalDiscountAmount;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -217,12 +221,15 @@ public class DietWorkoutFragment extends BaseFragment implements CollageDialogCl
             Log.e("total", product + "");
             if (product == 0) {
 //                peopleSP.setText(getResources().getString(R.string.noPeople));
-
-                peopleSP.setText(getResources().getString(R.string.person) + product + ",00");
+                numberOfPerson = getResources().getString(R.string.person);
+                updateAmountUI(product + ",00");
                 ((MainActivity) getActivity()).setToolbarTitle(getResources().getString(R.string.workout), false);
             } else {
+                numberOfPerson =
+                        (selectedPeopleDataList.size() + 1) + " " + getResources().getString(R.string.persons);
+                updateAmountUI(product + ",00");
 //                peopleSP.setText(String.format("%d Person: $ %d,00 ", selectedPeopleDataList.size(), product));
-                peopleSP.setText(String.format("%d %s%d,00", selectedPeopleDataList.size() + 1, getResources().getString(R.string.persons), product));
+//                peopleSP.setText(String.format("%d %s%d,00", selectedPeopleDataList.size() + 1, getResources().getString(R.string.persons), product));
 
                 ((MainActivity) getActivity()).setToolbarTitle(getResources().getString(R.string.workout), false);
             }
@@ -234,7 +241,12 @@ public class DietWorkoutFragment extends BaseFragment implements CollageDialogCl
 
         onClickRecycler();
     }
-
+    public void applyPromoCode(String promoCode) {
+        applyPromoCodeCall = baseActivity.apiInterface.applyPromoCode("Bearer " +
+                        baseActivity.store.getString(Const.ACCESS_TOKEN),
+                promoCode, String.valueOf(profileData.id), product + "00");
+        baseActivity.apiHitAndHandle.makeApiCall(applyPromoCodeCall, this);
+    }
 
     @Override
     public void onSuccess(Call call, Object object, String resp) {
@@ -270,8 +282,18 @@ public class DietWorkoutFragment extends BaseFragment implements CollageDialogCl
             } catch (Exception e) {
 
             }
+        }else if (call == applyPromoCodeCall) {
+            ApplyPromoCodeResponse applyPromoCodeResponse = new Gson().fromJson(object.toString(), ApplyPromoCodeResponse.class);
+            updateAmountUI(String.valueOf(applyPromoCodeResponse.getApplyCouponAmount()));
+            Toast.makeText(baseActivity, applyPromoCodeResponse.getMessage(), Toast.LENGTH_SHORT).show();
+
         }
 
+    }
+
+    private void updateAmountUI(String applyCouponAmount) {
+        peopleSP.setText(numberOfPerson + applyCouponAmount);
+        finalDiscountAmount= Integer.parseInt(applyCouponAmount.replace(",",""));
     }
 
 
@@ -307,7 +329,7 @@ public class DietWorkoutFragment extends BaseFragment implements CollageDialogCl
                     Toast.makeText(baseActivity, "Código de referência inválido.", Toast.LENGTH_SHORT).show();
                     //code for referal code
                 } else {
-
+                    applyPromoCode(refferalCode.getText().toString().trim());
                 }
                 break;
 
@@ -447,10 +469,15 @@ public class DietWorkoutFragment extends BaseFragment implements CollageDialogCl
             product = (int) (allModalitiesData.get(modalitySP.getSelectedItemPosition()).price * +selectedPeopleDataList.size() + allModalitiesData.get(modalitySP.getSelectedItemPosition()).price * 1);
             if (selectedPeopleDataList.size() == 0) {
 //                peopleSP.setText(getResources().getString(R.string.noPeople));
-                peopleSP.setText(getResources().getString(R.string.person) + product + ",00");
+//                peopleSP.setText(getResources().getString(R.string.person) + product + ",00");
+                numberOfPerson = getResources().getString(R.string.person);
+//                peopleSP.setText( + product + ",00");
+                updateAmountUI(product + ",00");
 
             } else {
-                peopleSP.setText(String.format("%d %s%d,00", selectedPeopleDataList.size() + 1, getResources().getString(R.string.persons), product));
+                numberOfPerson = (selectedPeopleDataList.size() + 1) + " " + getResources().getString(R.string.persons);
+                peopleSP.setText(product + ",00");
+//                peopleSP.setText(String.format("%d %s%d,00", selectedPeopleDataList.size() + 1, getResources().getString(R.string.persons), product));
             }
 
         }
@@ -474,10 +501,16 @@ public class DietWorkoutFragment extends BaseFragment implements CollageDialogCl
 
                 product = (int) (allModalitiesData.get(modalitySP.getSelectedItemPosition()).price * +selectedPeopleDataList.size() + allModalitiesData.get(modalitySP.getSelectedItemPosition()).price * 1);
                 if (selectedPeopleDataList.size() == 0) {
-                    peopleSP.setText(getResources().getString(R.string.person) + product + ",00");
+                    numberOfPerson = getResources().getString(R.string.person);
+//                peopleSP.setText( + product + ",00");
+                    updateAmountUI(product + ",00");
+//                    peopleSP.setText(getResources().getString(R.string.person) + product + ",00");
 
                 } else {
-                    peopleSP.setText(String.format("%d %s%d,00", selectedPeopleDataList.size() + 1, getResources().getString(R.string.persons), product));
+                    numberOfPerson = (selectedPeopleDataList.size() + 1) + " " + getResources().getString(R.string.persons);
+//                    peopleSP.setText(product + ",00");
+                    updateAmountUI(product + ",00");
+//                    peopleSP.setText(String.format("%d %s%d,00", selectedPeopleDataList.size() + 1, getResources().getString(R.string.persons), product));
                 }
             }
         });
@@ -509,7 +542,8 @@ public class DietWorkoutFragment extends BaseFragment implements CollageDialogCl
 
         Fragment fragmentGet = new NearbyCoachFragment();
         Bundle bundle = new Bundle();
-        bundle.putParcelable("SearchCoaches", new SearchWorkoutData(date, time, neighbourhood, addressEDT.getText().toString().trim(), modalityID, gender, product + ""));
+        bundle.putParcelable("SearchCoaches", new SearchWorkoutData(date, time, neighbourhood,
+                addressEDT.getText().toString().trim(), modalityID, gender, finalDiscountAmount + ""));
         bundle.putParcelableArrayList("workoutUser", selectedPeopleDataList);
         fragmentGet.setArguments(bundle);
         getFragmentManager().beginTransaction()
@@ -517,7 +551,8 @@ public class DietWorkoutFragment extends BaseFragment implements CollageDialogCl
                 .addToBackStack(null)
                 .commit();
         baseActivity.log(date + "\n" + time
-                + "\n" + neighbourhood + "\n" + addressEDT.getText().toString().trim() + "\n" + modalityID + "\n" + gender + "\n" + product + "");
+                + "\n" + neighbourhood + "\n" + addressEDT.getText().toString().trim() + "\n" + modalityID + "\n" + gender + "\n" +
+                finalDiscountAmount + "");
 
     }
 

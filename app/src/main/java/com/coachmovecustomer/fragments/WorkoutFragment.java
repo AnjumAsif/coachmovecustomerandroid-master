@@ -30,6 +30,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.coachmovecustomer.ApplyPromoCodeResponse;
 import com.coachmovecustomer.R;
 import com.coachmovecustomer.activity.MainActivity;
 import com.coachmovecustomer.adapters.AddedPeopleAdapter;
@@ -83,16 +84,19 @@ public class WorkoutFragment extends BaseFragment implements CollageDialogCloseL
     AddedPeopleData addedPeopleData;
     private ArrayList<PeopleForAddData> selectedPeopleDataList = new ArrayList<>();
     private ArrayList<NeighbourhoodData> neighbourhoodLists = new ArrayList<>();
-    private Call<JsonObject> getModalityCall;
+    private Call<JsonObject> getModalityCall, applyPromoCodeCall;
     private AddModalitiesData modalitiesData;
     private ArrayList<PeopleForAddData> peopleDialog = new ArrayList<>();
     private String dateIn12Hour = "";
     private ArrayAdapter adapter;
     private int product;
+    private int finalDiscountAmount;
     private String modalityPrice;
     private ArrayList<AddModalitiesData> allModalitiesData = new ArrayList<>();
     private String modalityID;
     private ProfileData profileData = new ProfileData();
+    String numberOfPerson;
+    private String temp;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -189,10 +193,15 @@ public class WorkoutFragment extends BaseFragment implements CollageDialogCloseL
         }
     }
 
+    public void applyPromoCode(String promoCode) {
+        applyPromoCodeCall = baseActivity.apiInterface.applyPromoCode("Bearer " +
+                        baseActivity.store.getString(Const.ACCESS_TOKEN),
+                promoCode, String.valueOf(profileData.id), product + "00");
+        baseActivity.apiHitAndHandle.makeApiCall(applyPromoCodeCall, this);
+    }
+
     public void setAddPeopleAdapter(ArrayList<PeopleForAddData> peopleDataList) {
         this.selectedPeopleDataList = peopleDataList;
-
-
         addedPeopleAdapter = new AddedPeopleAdapter(baseActivity, /*this,*/ selectedPeopleDataList);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         addPeopleRV.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
@@ -205,12 +214,14 @@ public class WorkoutFragment extends BaseFragment implements CollageDialogCloseL
             Log.e("total", product + "");
             if (product == 0) {
 //                peopleSP.setText(getResources().getString(R.string.noPeople));
-
-                peopleSP.setText(getResources().getString(R.string.person) + product + ",00");
+                numberOfPerson = getResources().getString(R.string.person);
+                updateAmountUI(product + ",00");
                 ((MainActivity) getActivity()).setToolbarTitle(getResources().getString(R.string.workout), false);
             } else {
 //                peopleSP.setText(String.format("%d Person: $ %d,00 ", selectedPeopleDataList.size(), product));
-                peopleSP.setText(String.format("%d %s%d,00", selectedPeopleDataList.size() + 1, getResources().getString(R.string.persons), product));
+                numberOfPerson =
+                        (selectedPeopleDataList.size() + 1) + " " + getResources().getString(R.string.persons);
+                updateAmountUI(product + ",00");
 
                 ((MainActivity) getActivity()).setToolbarTitle(getResources().getString(R.string.workout), false);
             }
@@ -248,18 +259,25 @@ public class WorkoutFragment extends BaseFragment implements CollageDialogCloseL
                     }
                     */
                     selectModalityList.add("" + modalitiesData.modalityBr);
-
                     allModalitiesData.add(modalitiesData);
-
-
                 }
                 setModalityAdapter(selectModalityList);
 
             } catch (Exception e) {
 
             }
+        } else if (call == applyPromoCodeCall) {
+            ApplyPromoCodeResponse applyPromoCodeResponse = new Gson().fromJson(object.toString(), ApplyPromoCodeResponse.class);
+            updateAmountUI(String.valueOf(applyPromoCodeResponse.getApplyCouponAmount()));
+            Toast.makeText(baseActivity, applyPromoCodeResponse.getMessage(), Toast.LENGTH_SHORT).show();
+
         }
 
+    }
+
+    private void updateAmountUI(String applyCouponAmount) {
+        peopleSP.setText(numberOfPerson + applyCouponAmount);
+        finalDiscountAmount= Integer.parseInt(applyCouponAmount.replace(",",""));
     }
 
 
@@ -295,6 +313,7 @@ public class WorkoutFragment extends BaseFragment implements CollageDialogCloseL
                     Toast.makeText(baseActivity, "Código de referência inválido.", Toast.LENGTH_SHORT).show();
                     //code for referal code
                 } else {
+                    applyPromoCode(refferalCode.getText().toString().trim());
 
                 }
                 break;
@@ -435,10 +454,14 @@ public class WorkoutFragment extends BaseFragment implements CollageDialogCloseL
             product = (int) (allModalitiesData.get(modalitySP.getSelectedItemPosition()).price * +selectedPeopleDataList.size() + allModalitiesData.get(modalitySP.getSelectedItemPosition()).price * 1);
             if (selectedPeopleDataList.size() == 0) {
 //                peopleSP.setText(getResources().getString(R.string.noPeople));
-                peopleSP.setText(getResources().getString(R.string.person) + product + ",00");
+                numberOfPerson = getResources().getString(R.string.person);
+//                peopleSP.setText( + product + ",00");
+                updateAmountUI(product + ",00");
 
             } else {
-                peopleSP.setText(String.format("%d %s%d,00", selectedPeopleDataList.size() + 1, getResources().getString(R.string.persons), product));
+                numberOfPerson = (selectedPeopleDataList.size() + 1) + " " + getResources().getString(R.string.persons);
+//                peopleSP.setText(product + ",00");
+                updateAmountUI(product + ",00");
             }
 
         }
@@ -461,10 +484,17 @@ public class WorkoutFragment extends BaseFragment implements CollageDialogCloseL
 
                 product = (int) (allModalitiesData.get(modalitySP.getSelectedItemPosition()).price * +selectedPeopleDataList.size() + allModalitiesData.get(modalitySP.getSelectedItemPosition()).price * 1);
                 if (selectedPeopleDataList.size() == 0) {
-                    peopleSP.setText(getResources().getString(R.string.person) + product + ",00");
+
+                    numberOfPerson = getResources().getString(R.string.person);
+//                peopleSP.setText( + product + ",00");
+                    updateAmountUI(product + ",00");
+//                    peopleSP.setText(getResources().getString(R.string.person) + product + ",00");
 
                 } else {
-                    peopleSP.setText(String.format("%d %s%d,00", selectedPeopleDataList.size() + 1, getResources().getString(R.string.persons), product));
+                    numberOfPerson = (selectedPeopleDataList.size() + 1) + " " + getResources().getString(R.string.persons);
+//                    peopleSP.setText(product + ",00");
+                    updateAmountUI(product + ",00");
+//                    peopleSP.setText(String.format("%d %s%d,00", selectedPeopleDataList.size() + 1, getResources().getString(R.string.persons), product));
                 }
             }
         });
@@ -496,7 +526,8 @@ public class WorkoutFragment extends BaseFragment implements CollageDialogCloseL
 
         Fragment fragmentGet = new NearbyCoachFragment();
         Bundle bundle = new Bundle();
-        bundle.putParcelable("SearchCoaches", new SearchWorkoutData(date, time, neighbourhood, addressEDT.getText().toString().trim(), modalityID, gender, product + ""));
+        bundle.putParcelable("SearchCoaches", new SearchWorkoutData(date, time,
+                neighbourhood, addressEDT.getText().toString().trim(), modalityID, gender, finalDiscountAmount + ""));
         bundle.putParcelableArrayList("workoutUser", selectedPeopleDataList);
         fragmentGet.setArguments(bundle);
         getFragmentManager().beginTransaction()
@@ -504,7 +535,8 @@ public class WorkoutFragment extends BaseFragment implements CollageDialogCloseL
                 .addToBackStack(null)
                 .commit();
         baseActivity.log(date + "\n" + time
-                + "\n" + neighbourhood + "\n" + addressEDT.getText().toString().trim() + "\n" + modalityID + "\n" + gender + "\n" + product + "");
+                + "\n" + neighbourhood + "\n" + addressEDT.getText().toString().trim() + "\n" + modalityID + "\n" + gender + "\n" +
+                finalDiscountAmount + "");
 
     }
 

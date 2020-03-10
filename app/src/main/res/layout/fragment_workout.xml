@@ -420,7 +420,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/_17sdp"
                 android:layout_marginTop="@dimen/_10dp"
-                android:visibility="gone"
+                android:visibility="visible"
                 android:layout_marginRight="@dimen/_17sdp"
                 android:gravity="center">
 

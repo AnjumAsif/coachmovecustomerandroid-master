@@ -149,20 +149,19 @@ public class LoginFragment extends BaseFragment {
             profileData = new Gson().fromJson(user.toString(), ProfileData.class);
             baseActivity.store.setProfileData(profileData);
             baseActivity.store.saveString(Const.LANGUAGE, baseActivity.store.getString(Const.LANGUAGE));
-            if (profileData.isProfileCreated != null && profileData.isProfileCreated) {
-                /*code done by Asif*/
-                if (baseActivity.store.getString(Const.FIRST_TIME_VISIT) != null && baseActivity.store.getString(Const.FIRST_TIME_VISIT).equals("1")) {
-                    Intent intent = new Intent(getActivity(), MainActivity.class);
-                    baseActivity.startActivity(intent);
-                    baseActivity.finish();
-                } else {
-                    Intent intent = new Intent(getActivity(), IntroActivity.class);
-                    baseActivity.startActivity(intent);
-                    baseActivity.finish();
-                }
-            } else {
-                gotoCreateProfile();
-            }
+
+                if (profileData.isProfileCreated != null && profileData.isProfileCreated) {
+                    /*code done by Asif*/
+                    if (baseActivity.store.getString(Const.FIRST_TIME_VISIT) != null && baseActivity.store.getString(Const.FIRST_TIME_VISIT).equals("1")) {
+                        Intent intent = new Intent(getActivity(), MainActivity.class);
+                        baseActivity.startActivity(intent);
+                        baseActivity.finish();
+                    } else {
+                        Intent intent = new Intent(getActivity(), IntroActivity.class);
+                        baseActivity.startActivity(intent);
+                        baseActivity.finish();
+                    }
+                } else gotoCreateProfile();
         } catch (Exception e) {
             e.printStackTrace();
         }

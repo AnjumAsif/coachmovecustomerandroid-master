@@ -3,6 +3,7 @@ package com.coachmovecustomer.retrofitManager;
 import android.view.textclassifier.TextClassification;
 
 import com.coachmovecustomer.data.SearchChatResponse;
+import com.coachmovecustomer.utils.Const;
 import com.google.firebase.annotations.PublicApi;
 import com.google.gson.JsonObject;
 
@@ -99,6 +100,11 @@ public interface ApiInterface {
                                              @Query("time") String time,
                                              @Query("date") String date,
                                              @Query("gender") String gender);
+ @GET(Const.APPLY_PROMO_CODE)
+    Call<JsonObject> applyPromoCode(@Header("Authorization") String header,
+                                             @Query("couponId") String couponId,
+                                             @Query("userId") String userId,
+                                             @Query("amount") String amount);
 
 
     @POST

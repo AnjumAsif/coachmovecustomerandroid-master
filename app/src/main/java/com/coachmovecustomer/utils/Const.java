@@ -50,6 +50,7 @@ public class Const {
     public static final String URL_PrivacyPolicy = SERVER_IMAGE_URL + "privacy_policy.html";
     public static final String URL_TermAndCondition = SERVER_IMAGE_URL + "terms_and_conditions.html";
     public static final String USER_LIST_FOR_CHAT_API = url + "/admin/coachesById?id=";
+    public static final String APPLY_PROMO_CODE = url + "/user/applyCoupon?";
 
     /*---------------------- NOTIFICATION CONSTANTS-----------------------------------------*/
 
