@@ -24,7 +24,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -36,20 +35,18 @@ import com.coachmovecustomer.ApplyPromoCodeResponse;
 import com.coachmovecustomer.R;
 import com.coachmovecustomer.activity.MainActivity;
 import com.coachmovecustomer.adapters.AddedPeopleAdapter;
-import com.coachmovecustomer.adapters.DietDetailAdapter;
 import com.coachmovecustomer.adapters.GenderAdapter;
 import com.coachmovecustomer.customDialog.NeighbourhoodSelectDialog;
 import com.coachmovecustomer.data.AddModalitiesData;
 import com.coachmovecustomer.data.AddedPeopleData;
-import com.coachmovecustomer.data.DietDetailData;
 import com.coachmovecustomer.data.NeighbourhoodData;
 import com.coachmovecustomer.data.PeopleForAddData;
 import com.coachmovecustomer.data.ProfileData;
 import com.coachmovecustomer.data.SearchWorkoutData;
 import com.coachmovecustomer.myInterface.CollageDialogCloseListener;
-import com.coachmovecustomer.myInterface.onClickAdd;
 import com.coachmovecustomer.myInterface.onClickDelete;
 import com.coachmovecustomer.utils.Const;
+import com.coachmovecustomer.utils.ScreenshotUtils;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
@@ -80,7 +77,7 @@ public class DietWorkoutFragment extends BaseFragment implements CollageDialogCl
     RecyclerView addPeopleRV;
 
     //        SingleDateAndTimePicker nowDatePicker;
-    NumberPickerView nowDatePicker;
+    NumberPickerView nowDatePicker, nowDatePickerMinute;
 
     EditText dateEDT, timeEDT, addressEDT, neighbourhoodEDT, peopleSP, refferalCode;
     //    ArrayList<AddModalitiesData> selectModalityList = new ArrayList<>();
@@ -92,7 +89,7 @@ public class DietWorkoutFragment extends BaseFragment implements CollageDialogCl
     AddedPeopleData addedPeopleData;
     private ArrayList<PeopleForAddData> selectedPeopleDataList = new ArrayList<>();
     private ArrayList<NeighbourhoodData> neighbourhoodLists = new ArrayList<>();
-    private Call<JsonObject> getModalityCall,applyPromoCodeCall;
+    private Call<JsonObject> getModalityCall, applyPromoCodeCall;
     private AddModalitiesData modalitiesData;
     private ArrayList<PeopleForAddData> peopleDialog = new ArrayList<>();
     private String dateIn12Hour = "";
@@ -102,9 +99,14 @@ public class DietWorkoutFragment extends BaseFragment implements CollageDialogCl
     private ArrayList<AddModalitiesData> allModalitiesData = new ArrayList<>();
     private String modalityID;
     private ProfileData profileData = new ProfileData();
+    String couponId = "";
 
+    private String selectedMinute = "";
     String numberOfPerson;
-    private int finalDiscountAmount;
+    private String finalDiscountAmount;
+
+    private String formTime;
+    String AM_PM = "";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -241,6 +243,7 @@ public class DietWorkoutFragment extends BaseFragment implements CollageDialogCl
 
         onClickRecycler();
     }
+
     public void applyPromoCode(String promoCode) {
         applyPromoCodeCall = baseActivity.apiInterface.applyPromoCode("Bearer " +
                         baseActivity.store.getString(Const.ACCESS_TOKEN),
@@ -282,8 +285,9 @@ public class DietWorkoutFragment extends BaseFragment implements CollageDialogCl
             } catch (Exception e) {
 
             }
-        }else if (call == applyPromoCodeCall) {
+        } else if (call == applyPromoCodeCall) {
             ApplyPromoCodeResponse applyPromoCodeResponse = new Gson().fromJson(object.toString(), ApplyPromoCodeResponse.class);
+            couponId = refferalCode.getText().toString().trim();
             updateAmountUI(String.valueOf(applyPromoCodeResponse.getApplyCouponAmount()));
             Toast.makeText(baseActivity, applyPromoCodeResponse.getMessage(), Toast.LENGTH_SHORT).show();
 
@@ -292,8 +296,11 @@ public class DietWorkoutFragment extends BaseFragment implements CollageDialogCl
     }
 
     private void updateAmountUI(String applyCouponAmount) {
-        peopleSP.setText(numberOfPerson + applyCouponAmount);
-        finalDiscountAmount= Integer.parseInt(applyCouponAmount.replace(",",""));
+
+
+        String userValue = ScreenshotUtils.commaSeperatedValue(applyCouponAmount.replace(",",""));
+        peopleSP.setText(numberOfPerson + userValue);
+        finalDiscountAmount = applyCouponAmount;
     }
 
 
@@ -302,7 +309,6 @@ public class DietWorkoutFragment extends BaseFragment implements CollageDialogCl
         super.onClick(v);
         switch (v.getId()) {
             case R.id.searchBTN:
-
 
                 if (dateEDT.getText().toString().trim().length() == 0) {
                     showToast(getResources().getString(R.string.alertDate), false);
@@ -520,6 +526,7 @@ public class DietWorkoutFragment extends BaseFragment implements CollageDialogCl
     private void searchCoachesMethod() {
         String date = baseActivity.convertDateFormatLocale(dateEDT.getText().toString(), "dd MMM, yyyy", "yyyy-MM-dd");
         String time = dateIn12Hour + ":00:00";
+//        String time = formTime + ":00";
 
         if (allModalitiesData != null || !allModalitiesData.isEmpty()) {
             modalityID = allModalitiesData.get(modalitySP.getSelectedItemPosition()).id + "";
@@ -543,7 +550,7 @@ public class DietWorkoutFragment extends BaseFragment implements CollageDialogCl
         Fragment fragmentGet = new NearbyCoachFragment();
         Bundle bundle = new Bundle();
         bundle.putParcelable("SearchCoaches", new SearchWorkoutData(date, time, neighbourhood,
-                addressEDT.getText().toString().trim(), modalityID, gender, finalDiscountAmount + ""));
+                addressEDT.getText().toString().trim(), modalityID, gender, finalDiscountAmount + "", couponId));
         bundle.putParcelableArrayList("workoutUser", selectedPeopleDataList);
         fragmentGet.setArguments(bundle);
         getFragmentManager().beginTransaction()
@@ -612,18 +619,13 @@ public class DietWorkoutFragment extends BaseFragment implements CollageDialogCl
         /*nowDatePicker.addOnDateChangedListener(new SingleDateAndTimePicker.OnDateChangedListener() {
             @Override
             public void onDateChanged(String displayed, Date date) {
-
                 selectedTime = baseActivity.convertDateFormat(date + "",
                         "E MMM dd HH:mm:ss Z yyyy", "HH");
-
                 log("=====>" + selectedTime);
-
                 timeEDT.setText(selectedTime + ":00");
                 dateIn12Hour = selectedTime;
-
                String AM_PM;
                 int newTime = Integer.parseInt(selectedTime);
-
                 if (newTime < 12) {
                     AM_PM = " AM";
                     if (newTime == 0) {
@@ -638,11 +640,8 @@ public class DietWorkoutFragment extends BaseFragment implements CollageDialogCl
                 } else {
                     selectedTime = "12 PM";
                 }
-
-
                 timeEDT.setText(selectedTime);
                 dateIn12Hour = baseActivity.convertDateFormat(date + "", "E MMM dd HH:mm:ss Z yyyy", "HH");
-
                 log(timeEDT.getText().toString() + "\n" + dateIn12Hour);
             }
         });
@@ -668,6 +667,5 @@ public class DietWorkoutFragment extends BaseFragment implements CollageDialogCl
 
         bottomSheetDialog.show();
     }
-
 
 }

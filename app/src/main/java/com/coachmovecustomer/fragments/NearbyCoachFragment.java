@@ -53,6 +53,7 @@ public class NearbyCoachFragment extends BaseFragment implements TextView.OnEdit
 
 
     private ArrayList<PeopleForAddData> selectedPeopleDataList = new ArrayList<>();
+    private String couponId="";
 
 
     @Override
@@ -87,6 +88,7 @@ public class NearbyCoachFragment extends BaseFragment implements TextView.OnEdit
             modalityIdStr = searchWorkoutData.modality;
             timeStr = searchWorkoutData.time;
             dateStr = searchWorkoutData.date;
+            couponId = searchWorkoutData.couponCode;
 
             if (searchWorkoutData.gender.isEmpty()){
                 genderStr = "";
@@ -198,6 +200,7 @@ public class NearbyCoachFragment extends BaseFragment implements TextView.OnEdit
                 bundle.putString("neighbourhood", searchWorkoutData.neighbourhood);
                 bundle.putString("timeslotId", nearbyCoachesDataList.get(pos).timeslotId + "");
                 bundle.putString("requestTo", nearbyCoachesDataList.get(pos).id + "");
+                bundle.putString("couponId", couponId);
 
 
                 selectedPeopleDataList = getArguments().getParcelableArrayList("workoutUser");

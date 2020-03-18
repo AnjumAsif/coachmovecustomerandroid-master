@@ -20,8 +20,8 @@ import com.coachmovecustomer.data.Cards;
 import com.coachmovecustomer.data.PeopleForAddData;
 import com.coachmovecustomer.data.ProfileData;
 import com.coachmovecustomer.utils.Const;
+import com.coachmovecustomer.utils.ScreenshotUtils;
 import com.google.gson.Gson;
-import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 import org.json.JSONArray;
@@ -54,6 +54,7 @@ public class PaymentFragment extends BaseFragment implements ViewPager.OnPageCha
 
 
     private ArrayList<PeopleForAddData> selectedPeopleDataList = new ArrayList<>();
+    private String couponId = "";
 
 
     @Override
@@ -93,7 +94,10 @@ public class PaymentFragment extends BaseFragment implements ViewPager.OnPageCha
             coachNameTV.setText(bundle.getString("coachName"));
             dateTV.setText(date + " at " + time);
             addressTV.setText(bundle.getString("address"));
-            priceTV.setText("R$ " + bundle.getString("price") + ",00");
+            String applyCouponAmount = bundle.getString("price");
+            assert applyCouponAmount != null;
+            String userValue = ScreenshotUtils.commaSeperatedValue(applyCouponAmount.replace(",", ""));
+            priceTV.setText("R$ " + userValue/*+ ",00"*/);
 
 
             if (bundle.getString("gender").isEmpty()) {
@@ -107,6 +111,7 @@ public class PaymentFragment extends BaseFragment implements ViewPager.OnPageCha
             neighbourhoodID = bundle.getString("neighbourhood");
             timeslotId = bundle.getString("timeslotId");
             requestID = bundle.getString("requestTo");
+            couponId = bundle.getString("couponId");
 
 
         }
@@ -192,12 +197,13 @@ public class PaymentFragment extends BaseFragment implements ViewPager.OnPageCha
             jsonObject.put("cardId", cardID);
             jsonObject.put("cvv", cvvNo_edt.getText().toString().trim());
 
+//            jsonObject.put("couponId", couponId);
 
-            Log.e("jsonObject=====>>>.", jsonObject + " " + workoutArray + "\n" +prefferedGender);
 
+            Log.e("jsonObject=====>>>.", jsonObject + " " + workoutArray + "\n" + prefferedGender);
 
             confirmPayCall = baseActivity.apiInterface.postApiObject("Bearer " +
-                    baseActivity.store.getString(Const.ACCESS_TOKEN), Const.ADD_GET_CARD + profileData.id + "/workouts",
+                            baseActivity.store.getString(Const.ACCESS_TOKEN), Const.ADD_GET_CARD + profileData.id + "/workouts?couponId=" + couponId,
                     jsonObject);
             baseActivity.apiHitAndHandle.makeApiCall(confirmPayCall, this);
             baseActivity.startProgressDialog();

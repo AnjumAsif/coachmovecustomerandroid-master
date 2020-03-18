@@ -45,6 +45,9 @@ import com.coachmovecustomer.data.SearchWorkoutData;
 import com.coachmovecustomer.myInterface.CollageDialogCloseListener;
 import com.coachmovecustomer.myInterface.onClickDelete;
 import com.coachmovecustomer.utils.Const;
+import com.coachmovecustomer.utils.ImageUtils;
+import com.coachmovecustomer.utils.NetworkUtil;
+import com.coachmovecustomer.utils.ScreenshotUtils;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
@@ -72,7 +75,7 @@ public class WorkoutFragment extends BaseFragment implements CollageDialogCloseL
     RecyclerView addPeopleRV;
 
     //        SingleDateAndTimePicker nowDatePicker;
-    NumberPickerView nowDatePicker;
+    NumberPickerView nowDatePicker/*nowDatePickerMinute*/;
 
     EditText dateEDT, timeEDT, addressEDT, neighbourhoodEDT, peopleSP, refferalCode;
     //    ArrayList<AddModalitiesData> selectModalityList = new ArrayList<>();
@@ -90,13 +93,19 @@ public class WorkoutFragment extends BaseFragment implements CollageDialogCloseL
     private String dateIn12Hour = "";
     private ArrayAdapter adapter;
     private int product;
-    private int finalDiscountAmount;
+    private String finalDiscountAmount;
     private String modalityPrice;
     private ArrayList<AddModalitiesData> allModalitiesData = new ArrayList<>();
     private String modalityID;
     private ProfileData profileData = new ProfileData();
     String numberOfPerson;
     private String temp;
+    private String couponId="";
+
+//    private String selectedMinute = "";
+    private String formTime;
+    String AM_PM = "";
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -268,6 +277,7 @@ public class WorkoutFragment extends BaseFragment implements CollageDialogCloseL
             }
         } else if (call == applyPromoCodeCall) {
             ApplyPromoCodeResponse applyPromoCodeResponse = new Gson().fromJson(object.toString(), ApplyPromoCodeResponse.class);
+            couponId = refferalCode.getText().toString().trim();
             updateAmountUI(String.valueOf(applyPromoCodeResponse.getApplyCouponAmount()));
             Toast.makeText(baseActivity, applyPromoCodeResponse.getMessage(), Toast.LENGTH_SHORT).show();
 
@@ -276,8 +286,10 @@ public class WorkoutFragment extends BaseFragment implements CollageDialogCloseL
     }
 
     private void updateAmountUI(String applyCouponAmount) {
-        peopleSP.setText(numberOfPerson + applyCouponAmount);
-        finalDiscountAmount= Integer.parseInt(applyCouponAmount.replace(",",""));
+
+        String userValue = ScreenshotUtils.commaSeperatedValue(applyCouponAmount.replace(",",""));
+        peopleSP.setText(numberOfPerson + userValue);
+        finalDiscountAmount = applyCouponAmount;
     }
 
 
@@ -286,7 +298,6 @@ public class WorkoutFragment extends BaseFragment implements CollageDialogCloseL
         super.onClick(v);
         switch (v.getId()) {
             case R.id.searchBTN:
-
 
                 if (dateEDT.getText().toString().trim().length() == 0) {
                     showToast(getResources().getString(R.string.alertDate), false);
@@ -504,6 +515,8 @@ public class WorkoutFragment extends BaseFragment implements CollageDialogCloseL
     private void searchCoachesMethod() {
         String date = baseActivity.convertDateFormatLocale(dateEDT.getText().toString(), "dd MMM, yyyy", "yyyy-MM-dd");
         String time = dateIn12Hour + ":00:00";
+//        String time = formTime + ":00";
+
 
         if (allModalitiesData != null || !allModalitiesData.isEmpty()) {
             modalityID = allModalitiesData.get(modalitySP.getSelectedItemPosition()).id + "";
@@ -527,7 +540,7 @@ public class WorkoutFragment extends BaseFragment implements CollageDialogCloseL
         Fragment fragmentGet = new NearbyCoachFragment();
         Bundle bundle = new Bundle();
         bundle.putParcelable("SearchCoaches", new SearchWorkoutData(date, time,
-                neighbourhood, addressEDT.getText().toString().trim(), modalityID, gender, finalDiscountAmount + ""));
+                neighbourhood, addressEDT.getText().toString().trim(), modalityID, gender, finalDiscountAmount + "", couponId));
         bundle.putParcelableArrayList("workoutUser", selectedPeopleDataList);
         fragmentGet.setArguments(bundle);
         getFragmentManager().beginTransaction()
@@ -596,18 +609,13 @@ public class WorkoutFragment extends BaseFragment implements CollageDialogCloseL
         /*nowDatePicker.addOnDateChangedListener(new SingleDateAndTimePicker.OnDateChangedListener() {
             @Override
             public void onDateChanged(String displayed, Date date) {
-
                 selectedTime = baseActivity.convertDateFormat(date + "",
                         "E MMM dd HH:mm:ss Z yyyy", "HH");
-
                 log("=====>" + selectedTime);
-
                 timeEDT.setText(selectedTime + ":00");
                 dateIn12Hour = selectedTime;
-
                String AM_PM;
                 int newTime = Integer.parseInt(selectedTime);
-
                 if (newTime < 12) {
                     AM_PM = " AM";
                     if (newTime == 0) {
@@ -622,11 +630,8 @@ public class WorkoutFragment extends BaseFragment implements CollageDialogCloseL
                 } else {
                     selectedTime = "12 PM";
                 }
-
-
                 timeEDT.setText(selectedTime);
                 dateIn12Hour = baseActivity.convertDateFormat(date + "", "E MMM dd HH:mm:ss Z yyyy", "HH");
-
                 log(timeEDT.getText().toString() + "\n" + dateIn12Hour);
             }
         });
@@ -652,6 +657,5 @@ public class WorkoutFragment extends BaseFragment implements CollageDialogCloseL
 
         bottomSheetDialog.show();
     }
-
 
 }

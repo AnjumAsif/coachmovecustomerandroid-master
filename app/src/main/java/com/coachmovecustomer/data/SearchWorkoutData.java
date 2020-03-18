@@ -14,6 +14,7 @@ public class SearchWorkoutData implements Parcelable {
     public String modality;
     public String gender;
     public String price;
+    public String couponCode;
 
 
     @Override
@@ -34,12 +35,16 @@ public class SearchWorkoutData implements Parcelable {
         dest.writeString(modality);
         dest.writeString(gender);
         dest.writeString(price);
+        dest.writeString(couponCode);
     }
 
     /**
      * A constructor that initializes the Student object
      **/
-    public SearchWorkoutData(String sDate, String sTime, String sNeighbourhood, String sAddress, String sModality, String sGender, String sPrice) {
+    public SearchWorkoutData(String sDate, String sTime,
+                             String sNeighbourhood, String sAddress, String sModality, String sGender,
+                             String sPrice,
+                             String sCouponCode) {
         this.date = sDate;
         this.time = sTime;
         this.neighbourhood = sNeighbourhood;
@@ -47,6 +52,7 @@ public class SearchWorkoutData implements Parcelable {
         this.modality = sModality;
         this.gender = sGender;
         this.price = sPrice;
+        this.couponCode = sCouponCode;
     }
 
     /**
@@ -62,6 +68,7 @@ public class SearchWorkoutData implements Parcelable {
         this.modality = in.readString();
         this.gender = in.readString();
         this.price = in.readString();
+        this.couponCode = in.readString();
     }
 
     public static final Parcelable.Creator<SearchWorkoutData> CREATOR = new Parcelable.Creator<SearchWorkoutData>() {

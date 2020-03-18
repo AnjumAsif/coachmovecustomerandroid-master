@@ -56,4 +56,14 @@ public class ScreenshotUtils {
         }
         return file;
     }
+    public static String commaSeperatedValue(String userValue){
+        String finalAmountValue="";
+        if (userValue.length() >= 4) {
+            String str1 = userValue.substring(0, 2);
+            String str2 = userValue.substring(2, userValue.length());
+            finalAmountValue = str1 + "," + str2;
+            //System.out.println(str3);
+        }
+        return finalAmountValue;
+    }
 }

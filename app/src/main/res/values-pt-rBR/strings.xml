@@ -592,6 +592,10 @@
         <item>98</item>
         <item>99</item>
     </string-array>
+    <string-array name="minute_display">
+        <item>00</item>
+        <item>30</item>
+    </string-array>
 
     <string name="you_are_blocked">Você está bloqueado.</string>
 

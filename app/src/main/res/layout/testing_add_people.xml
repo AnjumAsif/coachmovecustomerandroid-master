@@ -19,10 +19,10 @@
             android:layout_weight="1"
             android:gravity="center|left"
             android:padding="@dimen/_5sdp"
-            android:textSize="@dimen/_14sdp"
             android:paddingLeft="@dimen/_10sdp"
+            android:text="@string/cancel"
             android:textColor="@color/Black"
-            android:text="@string/cancel" />
+            android:textSize="@dimen/_14sdp" />
 
         <com.coachmovecustomer.customviews.BoldTextView
             android:id="@+id/done_tv"
@@ -31,10 +31,10 @@
             android:layout_weight="1"
             android:gravity="center|right"
             android:padding="@dimen/_5sdp"
-            android:textSize="@dimen/_14sdp"
             android:paddingRight="@dimen/_10sdp"
+            android:text="@string/done"
             android:textColor="@color/Black"
-            android:text="@string/done" />
+            android:textSize="@dimen/_14sdp" />
     </LinearLayout>
 
 
@@ -50,15 +50,39 @@
         app:picker_displayMinutes="false"
         app:picker_visibleItemCount="4"
         tools:layout_editor_absoluteX="26dp" />-->
-    <cn.carbswang.android.numberpickerview.library.NumberPickerView
-        android:id="@+id/nowDatePicker"
-        style="@style/Shp.ScrollNumberPickerStyle"
+    <android.support.v7.widget.LinearLayoutCompat
         android:layout_width="match_parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        android:layout_height="match_parent"
-        app:npv_MaxValue="23"
-        app:npv_MinValue="0"
-        app:npv_TextSizeNormal="@dimen/_25dp"
-        app:npv_TextSizeSelected="@dimen/_36sdp"
-        app:npv_TextArray="@array/shp_0to99" />
+        android:layout_height="wrap_content"
+
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+        <cn.carbswang.android.numberpickerview.library.NumberPickerView
+            android:id="@+id/nowDatePicker"
+            style="@style/Shp.ScrollNumberPickerStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:npv_MaxValue="23"
+            app:npv_MinValue="0"
+            app:npv_TextArray="@array/shp_0to99"
+            app:npv_TextSizeNormal="@dimen/_25dp"
+            app:npv_TextSizeSelected="@dimen/_36sdp" />
+
+        <cn.carbswang.android.numberpickerview.library.NumberPickerView
+            android:id="@+id/nowDatePickerMinutes"
+            style="@style/Shp.ScrollNumberPickerStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:padding="@dimen/_10dp"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+            app:npv_MaxValue="01"
+            app:npv_MinValue="00"
+            app:npv_TextArray="@array/minute_display"
+            app:npv_TextSizeNormal="@dimen/_25dp"
+            app:npv_TextSizeSelected="@dimen/_36sdp"
+            app:npv_WrapSelectorWheel="true" />
+
+    </android.support.v7.widget.LinearLayoutCompat>
 </android.support.constraint.ConstraintLayout>
