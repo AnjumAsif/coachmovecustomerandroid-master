@@ -508,15 +508,10 @@ public class DietWorkoutFragment extends BaseFragment implements CollageDialogCl
                 product = (int) (allModalitiesData.get(modalitySP.getSelectedItemPosition()).price * +selectedPeopleDataList.size() + allModalitiesData.get(modalitySP.getSelectedItemPosition()).price * 1);
                 if (selectedPeopleDataList.size() == 0) {
                     numberOfPerson = getResources().getString(R.string.person);
-//                peopleSP.setText( + product + ",00");
                     updateAmountUI(product + ",00");
-//                    peopleSP.setText(getResources().getString(R.string.person) + product + ",00");
-
                 } else {
                     numberOfPerson = (selectedPeopleDataList.size() + 1) + " " + getResources().getString(R.string.persons);
-//                    peopleSP.setText(product + ",00");
                     updateAmountUI(product + ",00");
-//                    peopleSP.setText(String.format("%d %s%d,00", selectedPeopleDataList.size() + 1, getResources().getString(R.string.persons), product));
                 }
             }
         });
@@ -526,7 +521,6 @@ public class DietWorkoutFragment extends BaseFragment implements CollageDialogCl
     private void searchCoachesMethod() {
         String date = baseActivity.convertDateFormatLocale(dateEDT.getText().toString(), "dd MMM, yyyy", "yyyy-MM-dd");
         String time = dateIn12Hour + ":00:00";
-//        String time = formTime + ":00";
 
         if (allModalitiesData != null || !allModalitiesData.isEmpty()) {
             modalityID = allModalitiesData.get(modalitySP.getSelectedItemPosition()).id + "";

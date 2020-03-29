@@ -196,12 +196,8 @@ public class PaymentFragment extends BaseFragment implements ViewPager.OnPageCha
             jsonObject.put("timeslotId", timeslotId);
             jsonObject.put("cardId", cardID);
             jsonObject.put("cvv", cvvNo_edt.getText().toString().trim());
-
 //            jsonObject.put("couponId", couponId);
-
-
             Log.e("jsonObject=====>>>.", jsonObject + " " + workoutArray + "\n" + prefferedGender);
-
             confirmPayCall = baseActivity.apiInterface.postApiObject("Bearer " +
                             baseActivity.store.getString(Const.ACCESS_TOKEN), Const.ADD_GET_CARD + profileData.id + "/workouts?couponId=" + couponId,
                     jsonObject);
@@ -240,15 +236,14 @@ public class PaymentFragment extends BaseFragment implements ViewPager.OnPageCha
                 if (cardsList.size() > 0) {
                     vp_slider.setVisibility(View.VISIBLE);
                     noDataTV.setVisibility(View.GONE);
-//                    sliderLL.setVisibility(View.VISIBLE);
                 } else {
                     noDataTV.setVisibility(View.VISIBLE);
                     vp_slider.setVisibility(View.GONE);
-//                    sliderLL.setVisibility(View.GONE);
                 }
 
 
             } catch (Exception e) {
+                e.printStackTrace();
             }
         } else if (call == confirmPayCall) {
             try {
