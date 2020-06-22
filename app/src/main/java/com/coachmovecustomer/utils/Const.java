@@ -3,10 +3,14 @@ package com.coachmovecustomer.utils;
 public class Const {
     //New URL live
 //    public static final String SERVER_REMOTE_URL = "http://192.168.43.138:8008/";
-    public static final String SERVER_REMOTE_URL = "http://104.248.216.183:8008/";//live server
+//    public static final String SERVER_REMOTE_URL = "http://104.248.216.183:8008/";//live server
+    public static final String SERVER_REMOTE_URL = "http://31.220.62.67:8080/";//live
+    // server//update on 26/05/2020
 //    public static final String SERVER_REMOTE_URL = "192.168.43.138:8008/";//local server
 
-    public static final String SERVER_IMAGE_URL = "http://104.248.216.183:8008/CoachMove/";
+//    public static final String SERVER_IMAGE_URL = "http://104.248.216.183:8008/CoachMove/";
+    public static final String SERVER_IMAGE_URL = "http://31.220.62.67:8080/CoachMove/";//update
+    // on 26/05/2020
    /*//language live
     public static final String SERVER_REMOTE_URL = "http://192.168.2.85:8008/";
     public static final String SERVER_IMAGE_URL = "http://192.168.2.85:8008/CoachMove/";*/
