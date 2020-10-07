@@ -29,6 +29,7 @@ public class ApplyPromoCodeResponse {
         return applyCouponAmount;
     }
 
+
     public void setApplyCouponAmount(Integer applyCouponAmount) {
         this.applyCouponAmount = applyCouponAmount;
     }
