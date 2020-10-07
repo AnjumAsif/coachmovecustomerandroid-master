@@ -1,6 +1,8 @@
 package com.coachmovecustomer.activity;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -13,6 +15,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.coachmovecustomer.R;
 import com.coachmovecustomer.adapters.ChatAdapter;
@@ -23,7 +26,6 @@ import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
 import org.apache.commons.lang3.StringEscapeUtils;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -34,6 +36,9 @@ import retrofit2.Call;
 
 public class SingleChatActivity extends BaseActivity {
 
+    ProfileData profileData = new ProfileData();
+    Handler handler = new Handler();
+    int pastVisiblesItems, visibleItemCount, totalItemCount;
     private TextView noDataTV;
     private EditText messageEt;
     private ImageView sendIV;
@@ -41,8 +46,6 @@ public class SingleChatActivity extends BaseActivity {
     private ChatAdapter chatAdapter;
     private Timer timer;
     private int previousSize;
-    ProfileData profileData = new ProfileData();
-
     private ArrayList<ChatData.ChatMessage> chatDataList = new ArrayList<>();
     private ChatData chatData;
     private Call<JsonObject> sendMessageCall, getMessageCall, latestMessageCall;
@@ -51,12 +54,57 @@ public class SingleChatActivity extends BaseActivity {
     private ImageView backIV;
     private String headerTitle;
     private LinearLayoutManager mLayoutManager;
-
+    private boolean isUserBlock;
     private int count = 0;
     private String countString = "0";
-
     private boolean isTrue = true;
+    Runnable timedTask = new Runnable() {
+        @Override
+        public void run() {
 
+            isTrue = true;
+            getMessagesApi(false, 0 + "");
+//            getLatestMessageApi(false, 0);
+        }
+    };
+    private boolean loading = false;
+    private int positionIndex;
+    private int topView;
+    private boolean isScroolloading = true;
+    private RecyclerView.OnScrollListener recyclerViewOnScrollListener = new RecyclerView.OnScrollListener() {
+        @Override
+        public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+
+
+            if (dy > 0) {
+                visibleItemCount = mLayoutManager.getChildCount();
+                totalItemCount = mLayoutManager.getItemCount();
+                pastVisiblesItems = mLayoutManager.findFirstVisibleItemPosition();
+
+
+                isScroolloading = (visibleItemCount + pastVisiblesItems) >= totalItemCount;
+            }
+        }
+
+/*
+            if (dy < 0) {
+                visibleItemCount = mLayoutManager.getChildCount();
+                totalItemCount = mLayoutManager.getItemCount();
+                pastVisiblesItems = mLayoutManager.findFirstVisibleItemPosition();
+                Log.v("visibleItemCount", "" + visibleItemCount);
+                Log.v("totalItemCount", totalItemCount + "");
+                Log.v("pastVisiblesItems", pastVisiblesItems + "");
+                Log.v("pastItems+visibleItem", pastVisiblesItems + visibleItemCount + "");
+                if (pastVisiblesItems == 0) {
+                    if (!loading) {
+                        loading = true;
+                        getMessagesApi(true, count + "");
+                    }
+                }
+
+            }*/
+
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,7 +118,6 @@ public class SingleChatActivity extends BaseActivity {
 
 
     }
-
 
     private void initUI() {
 
@@ -113,8 +160,13 @@ public class SingleChatActivity extends BaseActivity {
                 if (messageEt.getText().toString().trim().length() == 0) {
                     showToast(getResources().getString(R.string.messageBox), false);
                 } else {
-                    sendMessageApi();
-                    messageEt.setText("");
+                    //comment for testing
+////                    TODO need to sho alert in later
+                    if (isUserBlock) {
+                        openAlertDialog(getString(R.string.you_are_blocked), "OK");} else {
+                        sendMessageApi();
+                        messageEt.setText("");
+                    }
                 }
                 break;
             case R.id.backIV:
@@ -124,7 +176,8 @@ public class SingleChatActivity extends BaseActivity {
     }
 
     private void getMessagesApi(boolean isLoader, String pageNO) {
-        getMessageCall = apiInterface.getAPI("Bearer " + store.getString(Const.ACCESS_TOKEN), Const.MESSAGE_USER + profileData.id + "/messages?receiverId=" + receiverID + "&page=" + pageNO);
+        getMessageCall = apiInterface.getAPI("Bearer " + store.getString(Const.ACCESS_TOKEN),
+                Const.MESSAGE_USER + profileData.id + "/messages?receiverId=" + receiverID + "&page=" + pageNO);
 //        apiHitAndHandle.makeApiCall(getMessageCall, this);
         apiHitAndHandle.makeApiCall(getMessageCall, isLoader, this);
     }
@@ -164,6 +217,8 @@ public class SingleChatActivity extends BaseActivity {
             try {
                 chatData = new Gson().fromJson(resp, ChatData.class);
                 if (chatData != null && chatData.data.messagesList.size() > 0) {
+                    //comment for testing
+                    isUserBlock = chatData.mBlock;
 
                     noDataTV.setVisibility(View.GONE);
                     chatRV.setVisibility(View.VISIBLE);
@@ -251,12 +306,11 @@ public class SingleChatActivity extends BaseActivity {
 
     }
 
-
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
         View view = getCurrentFocus();
         if (view != null && (ev.getAction() == MotionEvent.ACTION_UP || ev.getAction() == MotionEvent.ACTION_MOVE) && view instanceof EditText && !view.getClass().getName().startsWith("android.webkit.")) {
-            int scrcoords[] = new int[2];
+            int[] scrcoords = new int[2];
             view.getLocationOnScreen(scrcoords);
             float x = ev.getRawX() + view.getLeft() - scrcoords[0];
             float y = ev.getRawY() + view.getTop() - scrcoords[1];
@@ -266,30 +320,16 @@ public class SingleChatActivity extends BaseActivity {
         return super.dispatchTouchEvent(ev);
     }
 
-
     @Override
     public void onBackPressed() {
         super.onBackPressed();
     }
-
-
-    Handler handler = new Handler();
-    Runnable timedTask = new Runnable() {
-        @Override
-        public void run() {
-
-            isTrue = true;
-            getMessagesApi(false, 0 + "");
-//            getLatestMessageApi(false, 0);
-        }
-    };
 
     @Override
     public void onDestroy() {
         super.onDestroy();
         handler.removeCallbacks(timedTask);
     }
-
 
     private void setChatAdapter(List<ChatData.ChatMessage> chatDataList) {
         chatAdapter = new ChatAdapter(this, chatDataList);
@@ -302,57 +342,28 @@ public class SingleChatActivity extends BaseActivity {
 
     }
 
-
-    private boolean loading = false;
-    int pastVisiblesItems, visibleItemCount, totalItemCount;
-
-    private int positionIndex;
-    private int topView;
-    private boolean isScroolloading = true;
-    private RecyclerView.OnScrollListener recyclerViewOnScrollListener = new RecyclerView.OnScrollListener() {
-        @Override
-        public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-
-
-            if (dy > 0) {
-                visibleItemCount = mLayoutManager.getChildCount();
-                totalItemCount = mLayoutManager.getItemCount();
-                pastVisiblesItems = mLayoutManager.findFirstVisibleItemPosition();
-
-
-                if ((visibleItemCount + pastVisiblesItems) >= totalItemCount) {
-                    isScroolloading = true;
-                } else {
-                    isScroolloading = false;
-                }
-            }
-        }
-
-/*
-            if (dy < 0) {
-                visibleItemCount = mLayoutManager.getChildCount();
-                totalItemCount = mLayoutManager.getItemCount();
-                pastVisiblesItems = mLayoutManager.findFirstVisibleItemPosition();
-                Log.v("visibleItemCount", "" + visibleItemCount);
-                Log.v("totalItemCount", totalItemCount + "");
-                Log.v("pastVisiblesItems", pastVisiblesItems + "");
-                Log.v("pastItems+visibleItem", pastVisiblesItems + visibleItemCount + "");
-                if (pastVisiblesItems == 0) {
-                    if (!loading) {
-                        loading = true;
-                        getMessagesApi(true, count + "");
-                    }
-                }
-
-            }*/
-
-    };
-
-
     private void getLatestMessageApi(boolean isLoader, int pageCount) {
         latestMessageCall = apiInterface.getAPI("Bearer " + store.getString(Const.ACCESS_TOKEN), Const.MESSAGE_USER + profileData.id + "/messages?receiverId=" + receiverID + "&page=" + pageCount);
         apiHitAndHandle.makeApiCall(latestMessageCall, isLoader, this);
     }
 
+
+    private void openAlertDialog(String message, String buttonName) {
+        AlertDialog.Builder mBuilder = new AlertDialog.Builder(this);
+        //Setting message manually and performing action on button click
+        mBuilder.setMessage(message)
+                .setCancelable(false)
+                .setPositiveButton(buttonName, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
+                    }
+                });
+        //Creating dialog box
+        AlertDialog alert = mBuilder.create();
+        //Setting the title manually
+        alert.setTitle("Alerta");
+        alert.show();
+
+    }
 
 }

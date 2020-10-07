@@ -197,7 +197,8 @@ public class AddPeopleFragment extends DialogFragment implements ApiResponse, Vi
     }
 
     private void getCustomerApi(String search) {
-        searchPeopleCall = baseActivity.apiInterface.getSearchQuery("Bearer " + baseActivity.store.getString(Const.ACCESS_TOKEN), search);
+        searchPeopleCall = baseActivity.apiInterface.
+                getSearchQuery("Bearer " + baseActivity.store.getString(Const.ACCESS_TOKEN), search);
         baseActivity.apiHitAndHandle.makeApiCall(searchPeopleCall, this);
         baseActivity.startProgressDialog();
     }

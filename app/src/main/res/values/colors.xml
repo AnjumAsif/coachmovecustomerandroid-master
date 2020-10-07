@@ -14,8 +14,8 @@
     <color name="textGray">#9A9A9A</color>
     <color name="gray_background">#F3F3F3</color>
     <color name="view_bac">#D8D8D8</color>
-
-
+    <!--    <color name="colorHighlighter">#ccff00</color>-->
+    <color name="colorHighlighter">#20CF23</color>
 
 
     <color name="transparent">#00000000</color>
@@ -165,7 +165,6 @@
     <color name="trans_black">#a42b2b2e</color>
     <color name="gray_bg">#E3E3E3</color>
     <color name="accent_trance">#22ddb958</color>
-
 
 
 </resources>

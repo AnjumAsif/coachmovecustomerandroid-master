@@ -9,6 +9,7 @@ import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v4.content.res.ResourcesCompat;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
@@ -27,11 +28,13 @@ import com.coachmovecustomer.data.ProfileData;
 import com.coachmovecustomer.fragments.AddDietFragment;
 import com.coachmovecustomer.fragments.DietDetailFragment;
 import com.coachmovecustomer.fragments.DietFragment;
+import com.coachmovecustomer.fragments.DietWorkoutFragment;
 import com.coachmovecustomer.fragments.HomeFragment;
 import com.coachmovecustomer.fragments.MessageFragment;
 import com.coachmovecustomer.fragments.NotificationFragment;
 import com.coachmovecustomer.fragments.ProfileFragment;
 import com.coachmovecustomer.fragments.ScheduleFragment;
+import com.coachmovecustomer.fragments.SearchChatUserFragment;
 import com.coachmovecustomer.fragments.SettingsFragment;
 import com.coachmovecustomer.fragments.WorkoutFragment;
 import com.coachmovecustomer.utils.Const;
@@ -216,7 +219,8 @@ public class MainActivity extends BaseActivity {
                 unseleted();
                 dietIMG.setImageDrawable(getResources().getDrawable(R.drawable.groceries_select));
                 dietTV.setTextColor(getResources().getColor(R.color.Black));
-                gotoMainFragment(new DietFragment());
+//                gotoMainFragment(new DietFragment());
+                gotoMainFragment(new DietWorkoutFragment());
                 break;
             case R.id.scheduleLL:
                 unseleted();
@@ -242,17 +246,27 @@ public class MainActivity extends BaseActivity {
         Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.frameLayoutMain);
         if (fragment instanceof HomeFragment ||
                 fragment instanceof ProfileFragment ||
-                fragment instanceof DietFragment ||
+//                fragment instanceof DietFragment ||
+                fragment instanceof DietWorkoutFragment ||
                 fragment instanceof WorkoutFragment ||
                 fragment instanceof ScheduleFragment ||
                 fragment instanceof MessageFragment ||
+                fragment instanceof SearchChatUserFragment ||
                 fragment instanceof AddDietFragment) {
             bottom_layout.setVisibility(View.VISIBLE);
             if (getSupportActionBar() != null) {
                 getSupportActionBar().setDisplayHomeAsUpEnabled(false);
                 getSupportActionBar().setDisplayShowHomeEnabled(false);
-                Drawable drawable = ResourcesCompat.getDrawable(getResources(), R.drawable.home, getTheme());
-                toolbarTB.setNavigationIcon(drawable);
+
+
+                if (!(fragment instanceof SearchChatUserFragment)) {
+                    Drawable drawable = ResourcesCompat.getDrawable(getResources(), R.drawable.home, getTheme());
+                    toolbarTB.setNavigationIcon(drawable);
+                }
+                else {
+                    Drawable drawable = ResourcesCompat.getDrawable(getResources(), R.drawable.back, getTheme());
+                    toolbarTB.setNavigationIcon(drawable);
+                }
             }
 
         } else if (fragment instanceof SettingsFragment) {
@@ -284,7 +298,8 @@ public class MainActivity extends BaseActivity {
 
                 if (fragment instanceof HomeFragment) {
                 } else if (fragment instanceof ProfileFragment ||
-                        fragment instanceof DietFragment ||
+//                        fragment instanceof DietFragment ||
+                        fragment instanceof DietWorkoutFragment ||
                         fragment instanceof WorkoutFragment ||
                         fragment instanceof ScheduleFragment ||
                         fragment instanceof MessageFragment ||
@@ -296,6 +311,10 @@ public class MainActivity extends BaseActivity {
 
                     unseleted();
                     //gotoSettings
+                } else if (fragment instanceof SearchChatUserFragment) {
+                    getSupportFragmentManager().beginTransaction().
+                            replace(R.id.frameLayoutMain, new MessageFragment())
+                            .addToBackStack(null).commit();
                 } else
                     onBackPressed();
                 break;
@@ -315,7 +334,8 @@ public class MainActivity extends BaseActivity {
 //            showExit();
             showExitMethod();
         } else if (fragment instanceof ProfileFragment ||
-                fragment instanceof DietFragment ||
+//                fragment instanceof DietFragment ||
+                fragment instanceof DietWorkoutFragment ||
                 fragment instanceof WorkoutFragment ||
                 fragment instanceof ScheduleFragment ||
                 fragment instanceof MessageFragment) {

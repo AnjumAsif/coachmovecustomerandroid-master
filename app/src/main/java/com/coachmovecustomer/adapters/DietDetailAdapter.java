@@ -20,13 +20,13 @@ import java.util.ArrayList;
 public class DietDetailAdapter extends RecyclerView.Adapter<DietDetailAdapter.MyViewHolder> {
 
     private onClickAdd clickDiet;
-    Fragment fragment;
+//    Fragment fragment;
     private ArrayList<DietDetailData> dietDetailList = new ArrayList<>();
     BaseActivity baseActivity;
 
-    public DietDetailAdapter(BaseActivity baseActivity, DietFragment dietFragment, ArrayList<DietDetailData> dietDetailList) {
+    public DietDetailAdapter(BaseActivity baseActivity/*, DietFragment dietFragment*/, ArrayList<DietDetailData> dietDetailList) {
         this.baseActivity = baseActivity;
-        this.fragment = dietFragment;
+//        this.fragment = dietFragment;
         this.dietDetailList = dietDetailList;
     }
 

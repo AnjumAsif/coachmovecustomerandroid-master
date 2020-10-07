@@ -136,6 +136,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
+                    android:visibility="gone"
                     android:text="@string/feedback_hint"
                     android:textColor="@color/Black"
                     android:textSize="@dimen/_14sp" />
@@ -175,6 +176,7 @@
                     android:drawableLeft="@drawable/note"
                     android:drawablePadding="@dimen/_5sdp"
                     android:gravity="left|center"
+                    android:visibility="gone"
                     android:text="@string/review"
                     android:textColor="@color/Black"
                     android:textSize="@dimen/_14sp" />
@@ -188,6 +190,7 @@
                     android:layout_marginRight="@dimen/_20sdp"
                     android:gravity="left"
                     android:hint="@string/reviewHint"
+                    android:visibility="gone"
                     android:maxLength="200"
                     android:imeOptions="actionDone"
                     android:inputType="text"

@@ -20,7 +20,6 @@ import com.coachmovecustomer.fragments.CreateProfileFirstFragment;
 import com.coachmovecustomer.fragments.CreateProfileSecondFragment;
 import com.coachmovecustomer.fragments.LoginFragment;
 import com.coachmovecustomer.fragments.SignUpFragment;
-import com.coachmovecustomer.utils.Const;
 
 public class LoginSignActivity extends BaseActivity {
 

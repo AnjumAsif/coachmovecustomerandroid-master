@@ -63,9 +63,9 @@ public class SignUpFragment extends BaseFragment {
         signUp_btn.setOnClickListener(this);
         signInTV.setOnClickListener(this);
 
-        emailEDT.setFilters(baseActivity.setFiltersET(30));
-        passwordEDT.setFilters(baseActivity.setFiltersET(30));
-        confirm_passwordEDT.setFilters(baseActivity.setFiltersET(30));
+        emailEDT.setFilters(baseActivity.setFiltersET(40));
+        passwordEDT.setFilters(baseActivity.setFiltersET(40));
+        confirm_passwordEDT.setFilters(baseActivity.setFiltersET(40));
 
         android_deviceID = Settings.Secure.getString(getContext().getContentResolver(),
                 Settings.Secure.ANDROID_ID);
@@ -81,7 +81,9 @@ public class SignUpFragment extends BaseFragment {
                     /*emailEDT.setError(getString(R.string.valid_email));
                     emailEDT.requestFocus();*/
                     showToast(getString(R.string.email_alert), false);
-                } else if (!baseActivity.isValidMail(emailEDT.getText().toString().trim())) {
+                } else if (emailEDT.getText().toString().trim().length()<7) {
+                    showToast(getString(R.string.valid_email), false);
+                }else if (!baseActivity.isValidMail(emailEDT.getText().toString().trim())) {
                     showToast(getString(R.string.valid_email), false);
                 } else if (passwordEDT.getText().toString().trim().length() == 0) {
                     showToast(getString(R.string.passwordEmpty), false);

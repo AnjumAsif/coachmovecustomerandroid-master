@@ -3,8 +3,6 @@
 buildscript {
 
 
-
-
     repositories {
         google()
         jcenter()
@@ -14,14 +12,13 @@ buildscript {
             url 'https://maven.fabric.io/public'
         }
 
-
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.5.1'
+        classpath 'com.android.tools.build:gradle:4.0.0'
         classpath 'com.google.gms:google-services:4.2.0'
 
         // Add dependency
-        classpath 'io.fabric.tools:gradle:1.26.1'
+        classpath 'io.fabric.tools:gradle:1.28.0'
 
 
     }
@@ -31,6 +28,8 @@ allprojects {
     repositories {
         google()
         jcenter()
+        maven { url "https://jitpack.io" }
+
     }
 }
 

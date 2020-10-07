@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.coachmovecustomer.R;
+import com.coachmovecustomer.activity.IntroActivity;
 import com.coachmovecustomer.activity.LoginSignActivity;
 import com.coachmovecustomer.activity.MainActivity;
 import com.coachmovecustomer.data.ProfileData;
@@ -131,9 +132,7 @@ public class LoginFragment extends BaseFragment {
         jsonbody.put("token", baseActivity.store.getString(Const.FIREBASE_TOKEN));
         Call<JsonObject> call = baseActivity.apiInterface.postAPI(Const.LOGIN_API, jsonbody);
         baseActivity.apiHitAndHandle.makeApiCall(call, this);
-
         baseActivity.startProgressDialog();
-
     }
 
 
@@ -147,21 +146,22 @@ public class LoginFragment extends BaseFragment {
             String access_token = data.optString("access_token");
             Log.e("accessToken", access_token + "");
             baseActivity.store.saveString(Const.ACCESS_TOKEN, access_token);
-
             profileData = new Gson().fromJson(user.toString(), ProfileData.class);
             baseActivity.store.setProfileData(profileData);
             baseActivity.store.saveString(Const.LANGUAGE, baseActivity.store.getString(Const.LANGUAGE));
 
-
-            if (profileData.isProfileCreated != null && profileData.isProfileCreated) {
-                Intent intent = new Intent(getActivity(), MainActivity.class);
-                baseActivity.startActivity(intent);
-                baseActivity.finish();
-            } else {
-                gotoCreateProfile();
-            }
-
-
+                if (profileData.isProfileCreated != null && profileData.isProfileCreated) {
+                    /*code done by Asif*/
+                    if (baseActivity.store.getString(Const.FIRST_TIME_VISIT) != null && baseActivity.store.getString(Const.FIRST_TIME_VISIT).equals("1")) {
+                        Intent intent = new Intent(getActivity(), MainActivity.class);
+                        baseActivity.startActivity(intent);
+                        baseActivity.finish();
+                    } else {
+                        Intent intent = new Intent(getActivity(), IntroActivity.class);
+                        baseActivity.startActivity(intent);
+                        baseActivity.finish();
+                    }
+                } else gotoCreateProfile();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -169,17 +169,17 @@ public class LoginFragment extends BaseFragment {
 
 
     private void gotoCreateProfile() {
-   /*     Fragment createProfileFirstFragment = new CreateProfileFirstFragment();
-        Bundle bundle = new Bundle();
-        bundle.putString("language", languageType);
-        createProfileFirstFragment.setArguments(bundle);*/
+        /*
+           Fragment createProfileFirstFragment = new CreateProfileFirstFragment();
+           Bundle bundle = new Bundle();
+           bundle.putString("language", languageType);
+           createProfileFirstFragment.setArguments(bundle);
+       */
         baseActivity.getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.frameLayoutLogin,new CreateProfileFirstFragment())
+                .replace(R.id.frameLayoutLogin, new CreateProfileFirstFragment())
                 .addToBackStack(null)
                 .commit();
-
-
     }
 
 }

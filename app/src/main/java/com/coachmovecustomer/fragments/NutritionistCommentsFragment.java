@@ -39,10 +39,9 @@ public class NutritionistCommentsFragment extends BaseFragment {
     CircleImageView profileImg;
     TextView userNameTV, userIDTV, ratingTV, commentsTV, experienceTV, noDataTV;
     RatingBar ratingBar;
-    private ArrayList<NutritionistCommentsData> nutritionistDataList = new ArrayList<>();
     NutritionistCommentsAdapter mAdapter;
-
     String id;
+    private ArrayList<NutritionistCommentsData> nutritionistDataList = new ArrayList<>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -90,11 +89,13 @@ public class NutritionistCommentsFragment extends BaseFragment {
 
 
             commentsTV.setText(String.format("%s %s", bundle.getString("comments"), getResources().getString(R.string.commentss)));
+//            commentsTV.setVisibility(View.GONE);
             experienceTV.setText(bundle.getString("experience"));
 
             if (profilePicPath != null && !profilePicPath.isEmpty())
                 Glide.with(baseActivity)
-                        .load(Const.SERVER_IMAGE_URL + profilePicPath + "" + BaseActivity.setCurrentTimeMillis(baseActivity))
+                        .load(Const.SERVER_IMAGE_URL + profilePicPath + "" +
+                                BaseActivity.setCurrentTimeMillis(baseActivity))
                         .apply(new RequestOptions()
                                 .dontAnimate()
                                 .placeholder(R.drawable.placeholder)

@@ -1,17 +1,16 @@
 package com.coachmovecustomer.fragments;
 
 import android.app.DatePickerDialog;
-import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomSheetDialog;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -27,9 +26,11 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.coachmovecustomer.ApplyPromoCodeResponse;
 import com.coachmovecustomer.R;
 import com.coachmovecustomer.activity.MainActivity;
 import com.coachmovecustomer.adapters.AddedPeopleAdapter;
@@ -44,8 +45,7 @@ import com.coachmovecustomer.data.SearchWorkoutData;
 import com.coachmovecustomer.myInterface.CollageDialogCloseListener;
 import com.coachmovecustomer.myInterface.onClickDelete;
 import com.coachmovecustomer.utils.Const;
-import com.github.florent37.singledateandtimepicker.SingleDateAndTimePicker;
-import com.github.florent37.singledateandtimepicker.dialog.SingleDateAndTimePickerDialog;
+import com.coachmovecustomer.utils.ScreenshotUtils;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
@@ -57,12 +57,10 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Locale;
 
+import cn.carbswang.android.numberpickerview.library.NumberPickerView;
 import de.hdodenhof.circleimageview.CircleImageView;
 import retrofit2.Call;
-
-import static android.support.constraint.Constraints.TAG;
 
 public class WorkoutFragment extends BaseFragment implements CollageDialogCloseListener {
 
@@ -71,37 +69,39 @@ public class WorkoutFragment extends BaseFragment implements CollageDialogCloseL
     TextView addPeopleTV, userName_TV;
     String[] gender_array;
     Spinner genderSP, modalitySP;
-    Button searchBTN;
+    Button searchBTN, buttonApply;
     RecyclerView addPeopleRV;
 
-    SingleDateAndTimePicker nowDatePicker;
+    //        SingleDateAndTimePicker nowDatePicker;
+    NumberPickerView nowDatePicker/*nowDatePickerMinute*/;
 
-    EditText dateEDT, timeEDT, addressEDT, neighbourhoodEDT, peopleSP;
+    EditText dateEDT, timeEDT, addressEDT, neighbourhoodEDT, peopleSP, refferalCode;
     //    ArrayList<AddModalitiesData> selectModalityList = new ArrayList<>();
     ArrayList<String> selectModalityList = new ArrayList<>();
     AddedPeopleAdapter addedPeopleAdapter;
-
-
-    private ArrayList<PeopleForAddData> selectedPeopleDataList = new ArrayList<>();
     String selected_gender = "", selectModality = "", selectNeighbourhood = "";
-    private ArrayList<NeighbourhoodData> neighbourhoodLists = new ArrayList<>();
     String neighbourhood, modality;
-    private Call<JsonObject> getModalityCall;
+    String selectedTime;
+    AddedPeopleData addedPeopleData;
+    private ArrayList<PeopleForAddData> selectedPeopleDataList = new ArrayList<>();
+    private ArrayList<NeighbourhoodData> neighbourhoodLists = new ArrayList<>();
+    private Call<JsonObject> getModalityCall, applyPromoCodeCall;
     private AddModalitiesData modalitiesData;
-
     private ArrayList<PeopleForAddData> peopleDialog = new ArrayList<>();
     private String dateIn12Hour = "";
     private ArrayAdapter adapter;
-    String selectedTime;
     private int product;
+    private String finalDiscountAmount;
     private String modalityPrice;
-
-    AddedPeopleData addedPeopleData;
-
-
     private ArrayList<AddModalitiesData> allModalitiesData = new ArrayList<>();
     private String modalityID;
     private ProfileData profileData = new ProfileData();
+    String numberOfPerson;
+    private String temp;
+    private String couponId = "";
+    private String formTime;
+    String AM_PM = "";
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -130,6 +130,8 @@ public class WorkoutFragment extends BaseFragment implements CollageDialogCloseL
         modalitySP = view.findViewById(R.id.modalitySP);
         peopleSP = view.findViewById(R.id.peopleSP);
         searchBTN = view.findViewById(R.id.searchBTN);
+        buttonApply = view.findViewById(R.id.buttonApply);
+        refferalCode = view.findViewById(R.id.refferalCode);
         addPeopleRV = view.findViewById(R.id.addPeopleRV);
 
 
@@ -160,6 +162,7 @@ public class WorkoutFragment extends BaseFragment implements CollageDialogCloseL
         searchBTN.setOnClickListener(this);
         addPeopleTV.setOnClickListener(this);
         timeEDT.setOnClickListener(this);
+        buttonApply.setOnClickListener(this);
 
 
         GenderAdapter genderAdapter = new GenderAdapter(baseActivity, gender_array);
@@ -195,11 +198,16 @@ public class WorkoutFragment extends BaseFragment implements CollageDialogCloseL
         }
     }
 
+    public void applyPromoCode(String promoCode) {
+        applyPromoCodeCall = baseActivity.apiInterface.applyPromoCode("Bearer " +
+                        baseActivity.store.getString(Const.ACCESS_TOKEN),
+                promoCode, String.valueOf(profileData.id), product + "00");
+        baseActivity.apiHitAndHandle.makeApiCall(applyPromoCodeCall, this);
+    }
+
     public void setAddPeopleAdapter(ArrayList<PeopleForAddData> peopleDataList) {
         this.selectedPeopleDataList = peopleDataList;
-
-
-        addedPeopleAdapter = new AddedPeopleAdapter(baseActivity, this, selectedPeopleDataList);
+        addedPeopleAdapter = new AddedPeopleAdapter(baseActivity, /*this,*/ selectedPeopleDataList);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         addPeopleRV.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false));
         addPeopleRV.setItemAnimator(new DefaultItemAnimator());
@@ -210,19 +218,18 @@ public class WorkoutFragment extends BaseFragment implements CollageDialogCloseL
             product = (int) (allModalitiesData.get(modalitySP.getSelectedItemPosition()).price * +selectedPeopleDataList.size() + allModalitiesData.get(modalitySP.getSelectedItemPosition()).price * 1);
             Log.e("total", product + "");
             if (product == 0) {
-//                peopleSP.setText(getResources().getString(R.string.noPeople));
-
-                peopleSP.setText(getResources().getString(R.string.person) + product + ",00");
+                numberOfPerson = getResources().getString(R.string.person);
+                updateAmountUI(product + ",00");
                 ((MainActivity) getActivity()).setToolbarTitle(getResources().getString(R.string.workout), false);
             } else {
-//                peopleSP.setText(String.format("%d Person: $ %d,00 ", selectedPeopleDataList.size(), product));
-                peopleSP.setText(String.format("%d %s%d,00", selectedPeopleDataList.size() + 1, getResources().getString(R.string.persons), product));
-
+                numberOfPerson =
+                        (selectedPeopleDataList.size() + 1) + " " + getResources().getString(R.string.persons);
+                updateAmountUI(product + ",00");
                 ((MainActivity) getActivity()).setToolbarTitle(getResources().getString(R.string.workout), false);
             }
 
         } catch (Exception e) {
-
+            e.printStackTrace();
         }
 
 
@@ -254,18 +261,28 @@ public class WorkoutFragment extends BaseFragment implements CollageDialogCloseL
                     }
                     */
                     selectModalityList.add("" + modalitiesData.modalityBr);
-
                     allModalitiesData.add(modalitiesData);
-
-
                 }
                 setModalityAdapter(selectModalityList);
 
             } catch (Exception e) {
-
+                e.printStackTrace();
             }
+        } else if (call == applyPromoCodeCall) {
+            ApplyPromoCodeResponse applyPromoCodeResponse = new Gson().fromJson(object.toString(), ApplyPromoCodeResponse.class);
+            couponId = refferalCode.getText().toString().trim();
+            updateAmountUI(String.valueOf(applyPromoCodeResponse.getApplyCouponAmount()));
+            Toast.makeText(baseActivity, applyPromoCodeResponse.getMessage(), Toast.LENGTH_SHORT).show();
+
         }
 
+    }
+
+    private void updateAmountUI(String applyCouponAmount) {
+        String userValue = ScreenshotUtils.commaSeperatedValue(applyCouponAmount.replace(",", ""));
+        String finalValue = numberOfPerson + userValue;
+        peopleSP.setText(finalValue);
+        finalDiscountAmount = applyCouponAmount;
     }
 
 
@@ -274,7 +291,6 @@ public class WorkoutFragment extends BaseFragment implements CollageDialogCloseL
         super.onClick(v);
         switch (v.getId()) {
             case R.id.searchBTN:
-
 
                 if (dateEDT.getText().toString().trim().length() == 0) {
                     showToast(getResources().getString(R.string.alertDate), false);
@@ -290,9 +306,16 @@ public class WorkoutFragment extends BaseFragment implements CollageDialogCloseL
                     showToast(getResources().getString(R.string.selectModality), false);
                 }/* else if (selected_gender.equals(getResources().getString(R.string.selectGender))) {
                     showToast(getResources().getString(R.string.selectGender), false);
-                } */else {
+                } */ else {
                     searchCoachesMethod();
                 }
+                break;
+            case R.id.buttonApply:
+                if (TextUtils.isEmpty(refferalCode.getText().toString()))
+                    Toast.makeText(baseActivity, "O código de referência não pode ser vazio.", Toast.LENGTH_SHORT).show();
+                else if (refferalCode.getText().toString().length() < 6) {
+                    Toast.makeText(baseActivity, "Código de referência inválido.", Toast.LENGTH_SHORT).show();
+                } else applyPromoCode(refferalCode.getText().toString().trim());
                 break;
 
             case R.id.addPeopleTV:
@@ -305,8 +328,6 @@ public class WorkoutFragment extends BaseFragment implements CollageDialogCloseL
                 break;
 
             case R.id.timeEDT:
-//                showHourPicker();
-
                 newTimePicker();
                 break;
 
@@ -431,10 +452,14 @@ public class WorkoutFragment extends BaseFragment implements CollageDialogCloseL
             product = (int) (allModalitiesData.get(modalitySP.getSelectedItemPosition()).price * +selectedPeopleDataList.size() + allModalitiesData.get(modalitySP.getSelectedItemPosition()).price * 1);
             if (selectedPeopleDataList.size() == 0) {
 //                peopleSP.setText(getResources().getString(R.string.noPeople));
-                peopleSP.setText(getResources().getString(R.string.person) + product + ",00");
+                numberOfPerson = getResources().getString(R.string.person);
+//                peopleSP.setText( + product + ",00");
+                updateAmountUI(product + ",00");
 
             } else {
-                peopleSP.setText(String.format("%d %s%d,00", selectedPeopleDataList.size() + 1, getResources().getString(R.string.persons), product));
+                numberOfPerson = (selectedPeopleDataList.size() + 1) + " " + getResources().getString(R.string.persons);
+//                peopleSP.setText(product + ",00");
+                updateAmountUI(product + ",00");
             }
 
         }
@@ -457,10 +482,17 @@ public class WorkoutFragment extends BaseFragment implements CollageDialogCloseL
 
                 product = (int) (allModalitiesData.get(modalitySP.getSelectedItemPosition()).price * +selectedPeopleDataList.size() + allModalitiesData.get(modalitySP.getSelectedItemPosition()).price * 1);
                 if (selectedPeopleDataList.size() == 0) {
-                    peopleSP.setText(getResources().getString(R.string.person) + product + ",00");
+
+                    numberOfPerson = getResources().getString(R.string.person);
+//                peopleSP.setText( + product + ",00");
+                    updateAmountUI(product + ",00");
+//                    peopleSP.setText(getResources().getString(R.string.person) + product + ",00");
 
                 } else {
-                    peopleSP.setText(String.format("%d %s%d,00", selectedPeopleDataList.size() + 1, getResources().getString(R.string.persons), product));
+                    numberOfPerson = (selectedPeopleDataList.size() + 1) + " " + getResources().getString(R.string.persons);
+//                    peopleSP.setText(product + ",00");
+                    updateAmountUI(product + ",00");
+//                    peopleSP.setText(String.format("%d %s%d,00", selectedPeopleDataList.size() + 1, getResources().getString(R.string.persons), product));
                 }
             }
         });
@@ -470,6 +502,8 @@ public class WorkoutFragment extends BaseFragment implements CollageDialogCloseL
     private void searchCoachesMethod() {
         String date = baseActivity.convertDateFormatLocale(dateEDT.getText().toString(), "dd MMM, yyyy", "yyyy-MM-dd");
         String time = dateIn12Hour + ":00:00";
+//        String time = formTime + ":00";
+
 
         if (allModalitiesData != null || !allModalitiesData.isEmpty()) {
             modalityID = allModalitiesData.get(modalitySP.getSelectedItemPosition()).id + "";
@@ -481,31 +515,28 @@ public class WorkoutFragment extends BaseFragment implements CollageDialogCloseL
         }*/
         String gender;
 
-         if (selected_gender.equalsIgnoreCase(getResources().getString(R.string.selectGender))) {
-             gender = "";
-         }
-         else if (selected_gender.equalsIgnoreCase(getResources().getString(R.string.male))) {
+        if (selected_gender.equalsIgnoreCase(getResources().getString(R.string.selectGender))) {
+            gender = "";
+        } else if (selected_gender.equalsIgnoreCase(getResources().getString(R.string.male))) {
             gender = "M";
-         }
-        else {
+        } else {
             gender = "F";
         }
 
 
-
         Fragment fragmentGet = new NearbyCoachFragment();
         Bundle bundle = new Bundle();
-        bundle.putParcelable("SearchCoaches", new SearchWorkoutData(date, time, neighbourhood, addressEDT.getText().toString().trim(), modalityID, gender, product + ""));
+        bundle.putParcelable("SearchCoaches", new SearchWorkoutData(date, time,
+                neighbourhood, addressEDT.getText().toString().trim(), modalityID, gender, finalDiscountAmount + "", couponId));
         bundle.putParcelableArrayList("workoutUser", selectedPeopleDataList);
         fragmentGet.setArguments(bundle);
         getFragmentManager().beginTransaction()
                 .replace(R.id.frameLayoutMain, fragmentGet)
                 .addToBackStack(null)
                 .commit();
-
-
-        baseActivity.log(date+"\n"+time
-                +"\n"+neighbourhood+"\n"+ addressEDT.getText().toString().trim()+"\n"+modalityID+"\n"+gender+"\n"+product + "");
+        baseActivity.log(date + "\n" + time
+                + "\n" + neighbourhood + "\n" + addressEDT.getText().toString().trim() + "\n" + modalityID + "\n" + gender + "\n" +
+                finalDiscountAmount + "");
 
     }
 
@@ -517,24 +548,17 @@ public class WorkoutFragment extends BaseFragment implements CollageDialogCloseL
         bottomSheetDialog.setContentView(R.layout.testing_add_people);
         cancel_tv = bottomSheetDialog.findViewById(R.id.cancel_tv);
         done_tv = bottomSheetDialog.findViewById(R.id.done_tv);
-        nowDatePicker = (SingleDateAndTimePicker) bottomSheetDialog.findViewById(R.id.nowDatePicker);
+        nowDatePicker = bottomSheetDialog.findViewById(R.id.nowDatePicker);
         bottomSheetDialog.setCanceledOnTouchOutside(false);
 
-        nowDatePicker.setIsAmPm(false);
-        nowDatePicker.addOnDateChangedListener(new SingleDateAndTimePicker.OnDateChangedListener() {
+
+        nowDatePicker.setOnValueChangedListener(new NumberPickerView.OnValueChangeListener() {
             @Override
-            public void onDateChanged(String displayed, Date date) {
-
-                selectedTime = baseActivity.convertDateFormat(date + "",
-                        "E MMM dd HH:mm:ss Z yyyy", "HH");
-
-                log("=====>" + selectedTime);
-
-                timeEDT.setText(selectedTime + ":00");
-                dateIn12Hour = selectedTime;
-
-               /* String AM_PM;
+            public void onValueChange(NumberPickerView picker, int oldVal, int newVal) {
+                Log.e("value selected change", picker.getContentByCurrValue());
+                selectedTime = picker.getContentByCurrValue();
                 int newTime = Integer.parseInt(selectedTime);
+                String AM_PM;
 
                 if (newTime < 12) {
                     AM_PM = " AM";
@@ -543,19 +567,27 @@ public class WorkoutFragment extends BaseFragment implements CollageDialogCloseL
                     } else {
                         selectedTime = newTime + AM_PM;
                     }
+                    dateIn12Hour = selectedTime.replace(" AM", "");
                 } else if (newTime >= 13 && newTime < 24) {
                     AM_PM = " PM";
                     newTime = newTime - 12;
                     selectedTime = newTime + AM_PM;
+                    dateIn12Hour = selectedTime.replace(" PM", "");
                 } else {
                     selectedTime = "12 PM";
+                    dateIn12Hour = selectedTime.replace(" PM", "");
                 }
-
-
                 timeEDT.setText(selectedTime);
-                dateIn12Hour = baseActivity.convertDateFormat(date + "", "E MMM dd HH:mm:ss Z yyyy", "HH");
+                if (Integer.parseInt(dateIn12Hour) < 10)
+                    dateIn12Hour = "0" + dateIn12Hour;
+                else {
+                    if (selectedTime.contains(" PM"))
+                        dateIn12Hour = selectedTime.replace(" PM", "");
+                    else
+                        dateIn12Hour = selectedTime.replace(" AM", "");
+                }
+                Log.e("final date", dateIn12Hour);
 
-                log(timeEDT.getText().toString() + "\n" + dateIn12Hour);*/
             }
         });
 
@@ -580,6 +612,5 @@ public class WorkoutFragment extends BaseFragment implements CollageDialogCloseL
 
         bottomSheetDialog.show();
     }
-
 
 }

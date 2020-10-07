@@ -16,6 +16,11 @@ public class MessageData implements Parcelable {
     @SerializedName("message")
     @Expose
     public Message message;
+
+    @SerializedName("block")
+    @Expose
+    public boolean mBlock;
+
     public final static Parcelable.Creator<MessageData> CREATOR = new Creator<MessageData>() {
 
 

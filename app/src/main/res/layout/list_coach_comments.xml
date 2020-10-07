@@ -83,6 +83,7 @@
                 android:layout_toRightOf="@+id/ratingBar"
                 android:gravity="left|center"
                 android:text="@string/comments"
+                android:visibility="gone"
                 android:textColor="@color/Gray"
                 android:textSize="@dimen/_10sp" />
 

@@ -79,6 +79,15 @@
         android:textColorHint="@color/colorPrimary"
         android:textSize="@dimen/_14sp"
         android:theme="@style/editTextStyle" />
+    <com.coachmovecustomer.customviews.RegularTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/_14sp"
+        android:text="@string/contact_url_ccheck"
+        />
 
     <com.coachmovecustomer.customviews.ButtonView
         android:id="@+id/submitBtn"
@@ -87,7 +96,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="@dimen/_10sp"
         android:layout_marginRight="@dimen/_10sp"
-        android:layout_marginTop="@dimen/_25sdp"
+        android:layout_marginTop="@dimen/_20sdp"
         android:background="@drawable/round_button"
         android:text="@string/submit"
         android:textColor="@color/White"

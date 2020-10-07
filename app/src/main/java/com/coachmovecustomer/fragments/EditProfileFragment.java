@@ -6,8 +6,10 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.text.Editable;
 import android.text.InputFilter;
 import android.text.Spanned;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -41,18 +43,18 @@ import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import de.hdodenhof.circleimageview.CircleImageView;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
 import retrofit2.Call;
 
-public class EditProfileFragment extends BaseFragment implements ImageUtils.ImageSelectCallback, BaseActivity.PermCallback {
+public class EditProfileFragment extends BaseFragment implements
+        ImageUtils.ImageSelectCallback, BaseActivity.PermCallback/*, TextWatcher*/ {
 
 
     ImageView profileImg, editProfile;
-    EditText firstNameET, lastNameET, mobileNoET, cpfNoET, ageET, weightET, heightET, surgeriesET, heartDiseasesET, jointET,
-            medicationsET, otherET;
-    Button update_btn;
+    EditText firstNameET, lastNameET, mobileNoET, cpfNoET, ageET, weightET, heightET, surgeriesET,
+            heartDiseasesET, jointET, medicationsET, otherET;
+    Button update_btn,cancel_btn;
     String[] gender_array;
     Spinner gender_sp, fitnessSP;
     String selected_gender = "", selected_fitnessLevel = "";
@@ -68,6 +70,7 @@ public class EditProfileFragment extends BaseFragment implements ImageUtils.Imag
     private AddFitnessData addFitnessData;
     private long fitnessId;
     private String fitnessLevelStr;
+    private boolean isInstantChange = false;
 
 
     @Override
@@ -84,10 +87,31 @@ public class EditProfileFragment extends BaseFragment implements ImageUtils.Imag
         ((MainActivity) getActivity()).setToolbarTitle(getResources().getString(R.string.editProfile), false);
         setHasOptionsMenu(false);
         initUI(view);
+        //save data on text change
+//        firstNameET.addTextChangedListener(this);
+//        lastNameET.addTextChangedListener(this);
+//        mobileNoET.addTextChangedListener(this);
+//        cpfNoET.addTextChangedListener(this);
+//        ageET.addTextChangedListener(this);
+//        weightET.addTextChangedListener(this);
+//        heightET.addTextChangedListener(this);
+//        surgeriesET.addTextChangedListener(this);
+//        heartDiseasesET.addTextChangedListener(this);
+//        jointET.addTextChangedListener(this);
+//        medicationsET.addTextChangedListener(this);
+//        otherET.addTextChangedListener(this);
+
+//        firstNameET.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+//            @Override
+//            public void onFocusChange(View v, boolean hasFocus) {
+//                if (!hasFocus)
+//                    callForInstantChange();
+//            }
+//        });
+
     }
 
     private void initUI(View view) {
-
         editProfile = view.findViewById(R.id.editProfile);
         profileImg = view.findViewById(R.id.profileImg);
         firstNameET = view.findViewById(R.id.firstNameET);
@@ -103,6 +127,7 @@ public class EditProfileFragment extends BaseFragment implements ImageUtils.Imag
         medicationsET = view.findViewById(R.id.medicationsET);
         otherET = view.findViewById(R.id.otherET);
         update_btn = view.findViewById(R.id.update_btn);
+        cancel_btn = view.findViewById(R.id.cancel_btn);
         gender_sp = view.findViewById(R.id.gender_sp);
         fitnessSP = view.findViewById(R.id.fitnessSp);
 
@@ -178,8 +203,38 @@ public class EditProfileFragment extends BaseFragment implements ImageUtils.Imag
         gender_sp.setOnItemSelectedListener(this);
         fitnessSP.setOnItemSelectedListener(this);
         update_btn.setOnClickListener(this);
+        cancel_btn.setOnClickListener(this);
         profileImg.setOnClickListener(this);
 //        editProfile.setOnClickListener(this);
+
+        //updated code
+        gender_sp.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                selected_gender = gender_array[position];
+                /*if (isInstantChange)
+                    callForInstantChange();*/
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+
+        fitnessSP.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                fitnessId = addFitnessList.get(fitnessSP.getSelectedItemPosition()).id;
+                fitnessLevelStr = addFitnessList.get(fitnessSP.getSelectedItemPosition()).level;
+                /*if (isInstantChange)
+                    callForInstantChange();*/
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
 
     }
@@ -195,11 +250,18 @@ public class EditProfileFragment extends BaseFragment implements ImageUtils.Imag
         gender_array[1] = male;
         gender_array[2] = female;
 
-
         GenderAdapter genderAdapter = new GenderAdapter(baseActivity, gender_array);
         gender_sp.getSelectedItem();
         gender_sp.setAdapter(genderAdapter);
     }
+
+    /*private void callForInstantChange() {
+        fitnessId = addFitnessList.get(fitnessSP.getSelectedItemPosition()).id;
+        fitnessLevelStr = addFitnessList.get(fitnessSP.getSelectedItemPosition()).level;
+        isInstantChange = true;
+        updateProfileApi();
+    }
+*/
 
     @Override
     public void onResume() {
@@ -222,7 +284,6 @@ public class EditProfileFragment extends BaseFragment implements ImageUtils.Imag
         super.onClick(v);
         switch (v.getId()) {
             case R.id.update_btn:
-
                 if (firstNameET.getText().toString().trim().length() == 0) {
                     showToast(getString(R.string.alertFirstName), false);
                 } else if (lastNameET.getText().toString().trim().length() == 0) {
@@ -256,6 +317,7 @@ public class EditProfileFragment extends BaseFragment implements ImageUtils.Imag
                 else {
                     fitnessId = addFitnessList.get(fitnessSP.getSelectedItemPosition()).id;
                     fitnessLevelStr = addFitnessList.get(fitnessSP.getSelectedItemPosition()).level;
+                    isInstantChange = false;
                     updateProfileApi();
 //                    gotoMainFragment(new AnamnesisFragment());
                 }
@@ -264,12 +326,12 @@ public class EditProfileFragment extends BaseFragment implements ImageUtils.Imag
                 break;
 
             case R.id.profileImg:
-
                 if (baseActivity.checkPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA}, 200, this)) {
                     new ImageUtils.ImageSelect.Builder(baseActivity, this, 200).crop().start();
                 }
-
-
+                break;
+            case R.id.cancel_btn:
+                baseActivity.onBackPressed();
                 break;
 
 
@@ -287,9 +349,9 @@ public class EditProfileFragment extends BaseFragment implements ImageUtils.Imag
     public void onItemSelected(AdapterView<?> parent, View view, int position,
                                long id) {
 
-        if (parent.getId() == R.id.gender_sp) {
+        /*if (parent.getId() == R.id.gender_sp) {
             selected_gender = gender_array[position];
-        }
+        }*/
     }
 
 
@@ -366,7 +428,8 @@ public class EditProfileFragment extends BaseFragment implements ImageUtils.Imag
                 profileData = new Gson().fromJson(user.toString(), ProfileData.class);
                 baseActivity.store.setProfileData(profileData);
 //                showToast("Profile successfully updated");
-                baseActivity.onBackPressed();
+                if (!isInstantChange)
+                    baseActivity.onBackPressed();
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -495,4 +558,19 @@ public class EditProfileFragment extends BaseFragment implements ImageUtils.Imag
         }
     };
 
+    /*@Override
+    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+    }
+
+    @Override
+    public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+    }
+
+    @Override
+    public void afterTextChanged(Editable s) {
+        callForInstantChange();
+
+    }*/
 }

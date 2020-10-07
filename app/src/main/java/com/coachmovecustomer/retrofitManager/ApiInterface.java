@@ -1,8 +1,7 @@
 package com.coachmovecustomer.retrofitManager;
 
-import android.view.textclassifier.TextClassification;
-
-import com.google.firebase.annotations.PublicApi;
+import com.coachmovecustomer.data.SearchChatResponse;
+import com.coachmovecustomer.utils.Const;
 import com.google.gson.JsonObject;
 
 import org.json.JSONObject;
@@ -47,6 +46,10 @@ public interface ApiInterface {
                                   @Part MultipartBody.Part[] surveyImage,
                                   @PartMap HashMap<String, RequestBody> map);
 
+    @GET
+    Call<JsonObject> getUserForSearchApi(@Header("Authorization") String auth,
+                                         @Url String url);
+
 
     @PUT
     Call<JsonObject> putAPI(@Header("Authorization") String header, @Url String url, @Body HashMap<String, String> hashMap);
@@ -54,6 +57,12 @@ public interface ApiInterface {
 
     @GET
     Call<JsonObject> getAPI(@Header("Authorization") String header, @Url String url);
+
+    @GET
+    Call<SearchChatResponse> getUserForChatAPI(@Header("Authorization") String header, @Url String url);
+
+    @GET
+    Call<JsonObject> blockUser(@Header("Authorization") String header, @Url String url);
 
 
     @POST
@@ -82,7 +91,19 @@ public interface ApiInterface {
 
 
     @GET("CoachMove/api/coaches/workouts")
-    Call<JsonObject> getSearchWorkoutCoaches(@Header("Authorization") String header, @Query("neigbourhood") String neigbourhood, @Query("modalityId") String modalityId, @Query("search") String search, @Query("time") String time, @Query("date") String date, @Query("gender") String gender);
+    Call<JsonObject> getSearchWorkoutCoaches(@Header("Authorization") String header,
+                                             @Query("neigbourhood") String neigbourhood,
+                                             @Query("modalityId") String modalityId,
+                                             @Query("search") String search,
+                                             @Query("time") String time,
+                                             @Query("date") String date,
+                                             @Query("gender") String gender);
+
+    @GET(Const.APPLY_PROMO_CODE)
+    Call<JsonObject> applyPromoCode(@Header("Authorization") String header,
+                                    @Query("couponId") String couponId,
+                                    @Query("userId") String userId,
+                                    @Query("amount") String amount);
 
 
     @POST
@@ -109,6 +130,9 @@ public interface ApiInterface {
     @GET("CoachMove/api/customers/")
     Call<JsonObject> scheduleWorkoutApi(@Header("Authorization") String header, @Query("term") String term);
 
+    @GET("CoachMove/api/customers/")
+    Call<JsonObject> searchForUSerForChat(@Header("Authorization") String header, @Query("term") String term);
+
 
     @FormUrlEncoded
     @PUT
@@ -120,7 +144,7 @@ public interface ApiInterface {
 
 
     @PUT("CoachMove/api/workouts/{id}/status")
-    Call<JsonObject> cancelWorkout(@Header("Authorization") String header, @Path("id") String id,  @Body RequestBody hashMap);
+    Call<JsonObject> cancelWorkout(@Header("Authorization") String header, @Path("id") String id, @Body RequestBody hashMap);
 
 
 }

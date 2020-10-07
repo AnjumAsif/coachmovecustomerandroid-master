@@ -109,7 +109,7 @@ public class DietFragment extends BaseFragment {
     }
 
     private void setDietData() {
-        dietAdapter = new DietDetailAdapter(baseActivity, this, dietDataList);
+        dietAdapter = new DietDetailAdapter(baseActivity, dietDataList);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         dietRV.setLayoutManager(mLayoutManager);
         dietRV.setItemAnimator(new DefaultItemAnimator());

@@ -53,6 +53,7 @@ public class NearbyCoachFragment extends BaseFragment implements TextView.OnEdit
 
 
     private ArrayList<PeopleForAddData> selectedPeopleDataList = new ArrayList<>();
+    private String couponId="";
 
 
     @Override
@@ -87,6 +88,7 @@ public class NearbyCoachFragment extends BaseFragment implements TextView.OnEdit
             modalityIdStr = searchWorkoutData.modality;
             timeStr = searchWorkoutData.time;
             dateStr = searchWorkoutData.date;
+            couponId = searchWorkoutData.couponCode;
 
             if (searchWorkoutData.gender.isEmpty()){
                 genderStr = "";
@@ -107,7 +109,9 @@ public class NearbyCoachFragment extends BaseFragment implements TextView.OnEdit
     }
 
     private void getNearbyCoaches(String searchStr) {
-        Call<JsonObject> nearbyCoach = baseActivity.apiInterface.getSearchWorkoutCoaches("Bearer " + baseActivity.store.getString(Const.ACCESS_TOKEN), neigbourhoodStr, modalityIdStr, searchStr, timeStr, dateStr, genderStr);
+        Call<JsonObject> nearbyCoach = baseActivity.apiInterface.getSearchWorkoutCoaches("Bearer " +
+                baseActivity.store.getString(Const.ACCESS_TOKEN),
+                neigbourhoodStr, modalityIdStr, searchStr, timeStr, dateStr, genderStr);
         baseActivity.apiHitAndHandle.makeApiCall(nearbyCoach, this);
         baseActivity.startProgressDialog();
     }
@@ -196,6 +200,7 @@ public class NearbyCoachFragment extends BaseFragment implements TextView.OnEdit
                 bundle.putString("neighbourhood", searchWorkoutData.neighbourhood);
                 bundle.putString("timeslotId", nearbyCoachesDataList.get(pos).timeslotId + "");
                 bundle.putString("requestTo", nearbyCoachesDataList.get(pos).id + "");
+                bundle.putString("couponId", couponId);
 
 
                 selectedPeopleDataList = getArguments().getParcelableArrayList("workoutUser");

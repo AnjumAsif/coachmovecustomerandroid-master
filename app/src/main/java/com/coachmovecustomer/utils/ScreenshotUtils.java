@@ -9,9 +9,6 @@ import android.view.View;
 import java.io.File;
 import java.io.FileOutputStream;
 
-/**
- * Created by netset on 13/3/18.
- */
 
 public class ScreenshotUtils {
 
@@ -55,5 +52,19 @@ public class ScreenshotUtils {
             e.printStackTrace();
         }
         return file;
+    }
+    public static String commaSeperatedValue(String userValue){
+        String finalAmountValue="";
+        if (userValue.length() == 4) {
+            String str1 = userValue.substring(0, 2);
+            String str2 = userValue.substring(2, userValue.length());
+            finalAmountValue = str1 + "," + str2;
+        }
+        else {
+            String str1 = userValue.substring(0, 3);
+            String str2 = userValue.substring(3, userValue.length());
+            finalAmountValue = str1 + "," + str2;
+        }
+        return finalAmountValue;
     }
 }

@@ -250,7 +250,8 @@ public class NotificationFragment extends BaseFragment {
     private void cancellationMethod(int workoutID, boolean isVerified) {
         MediaType mediaType = MediaType.parse("application/x-www-form-urlencoded");
         RequestBody body = RequestBody.create(mediaType, "isVerified=" + isVerified + "&undefined=");
-        cancellationCall = baseActivity.apiInterface.cancellationAPI("Bearer " + baseActivity.store.getString(Const.ACCESS_TOKEN), profileData.id + "", workoutID + "", body);
+        cancellationCall = baseActivity.apiInterface.cancellationAPI("Bearer " +
+                baseActivity.store.getString(Const.ACCESS_TOKEN), profileData.id + "", workoutID + "", body);
         baseActivity.apiHitAndHandle.makeApiCall(cancellationCall, this);
         baseActivity.startProgressDialog();
     }

@@ -32,12 +32,12 @@
                     android:src="@drawable/user_dummy"
                     app:civ_border_color="@color/colorPrimary"
                     app:civ_border_width="@dimen/_1sdp" />
-                 <!--   android:layout_width="match_parent"
-                    android:layout_height="@dimen/_60sdp"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:src="@drawable/user_dummy"
-                    app:civ_border_color="@color/colorPrimary"
-                    app:civ_border_width="@dimen/_1sdp" />-->
+                <!--   android:layout_width="match_parent"
+                   android:layout_height="@dimen/_60sdp"
+                   android:layout_marginTop="@dimen/_10sdp"
+                   android:src="@drawable/user_dummy"
+                   app:civ_border_color="@color/colorPrimary"
+                   app:civ_border_width="@dimen/_1sdp" />-->
 
 
                 <com.coachmovecustomer.customviews.RegularTextView
@@ -130,12 +130,12 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/_14sdp"
                     android:layout_marginRight="@dimen/_14sdp"
+                    android:digits="1234567890"
                     android:gravity="left"
                     android:hint="@string/fillMobileNumber"
                     android:imeOptions="actionDone"
                     android:inputType="number|textPhonetic"
                     android:maxLength="12"
-                    android:digits="1234567890"
                     android:paddingBottom="@dimen/_15sdp"
                     android:textColor="@color/colorPrimary"
                     android:textColorHint="@color/colorPrimary"
@@ -221,10 +221,10 @@
                     <com.coachmovecustomer.customviews.RegularTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="-2dp"
                         android:layout_marginTop="@dimen/_8sdp"
                         android:drawableLeft="@drawable/ic_cpf"
                         android:drawablePadding="@dimen/_2sdp"
-                        android:layout_marginLeft="-2dp"
                         android:gravity="left|center"
                         android:text="@string/cpf"
                         android:textColor="@color/Black"
@@ -237,14 +237,14 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/_14sdp"
                         android:layout_marginRight="@dimen/_14sdp"
+                        android:digits="1234567890-."
                         android:gravity="left"
                         android:hint="@string/fillCPFNumber"
-                        android:nextFocusForward="@+id/ageET"
                         android:imeOptions="actionNext"
                         android:inputType="number"
-                        android:digits="1234567890-."
-                        android:singleLine="true"
+                        android:nextFocusForward="@+id/ageET"
                         android:paddingBottom="@dimen/_15sdp"
+                        android:singleLine="true"
                         android:textColor="@color/colorPrimary"
                         android:textColorHint="@color/colorPrimary"
                         android:textSize="@dimen/_14sp"
@@ -503,17 +503,40 @@
                     android:textSize="@dimen/_14sp"
                     android:theme="@style/editTextStyle" />
 
-
-                <com.coachmovecustomer.customviews.ButtonView
-                    android:id="@+id/update_btn"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_45sdp"
-                    android:layout_marginBottom="@dimen/_15sdp"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_30sdp"
-                    android:background="@drawable/round_button"
-                    android:text="@string/update"
-                    android:textColor="@color/White"
-                    android:textSize="@dimen/_16sp" />
+                    android:orientation="horizontal"
+                    android:weightSum="1">
+
+                    <com.coachmovecustomer.customviews.ButtonView
+                        android:id="@+id/update_btn"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_40sdp"
+                        android:layout_marginEnd="@dimen/_5dp"
+                        android:layout_weight=".5"
+                        android:background="@drawable/round_button"
+                        android:text="@string/confirm"
+                        android:textColor="@color/White"
+                        android:textSize="@dimen/_16sp"
+                        android:layout_marginBottom="@dimen/_15sdp"
+                        android:visibility="visible" />
+
+                    <com.coachmovecustomer.customviews.ButtonView
+                        android:id="@+id/cancel_btn"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_40sdp"
+                        android:layout_marginStart="@dimen/_5dp"
+                        android:layout_weight=".5"
+                        android:layout_marginBottom="@dimen/_15sdp"
+                        android:background="@drawable/round_button"
+                        android:text="@string/cancel"
+                        android:textColor="@color/White"
+                        android:textSize="@dimen/_16sp"
+                        android:visibility="visible" />
+
+                </LinearLayout>
 
             </LinearLayout>
 
@@ -524,8 +547,8 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:paddingLeft="@dimen/_44sdp"
-                android:visibility="gone"
-                android:src="@drawable/edit_profile" />
+                android:src="@drawable/edit_profile"
+                android:visibility="gone" />
 
         </RelativeLayout>
     </ScrollView>
