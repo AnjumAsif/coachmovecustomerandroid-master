@@ -121,7 +121,6 @@ public class MessageFragment extends BaseFragment {
 //        baseActivity.stopProgressDialog();
 
 
-
         try {
             JSONObject jsonObject = new JSONObject(object.toString());
             if (jsonObject.getString("message").equalsIgnoreCase("user is blocked") ||
@@ -184,7 +183,7 @@ public class MessageFragment extends BaseFragment {
     private void blockUserApiCall(int pos) {
         Call<JsonObject> fetchMessageCall = baseActivity.apiInterface.blockUser("Bearer " +
                         baseActivity.store.getString(Const.ACCESS_TOKEN),
-                /*Const.MESSAGE_USER + Const.BLOCK_USER*/"CoachMove/api/user/blockUser?" + "senderId=" +
+                "CoachMove/api/user/blockUser?senderId=" +
                         messageDataList.get(pos).message.receiver.id
                         + "&" + "receiverId=" + messageDataList.get(pos).message.sender.id);
 //        baseActivity.apiHitAndHandle.makeApiCall(fetchMessageCall, this);
@@ -195,7 +194,7 @@ public class MessageFragment extends BaseFragment {
     private void unBlockUserApiCall(int pos) {
         Call<JsonObject> fetchMessageCall = baseActivity.apiInterface.blockUser("Bearer " +
                         baseActivity.store.getString(Const.ACCESS_TOKEN),
-                /*Const.MESSAGE_USER + Const.BLOCK_USER*/"CoachMove/api/user/unblockUser?" + "senderId=" +
+                "CoachMove/api/user/unblockUser?senderId=" +
                         messageDataList.get(pos).message.receiver.id
                         + "&" + "receiverId=" + messageDataList.get(pos).message.sender.id);
 //        baseActivity.apiHitAndHandle.makeApiCall(fetchMessageCall, this);

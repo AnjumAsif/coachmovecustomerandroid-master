@@ -1,10 +1,7 @@
 package com.coachmovecustomer.retrofitManager;
 
-import android.view.textclassifier.TextClassification;
-
 import com.coachmovecustomer.data.SearchChatResponse;
 import com.coachmovecustomer.utils.Const;
-import com.google.firebase.annotations.PublicApi;
 import com.google.gson.JsonObject;
 
 import org.json.JSONObject;
@@ -48,6 +45,7 @@ public interface ApiInterface {
     Call<JsonObject> uploadSurvey(@Url String url,
                                   @Part MultipartBody.Part[] surveyImage,
                                   @PartMap HashMap<String, RequestBody> map);
+
     @GET
     Call<JsonObject> getUserForSearchApi(@Header("Authorization") String auth,
                                          @Url String url);
@@ -100,11 +98,12 @@ public interface ApiInterface {
                                              @Query("time") String time,
                                              @Query("date") String date,
                                              @Query("gender") String gender);
- @GET(Const.APPLY_PROMO_CODE)
+
+    @GET(Const.APPLY_PROMO_CODE)
     Call<JsonObject> applyPromoCode(@Header("Authorization") String header,
-                                             @Query("couponId") String couponId,
-                                             @Query("userId") String userId,
-                                             @Query("amount") String amount);
+                                    @Query("couponId") String couponId,
+                                    @Query("userId") String userId,
+                                    @Query("amount") String amount);
 
 
     @POST
