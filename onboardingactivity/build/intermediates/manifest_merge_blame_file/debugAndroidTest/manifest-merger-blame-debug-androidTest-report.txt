@@ -1,0 +1,36 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.wm.onboardingactivity.test" >
+4
+5    <uses-sdk
+5-->/Users/happysona/Desktop/CoachMove/coachmovecustomerandroid-master/onboardingactivity/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger8184069905251907213.xml:5:5-74
+6        android:minSdkVersion="16"
+6-->/Users/happysona/Desktop/CoachMove/coachmovecustomerandroid-master/onboardingactivity/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger8184069905251907213.xml:5:15-41
+7        android:targetSdkVersion="28" />
+7-->/Users/happysona/Desktop/CoachMove/coachmovecustomerandroid-master/onboardingactivity/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger8184069905251907213.xml:5:42-71
+8
+9    <instrumentation
+9-->/Users/happysona/Desktop/CoachMove/coachmovecustomerandroid-master/onboardingactivity/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger8184069905251907213.xml:11:5-15:80
+10        android:name="androidx.test.runner.AndroidJUnitRunner"
+10-->/Users/happysona/Desktop/CoachMove/coachmovecustomerandroid-master/onboardingactivity/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger8184069905251907213.xml:11:22-76
+11        android:functionalTest="false"
+11-->/Users/happysona/Desktop/CoachMove/coachmovecustomerandroid-master/onboardingactivity/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger8184069905251907213.xml:14:22-52
+12        android:handleProfiling="false"
+12-->/Users/happysona/Desktop/CoachMove/coachmovecustomerandroid-master/onboardingactivity/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger8184069905251907213.xml:13:22-53
+13        android:label="Tests for com.wm.onboardingactivity.test"
+13-->/Users/happysona/Desktop/CoachMove/coachmovecustomerandroid-master/onboardingactivity/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger8184069905251907213.xml:15:22-78
+14        android:targetPackage="com.wm.onboardingactivity.test" />
+14-->/Users/happysona/Desktop/CoachMove/coachmovecustomerandroid-master/onboardingactivity/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger8184069905251907213.xml:12:22-76
+15
+16    <application
+16-->/Users/happysona/Desktop/CoachMove/coachmovecustomerandroid-master/onboardingactivity/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger8184069905251907213.xml:7:5-9:19
+17        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+17-->[androidx.core:core:1.0.1] /Users/happysona/.gradle/caches/transforms-2/files-2.1/24d8b7e2efa2ac167af4c23a30824059/core-1.0.1/AndroidManifest.xml:22:18-86
+18        android:debuggable="true" >
+18-->/Users/happysona/Desktop/CoachMove/coachmovecustomerandroid-master/onboardingactivity/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger8184069905251907213.xml:7:18-43
+19        <uses-library android:name="android.test.runner" />
+19-->/Users/happysona/Desktop/CoachMove/coachmovecustomerandroid-master/onboardingactivity/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger8184069905251907213.xml:8:9-60
+19-->/Users/happysona/Desktop/CoachMove/coachmovecustomerandroid-master/onboardingactivity/build/intermediates/tmp/manifest/androidTest/debug/manifestMerger8184069905251907213.xml:8:23-57
+20    </application>
+21
+22</manifest>

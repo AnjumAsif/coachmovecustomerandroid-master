@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="active_indicator">@android:color/white</color>
+    <color name="black_transparent">#14000000</color>
+    <color name="colorPrimary">#af44fc</color>
+    <color name="inactive_indicator">#4D000000</color>
+    <color name="white">@android:color/white</color>
+    <dimen name="activity_margin">16dp</dimen>
+    <dimen name="indicator_size">8dp</dimen>
+    <dimen name="margin_between_title_and_description">8dp</dimen>
+    <dimen name="text_section_min_height">150dp</dimen>
+    <string name="app_name">OnBoardingActivity</string>
+    <string name="button_finish">Finish</string>
+    <string name="button_next">Next</string>
+    <string name="button_skip">Skip</string>
+</resources>
